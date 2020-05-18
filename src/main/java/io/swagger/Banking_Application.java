@@ -11,7 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @ComponentScan(basePackages = { "io.swagger", "io.swagger.api" , "io.swagger.configuration"})
-public class BankingApplication implements CommandLineRunner {
+public class Banking_Application implements CommandLineRunner {
 
     @Override
     public void run(String... arg0) throws Exception {
@@ -21,7 +21,7 @@ public class BankingApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) throws Exception {
-        new SpringApplication(BankingApplication.class).run(args);
+        new SpringApplication(Banking_Application.class).run(args);
     }
 
     class ExitException extends RuntimeException implements ExitCodeGenerator {

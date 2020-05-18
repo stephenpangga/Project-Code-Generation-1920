@@ -1,6 +1,5 @@
 package io.swagger.api;
 
-import io.swagger.model.ExtendedTransaction;
 import io.swagger.model.Transaction;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
@@ -21,9 +20,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-15T11:53:10.455Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 @Controller
 public class TransactionsApiController implements TransactionsApi {
 
@@ -39,11 +39,9 @@ public class TransactionsApiController implements TransactionsApi {
         this.request = request;
     }
 
-    public ResponseEntity<List<ExtendedTransaction>> getTransactions(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset
-,@ApiParam(value = "The numbers of items to return") @Valid @RequestParam(value = "limit", required = false) Integer limit
-,@ApiParam(value = "get all transaction") @Valid @RequestParam(value = "iban", required = false) String iban
-,@ApiParam(value = "show transaction depending from account") @Valid @RequestParam(value = "From Account", required = false) String fromAccount
-,@ApiParam(value = "show transaction depending to account") @Valid @RequestParam(value = "To Account", required = false) String toAccount
+    public ResponseEntity<List<Transaction>> getTransactions(@ApiParam(value = "get all transaction") @Valid @RequestParam(value = "iban", required = false) String iban
+,@ApiParam(value = "show transaction depending from sender") @Valid @RequestParam(value = "Sender", required = false) String sender
+,@ApiParam(value = "show transaction depending to recipient") @Valid @RequestParam(value = "Recipient", required = false) String recipient
 ,@ApiParam(value = "show transaction based on date") @Valid @RequestParam(value = "date", required = false) String date
 ,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) String maxAmount
 ,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) String minAmount
@@ -52,44 +50,71 @@ public class TransactionsApiController implements TransactionsApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<ExtendedTransaction>>(objectMapper.readValue("[ {\n  \"userPerforming\" : 1,\n  \"id\" : 488558,\n  \"timestamp\" : \"2000-01-23T04:56:07.000+00:00\"\n}, {\n  \"userPerforming\" : 1,\n  \"id\" : 488558,\n  \"timestamp\" : \"2000-01-23T04:56:07.000+00:00\"\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<Transaction>>(objectMapper.readValue("[ {\n  \"transactionType\" : \"transaction\",\n  \"transaction_id\" : 488558,\n  \"amount\" : 500.73,\n  \"userPerforming\" : 1,\n  \"sender\" : \"NL01INHO0000000001\",\n  \"recipient\" : \"NL53INHO0858545222\"\n}, {\n  \"transactionType\" : \"transaction\",\n  \"transaction_id\" : 488558,\n  \"amount\" : 500.73,\n  \"userPerforming\" : 1,\n  \"sender\" : \"NL01INHO0000000001\",\n  \"recipient\" : \"NL53INHO0858545222\"\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<ExtendedTransaction>>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<List<Transaction>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<List<ExtendedTransaction>>(HttpStatus.NOT_IMPLEMENTED);
+        //return new ResponseEntity<List<Transaction>>(HttpStatus.NOT_IMPLEMENTED);
+        System.out.println(iban);
+        List<Transaction> listT =  new ArrayList<Transaction>();
+        listT.add(new Transaction("NL01INHO1",
+                "NL02INHO2",
+                500.73,
+                Transaction.TransactionTypeEnum.TRANSFER,
+                488558,
+                1));
+        listT.add(new Transaction("NL01INHO1",
+                "NL02INHO2",
+                500.73,
+                Transaction.TransactionTypeEnum.TRANSFER,
+                488558,
+                2));
+
+        ResponseEntity<List<Transaction>> x = new ResponseEntity<List<Transaction>>(listT,HttpStatus.OK);
+        return x;
     }
 
-    public ResponseEntity<ExtendedTransaction> getTransactionsbyId(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("transactionId") Integer transactionId
+    public ResponseEntity<Transaction> getTransactionsById(@ApiParam(value = "",required=true) @PathVariable("transactionId") Integer transactionId
 ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ExtendedTransaction>(objectMapper.readValue("{\n  \"userPerforming\" : 1,\n  \"id\" : 488558,\n  \"timestamp\" : \"2000-01-23T04:56:07.000+00:00\"\n}", ExtendedTransaction.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<ExtendedTransaction>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-
-        return new ResponseEntity<ExtendedTransaction>(HttpStatus.NOT_IMPLEMENTED);
-    }
-
-    public ResponseEntity<Transaction> transferMoney(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body
-) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<Transaction>(objectMapper.readValue("{\n  \"transactionType\" : \"transaction\",\n  \"amount\" : 500.73,\n  \"sender\" : \"NL01INHO0000000001\",\n  \"recipient\" : \"NL53INHO0858545222\"\n}", Transaction.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<Transaction>(objectMapper.readValue("{\n  \"transactionType\" : \"transaction\",\n  \"transaction_id\" : 488558,\n  \"amount\" : 500.73,\n  \"userPerforming\" : 1,\n  \"sender\" : \"NL01INHO0000000001\",\n  \"recipient\" : \"NL53INHO0858545222\"\n}", Transaction.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<Transaction>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
+        //return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
+        ResponseEntity<Transaction> x = new ResponseEntity<Transaction>(
+                new Transaction("NL01INHO1",
+                        "NL02INHO2",
+                        500.73,
+                        Transaction.TransactionTypeEnum.TRANSFER,
+                        488558,
+                        1),HttpStatus.OK);
+        return x;
+    }
+
+    public ResponseEntity<Transaction> transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body
+) {
+        String accept = request.getHeader("Accept");
+        if (accept != null && accept.contains("application/json")) {
+            try {
+                return new ResponseEntity<Transaction>(objectMapper.readValue("{\n  \"transactionType\" : \"transaction\",\n  \"transaction_id\" : 488558,\n  \"amount\" : 500.73,\n  \"userPerforming\" : 1,\n  \"sender\" : \"NL01INHO0000000001\",\n  \"recipient\" : \"NL53INHO0858545222\"\n}", Transaction.class), HttpStatus.NOT_IMPLEMENTED);
+            } catch (IOException e) {
+                log.error("Couldn't serialize response for content type application/json", e);
+                return new ResponseEntity<Transaction>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        System.out.println("print the body");
+        System.out.println(body);
+        return new ResponseEntity<Transaction>(HttpStatus.OK);
     }
 
 }
