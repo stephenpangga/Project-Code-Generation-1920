@@ -1,19 +1,23 @@
 package io.swagger.model;
 
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.LocalDateTime;
 
-/**
+import javax.persistence.*;
+
+/*
  * Transaction
  */
 @Validated
+@Entity
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Transaction   {
   @JsonProperty("sender")
@@ -25,16 +29,37 @@ public class Transaction   {
   @JsonProperty("amount")
   private Double amount = null;
 
+  @JsonProperty("transactionType")
+  private TransactionTypeEnum transactionType = null;
+
+  @JsonProperty("transaction_id")
+  @Id
+  @SequenceGenerator(name = "transaction_seq", initialValue = 1, allocationSize = 1000000)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_seq")
+  private Integer transactionId;
+
+  @JsonProperty("userPerforming")
+  private Integer userPerforming = null;
+
+  @JsonProperty("timestamp")
+  private LocalDateTime datetime;
+
+  public Transaction sender(String sender) {
+    this.sender = sender;
+    return this;
+  }
+
+
   public Transaction() {
   }
 
-  public Transaction(String sender, String recipient, Double amount, TransactionTypeEnum transactionType, Integer transactionId, Integer userPerforming) {
+  public Transaction(String sender, String recipient, Double amount, TransactionTypeEnum transactionType, Integer userPerforming, LocalDateTime datetime) {
     this.sender = sender;
     this.recipient = recipient;
     this.amount = amount;
     this.transactionType = transactionType;
-    this.transactionId = transactionId;
     this.userPerforming = userPerforming;
+    this.datetime = datetime;
   }
 
   /**
@@ -68,19 +93,6 @@ public class Transaction   {
       }
       return null;
     }
-  }
-  @JsonProperty("transactionType")
-  private TransactionTypeEnum transactionType = null;
-
-  @JsonProperty("transaction_id")
-  private Integer transactionId = null;
-
-  @JsonProperty("userPerforming")
-  private Integer userPerforming = null;
-
-  public Transaction sender(String sender) {
-    this.sender = sender;
-    return this;
   }
 
   /**
@@ -165,12 +177,20 @@ public class Transaction   {
   **/
   @ApiModelProperty(example = "488558", value = "")
   
-    public Integer getTransactionId() {
+  public Integer getTransactionId() {
     return transactionId;
   }
 
   public void setTransactionId(Integer transactionId) {
     this.transactionId = transactionId;
+  }
+
+  public LocalDateTime getDatetime() {
+    return datetime;
+  }
+
+  public void setDatetime(LocalDateTime datetime) {
+    this.datetime = datetime;
   }
 
   public Transaction userPerforming(Integer userPerforming) {
@@ -219,13 +239,14 @@ public class Transaction   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Transaction {\n");
-    
+
     sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    userPerforming: ").append(toIndentedString(userPerforming)).append("\n");
+    sb.append("    datetime: ").append(toIndentedString(datetime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
