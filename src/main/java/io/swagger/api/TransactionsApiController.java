@@ -61,6 +61,10 @@ public class TransactionsApiController implements TransactionsApi {
                 return new ResponseEntity<List<Transaction>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
+
+        //TODO filtering the param
+
+        System.out.println(iban);
         return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
     }
 
@@ -77,6 +81,7 @@ public class TransactionsApiController implements TransactionsApi {
         }
 
         //return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
+        /*
         ResponseEntity<Transaction> x = new ResponseEntity<Transaction>(
                 new Transaction("NL01INHO1",
                         "NL02INHO2",
@@ -85,6 +90,9 @@ public class TransactionsApiController implements TransactionsApi {
                         1,
                         LocalDateTime.now()),HttpStatus.OK);
         return x;
+        */
+
+        return new ResponseEntity<Transaction>(transactionService.getSpecificTransaction(transactionId),HttpStatus.OK);
     }
 
     public ResponseEntity<Transaction> transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body)

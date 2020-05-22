@@ -17,6 +17,11 @@ public class TransactionService {
     public TransactionService() {
     }
 
+    public Transaction getSpecificTransaction(Integer transactionId)
+    {
+        return transactionRepository.findOne(transactionId);
+    }
+
     public List<Transaction> getAllTransactions()
     {
         return (List<Transaction>) transactionRepository.findByOrderBySender();
@@ -24,6 +29,7 @@ public class TransactionService {
 
     public void saveTransaction(Transaction transaction)
     {
+        //TODO check if the user is the owner of the account or an employee logged in.
         transactionRepository.save(transaction);
     }
 
