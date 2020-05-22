@@ -21,4 +21,10 @@ public class TransactionService {
     {
         return (List<Transaction>) transactionRepository.findByOrderBySender();
     }
+
+    public void saveTransaction(Transaction transaction)
+    {
+        transactionRepository.save(transaction);
+    }
+
 }

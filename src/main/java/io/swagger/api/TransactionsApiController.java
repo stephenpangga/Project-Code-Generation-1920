@@ -61,27 +61,6 @@ public class TransactionsApiController implements TransactionsApi {
                 return new ResponseEntity<List<Transaction>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
-
-        //return new ResponseEntity<List<Transaction>>(HttpStatus.NOT_IMPLEMENTED);
-        /*
-        System.out.println(iban);
-        List<Transaction> listT =  new ArrayList<Transaction>();
-        listT.add(new Transaction("NL01INHO1",
-                "NL02INHO2",
-                500.73,
-                Transaction.TransactionTypeEnum.TRANSFER,
-                488558,
-                1));
-        listT.add(new Transaction("NL01INHO1",
-                "NL02INHO2",
-                500.73,
-                Transaction.TransactionTypeEnum.TRANSFER,
-                488558,
-                2));
-
-        ResponseEntity<List<Transaction>> x = new ResponseEntity<List<Transaction>>(listT,HttpStatus.OK);
-        return x;
-        */
         return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
     }
 
@@ -108,8 +87,8 @@ public class TransactionsApiController implements TransactionsApi {
         return x;
     }
 
-    public ResponseEntity<Transaction> transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body
-) {
+    public ResponseEntity<Transaction> transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body)
+    {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -121,7 +100,13 @@ public class TransactionsApiController implements TransactionsApi {
         }
 
         System.out.println("print the body");
+        //set the date here.
+        body.setDatetime(LocalDateTime.now());
+
+        transactionService.saveTransaction(body);
+
         System.out.println(body);
+
         return new ResponseEntity<Transaction>(HttpStatus.OK);
     }
 
