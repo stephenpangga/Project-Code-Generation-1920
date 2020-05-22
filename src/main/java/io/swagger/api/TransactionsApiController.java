@@ -48,8 +48,8 @@ public class TransactionsApiController implements TransactionsApi {
 ,@ApiParam(value = "show transaction depending from sender") @Valid @RequestParam(value = "Sender", required = false) String sender
 ,@ApiParam(value = "show transaction depending to recipient") @Valid @RequestParam(value = "Recipient", required = false) String recipient
 ,@ApiParam(value = "show transaction based on date") @Valid @RequestParam(value = "date", required = false) String date
-,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) String maxAmount
-,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) String minAmount
+,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) Double maxAmount
+,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) Double minAmount
 ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) String userPerforming
 ) {
         String accept = request.getHeader("Accept");
@@ -64,8 +64,12 @@ public class TransactionsApiController implements TransactionsApi {
 
         //TODO filtering the param
 
-        System.out.println(iban);
-        return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
+        //System.out.println(iban);
+        //return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
+        if(minAmount == null) minAmount = 0.0;
+
+        if(maxAmount ==  null) maxAmount = Double.MAX_VALUE;
+        return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount),HttpStatus.OK);
     }
 
     public ResponseEntity<Transaction> getTransactionsById(@ApiParam(value = "",required=true) @PathVariable("transactionId") Integer transactionId
