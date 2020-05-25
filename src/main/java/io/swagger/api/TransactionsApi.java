@@ -35,13 +35,13 @@ public interface TransactionsApi {
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<List<Transaction>> getTransactions(@ApiParam(value = "get all transaction") @Valid @RequestParam(value = "iban", required = false) String iban
-,@ApiParam(value = "show transaction depending from sender") @Valid @RequestParam(value = "Sender", required = false) String sender
-,@ApiParam(value = "show transaction depending to recipient") @Valid @RequestParam(value = "Recipient", required = false) String recipient
-,@ApiParam(value = "show transaction based on date") @Valid @RequestParam(value = "date", required = false) String date
-,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) Double maxAmount
-,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) Double minAmount
-,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) String userPerforming
-);
+    ,@ApiParam(value = "show transaction depending from sender") @Valid @RequestParam(value = "Sender", required = false) String sender
+    ,@ApiParam(value = "show transaction depending to recipient") @Valid @RequestParam(value = "Recipient", required = false) String recipient
+    ,@ApiParam(value = "show transaction based on date") @Valid @RequestParam(value = "date", required = false) String date
+    ,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) Double maxAmount
+    ,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) Double minAmount
+    ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) String userPerforming
+    );
 
 
     @ApiOperation(value = "get a specific transaction", nickname = "getTransactionsById", notes = "This endpoint will get one transaction that the user have done.", response = Transaction.class, tags={ "Transaction", })
@@ -49,7 +49,7 @@ public interface TransactionsApi {
         @ApiResponse(code = 200, message = "Transaction has successfully collected.", response = Transaction.class),
         @ApiResponse(code = 400, message = "bad request") })
     @RequestMapping(value = "/transactions/{transactionId}",
-        produces = { "application/json" }, 
+        produces = { "application/json" },
         method = RequestMethod.GET)
     ResponseEntity<Transaction> getTransactionsById(@ApiParam(value = "",required=true) @PathVariable("transactionId") Integer transactionId
 );
