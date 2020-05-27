@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
+
+import javax.persistence.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
@@ -16,14 +18,18 @@ import javax.validation.constraints.*;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class BaseUser   {
   @JsonProperty("firstName")
-  private String firstName = null;
+  private String firstName;
 
   @JsonProperty("lastName")
-  private String lastName = null;
+  private String lastName;
 
-  public BaseUser firstName(String firstName) {
+
+  public BaseUser(){
+  }
+
+  public BaseUser(String firstName, String lastName){
     this.firstName = firstName;
-    return this;
+    this.lastName = lastName;
   }
 
   /**

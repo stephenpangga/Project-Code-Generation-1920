@@ -17,15 +17,16 @@ import java.util.List;
 @Transactional
 public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
+    @Autowired
     private TransactionRepository transactionRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public BankApplicationConfigurationRunner(TransactionRepository transactionRepository) {
-        this.transactionRepository = transactionRepository;
-    }
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        loadTransactionData();
+        loadTransactions();
+        loadUsers();
     }
 
     /*** save the datas here ***/
@@ -33,25 +34,50 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     /*^^ the database link**/
 
-    //****transaction data's***//
-    public void loadTransactionData()
+    public void loadUsers()
+    {
+        List<User> userList = Arrays.asList(
+                new User("Stephen",
+                        "Pangga",
+                        "stephen@gmail.com",
+                        "password", User.AccessLevelEnum.EMPLOYEE
+                ),
+                new User("Frances",
+                "Agasino",
+                "frances@gmail.com",
+                "password", User.AccessLevelEnum.CUSTOMER
+                ),
+                new User("Sisa",
+                        "Mokranova",
+                        "sisa@gmail.com",
+                        "somethingstrongerthanpassword", User.AccessLevelEnum.CUSTOMER
+                )
+        );
+        for(User user: userList)
+        {
+            userRepository.save(user);
+        }
+    }
+
+
+    public void loadTransactions()
     {
         List<Transaction> transactionList = Arrays.asList(
                 new Transaction("NL01INHO1c",
                         "NL02INHO2",
-                        200.73,
+                        503.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
                 new Transaction("NL01INHO1b",
                         "NL02INHO2",
-                        900.73,
+                        502.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
                 new Transaction("NL01INHO1a",
                         "NL02INHO2",
-                        510.73,
+                        501.73,
                         Transaction.TransactionTypeEnum.WITHDRAW,
                         1,
                         LocalDateTime.now())
