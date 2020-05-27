@@ -50,8 +50,7 @@ public class TransactionsApiController implements TransactionsApi {
     ,@ApiParam(value = "show transaction based on date") @Valid @RequestParam(value = "date", required = false) String date
     ,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) Double maxAmount
     ,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) Double minAmount
-    ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) String userPerforming
-    )
+    ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) String userPerforming)
     {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
@@ -68,6 +67,7 @@ public class TransactionsApiController implements TransactionsApi {
         //return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
         if(minAmount == null) minAmount = 0.0;
         if(maxAmount ==  null) maxAmount = Double.MAX_VALUE;
+        if(date == null) date = "";
         return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount),HttpStatus.OK);
     }
 

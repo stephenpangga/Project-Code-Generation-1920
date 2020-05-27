@@ -25,7 +25,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        loadTransaction();
+        loadTransactionData();
     }
 
     /*** save the datas here ***/
@@ -33,7 +33,8 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     /*^^ the database link**/
 
-    public void loadTransaction()
+    //****transaction data's***//
+    public void loadTransactionData()
     {
         List<Transaction> transactionList = Arrays.asList(
                 new Transaction("NL01INHO1c",
