@@ -91,13 +91,18 @@ public class TransactionService {
         return false;
     }
 
+
     /*
-    TODO check if the user is the owner of the account or an employee logged in.
-    TODO update balance from account
-    TODO
-    */
-
-
-
-
+     * todo
+     *  checker for account balance
+     *  a method to update balance
+     *  reduce balance method
+     *  add balance method
+     *  check if the user is the owner of the account or an employee logged in.
+     *  update balance from account
+     *  get account type
+     *  withdraw method
+     *  deposit method
+     *  perform transaction based on account type, current or savings
+     */
 }

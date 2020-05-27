@@ -186,7 +186,6 @@ public class Transaction   {
 
   public void setTransactionType(TransactionTypeEnum transactionType) {
     this.transactionType = transactionType;
-    System.out.println(transactionType);
   }
 
   public Transaction transactionId(Integer transactionId) {
