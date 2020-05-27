@@ -1,17 +1,16 @@
 package io.swagger.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
-import org.threeten.bp.LocalDate;
 import org.threeten.bp.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 /*
  * Transaction
@@ -38,6 +37,8 @@ public class Transaction   {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_seq")
   private Integer transactionId;
 
+  //@ManyToMany
+  //I WILL NEED TO CHANGE THIS TO USER LATER.
   @JsonProperty("userPerforming")
   private Integer userPerforming = null;
 
@@ -49,6 +50,14 @@ public class Transaction   {
     return this;
   }
 
+  //the max amount of transaction that can be done per day
+  private int  cumulativeTransaction = 5;
+
+  //the maximum amount per transaction.
+  private double transactionAmoutLimit = 10000.0;
+
+  //the amount of the balance cannot exceeds.
+  private double absoluteLimit = 10.0;
 
   public Transaction() {
   }
@@ -60,6 +69,19 @@ public class Transaction   {
     this.transactionType = transactionType;
     this.userPerforming = userPerforming;
     this.datetime = datetime;
+  }
+
+  @Valid
+  public int getCumulativeTransaction() {
+    return cumulativeTransaction;
+  }
+  @Valid
+  public double getTransactionAmoutLimit() {
+    return transactionAmoutLimit;
+  }
+  @Valid
+  public double getAbsoluteLimit() {
+    return absoluteLimit;
   }
 
   /**

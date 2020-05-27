@@ -52,7 +52,7 @@ public class User  {
    */
   public enum AccessLevelEnum {
     EMPLOYEE("employee"),
-    
+
     CUSTOMER("customer");
 
     private String value;
@@ -90,7 +90,7 @@ public class User  {
    * @return email
   **/
   @ApiModelProperty(example = "stephen@gmail.com", value = "")
-  
+
     public String getEmail() {
     return email;
   }
@@ -109,7 +109,7 @@ public class User  {
    * @return password
   **/
   @ApiModelProperty(example = "stephen", value = "")
-  
+
     public String getPassword() {
     return password;
   }
