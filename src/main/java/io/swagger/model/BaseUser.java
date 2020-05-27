@@ -15,19 +15,14 @@ import javax.validation.constraints.*;
  * BaseUser
  */
 @Validated
-@Entity
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class BaseUser   {
   @JsonProperty("firstName")
-  private String firstName = null;
+  private String firstName;
 
   @JsonProperty("lastName")
-  private String lastName = null;
+  private String lastName;
 
-  public BaseUser firstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
 
   public BaseUser(){
   }

@@ -7,25 +7,18 @@ package io.swagger.api;
 
 import io.swagger.model.Account;
 import java.math.BigDecimal;
-import io.swagger.model.RegistrationUser;
 import io.swagger.model.User;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.annotation.CookieValue;
 
 import javax.validation.Valid;
-import javax.validation.constraints.*;
 import java.util.List;
-import java.util.Map;
+
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 @Api(value = "users", description = "the users API")
 public interface UsersApi {
@@ -66,10 +59,10 @@ public interface UsersApi {
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<List<User>> getUsers(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset
-,@ApiParam(value = "The numbers of items to return") @Valid @RequestParam(value = "limit", required = false) Integer limit
-,@ApiParam(value = "First name of the user") @Valid @RequestParam(value = "firstName", required = false) String firstName
-,@ApiParam(value = "Last name of the user") @Valid @RequestParam(value = "lastName", required = false) String lastName
-,@ApiParam(value = "Access level of this user") @Valid @RequestParam(value = "accessLevel", required = false) BigDecimal accessLevel
+, @ApiParam(value = "The numbers of items to return") @Valid @RequestParam(value = "limit", required = false) Integer limit
+, @ApiParam(value = "First name of the user") @Valid @RequestParam(value = "firstName", required = false) String firstName
+, @ApiParam(value = "Last name of the user") @Valid @RequestParam(value = "lastName", required = false) String lastName
+, @ApiParam(value = "Access level of this user") @Valid @RequestParam(value = "accessLevel", required = false) BigDecimal accessLevel
 );
 
 
@@ -83,7 +76,7 @@ public interface UsersApi {
         produces = { "application/json" }, 
         method = RequestMethod.POST)
     ResponseEntity<User> registerUser(@ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "firstName", required = false) String firstName
-,@ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "lastName", required = false) String lastName
+, @ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "lastName", required = false) String lastName
 );
 
 
@@ -97,7 +90,7 @@ public interface UsersApi {
         consumes = { "application/json" },
         method = RequestMethod.PUT)
     ResponseEntity<Void> updateUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
-,@ApiParam(value = ""  )  @Valid @RequestBody RegistrationUser body
+,@ApiParam(value = ""  )  @Valid @RequestBody User body
 );
 
 

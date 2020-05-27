@@ -1,7 +1,10 @@
 package io.swagger.configuration;
 
 import io.swagger.model.Transaction;
+import io.swagger.model.User;
 import io.swagger.repository.TransactionRepository;
+import io.swagger.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -17,15 +20,16 @@ import java.util.List;
 @Transactional
 public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
+    @Autowired
     private TransactionRepository transactionRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public BankApplicationConfigurationRunner(TransactionRepository transactionRepository) {
-        this.transactionRepository = transactionRepository;
-    }
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        loadTransaction();
+        loadTransactions();
+        loadUsers();
     }
 
     /*** save the datas here ***/
@@ -33,7 +37,33 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     /*^^ the database link**/
 
-    public void loadTransaction()
+    public void loadUsers()
+    {
+        List<User> userList = Arrays.asList(
+                new User("Stephen",
+                        "Pangga",
+                        "stephen@gmail.com",
+                        "password", User.AccessLevelEnum.EMPLOYEE
+                ),
+                new User("Frances",
+                "Agasino",
+                "frances@gmail.com",
+                "password", User.AccessLevelEnum.CUSTOMER
+                ),
+                new User("Sisa",
+                        "Mokranova",
+                        "sisa@gmail.com",
+                        "somethingstrongerthanpassword", User.AccessLevelEnum.CUSTOMER
+                )
+        );
+        for(User user: userList)
+        {
+            userRepository.save(user);
+        }
+    }
+
+
+    public void loadTransactions()
     {
         List<Transaction> transactionList = Arrays.asList(
                 new Transaction("NL01INHO1c",
