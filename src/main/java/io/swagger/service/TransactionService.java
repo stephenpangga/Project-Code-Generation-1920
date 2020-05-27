@@ -105,4 +105,12 @@ public class TransactionService {
      *  deposit method
      *  perform transaction based on account type, current or savings
      */
+
+    public void checkAccountBalance()
+    {
+        //check the transaction type
+        //get account balance
+        //check the balance with absolute value
+        //if not possible check
+    }
 }
