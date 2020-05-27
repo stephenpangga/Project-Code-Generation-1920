@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Validated
 @Entity
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
-public class User extends BaseUser  {
+public class User  {
 
   @Id
   @SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
@@ -29,14 +29,21 @@ public class User extends BaseUser  {
   @JsonProperty("password")
   private String password;
 
+  @JsonProperty("firstName")
+  private String firstName;
+
+  @JsonProperty("lastName")
+  private String lastName;
+
   public User() {
+
   }
 
-
-  public User(String firstName, String lastName, String email, String password, AccessLevelEnum accessLevel) {
-    super(firstName, lastName);
+  public User(String email, String password, String firstName, String lastName, AccessLevelEnum accessLevel) {
     this.email = email;
     this.password = password;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.accessLevel = accessLevel;
   }
 
