@@ -32,6 +32,7 @@ public class TransactionsApiController implements TransactionsApi {
 
     @Autowired
     private TransactionService transactionService;
+
     private static final Logger log = LoggerFactory.getLogger(TransactionsApiController.class);
 
     private final ObjectMapper objectMapper;
@@ -50,7 +51,7 @@ public class TransactionsApiController implements TransactionsApi {
     ,@ApiParam(value = "show transaction based on date") @Valid @RequestParam(value = "date", required = false) String date
     ,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) Double maxAmount
     ,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) Double minAmount
-    ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) String userPerforming)
+    ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) Integer userPerforming)
     {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
@@ -61,6 +62,13 @@ public class TransactionsApiController implements TransactionsApi {
                 return new ResponseEntity<List<Transaction>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
+        /*
+        if(userPerforming != null)
+        {
+            //userService.getById(userPerforming);
+        }
+        */
+
         //TODO filtering the param
 
         //System.out.println(iban);
@@ -98,7 +106,7 @@ public class TransactionsApiController implements TransactionsApi {
         return new ResponseEntity<Transaction>(transactionService.getSpecificTransaction(transactionId),HttpStatus.OK);
     }
 
-    public ResponseEntity<Transaction> transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body)
+    public ResponseEntity transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body)
     {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
@@ -110,15 +118,18 @@ public class TransactionsApiController implements TransactionsApi {
             }
         }
 
-        System.out.println("print the body");
         //set the date here.
         body.setDatetime(LocalDateTime.now());
 
-        transactionService.saveTransaction(body);
-
+        try {
+            transactionService.saveTransaction(body);
+        } catch (Exception e) {
+            //return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+        }
+        System.out.println("print the body");
         System.out.println(body);
 
         return new ResponseEntity<Transaction>(HttpStatus.OK);
     }
-
 }

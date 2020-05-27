@@ -5,7 +5,7 @@ import io.swagger.model.Transaction;
 import io.swagger.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.threeten.bp.LocalDate;
+import org.threeten.bp.*;
 
 import java.util.List;
 
@@ -34,21 +34,34 @@ public class TransactionService {
     }
 
     //filters for Transaction
+
     public List<Transaction> findBy(Double min, Double max)
     {
         return transactionRepository.findByAmountBetween(min, max);
     }
 
-    public void saveTransaction(Transaction transaction)
-    {
-        //TODO check if the user is the owner of the account or an employee logged in.
+    public void saveTransaction(Transaction transaction) throws Exception {
+
+        this.transaction = transaction;
+
+        if(!transactionDayLimitChecker(transaction.getSender()))
+        {
+            throw new Exception(" Transaction limit reached");
+        }
+        if(!transactionAmountLimitChecker(transaction.getAmount()))
+        {
+            throw new Exception("The amount requested exceeds the maximum amount allowed");
+        }
         transactionRepository.save(transaction);
     }
 
     //checker if the account has reached the day transaction limit
-    public boolean transactionDayLimitChecker(String Iban, LocalDate dateToday)
+    public boolean transactionDayLimitChecker(String Iban)
     {
-        List<Transaction> transactionList = transactionRepository.findAllByAccountFromEqualsAndDateEquals(Iban,dateToday);
+        LocalDateTime dayMin = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+        LocalDateTime dayMax = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
+
+        List<Transaction> transactionList = transactionRepository.findBySenderEqualsAndDatetimeBetween(Iban, dayMin, dayMax);
 
         if(transactionList.size() < transaction.getCumulativeTransaction())
         {
@@ -69,12 +82,20 @@ public class TransactionService {
     }
 
     //checker if the request amount will be over the absolute limit of the account
-    public void transactionAbsoulteLimitChecker(Transaction transaction)
+    //change to boolean later
+    public boolean transactionAbsoluteLimitChecker(Transaction transaction)
     {
         //get the account info.
         //check diff between balance and transaction amount.
         //then check diff with absolute limit.
+        return false;
     }
+
+    /*
+    TODO check if the user is the owner of the account or an employee logged in.
+    TODO update balance from account
+    TODO
+    */
 
 
 

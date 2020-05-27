@@ -40,7 +40,7 @@ public interface TransactionsApi {
     ,@ApiParam(value = "show transaction based on date") @Valid @RequestParam(value = "date", required = false) String date
     ,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) Double maxAmount
     ,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) Double minAmount
-    ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) String userPerforming
+    ,@ApiParam(value = "show transaction based on the user performing") @Valid @RequestParam(value = "user-performing", required = false) Integer userPerforming
     );
 
 
@@ -64,7 +64,7 @@ public interface TransactionsApi {
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    ResponseEntity<Transaction> transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body
+    ResponseEntity transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body
 );
 
 }

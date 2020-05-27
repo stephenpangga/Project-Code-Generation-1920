@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.threeten.bp.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 /*
  * Transaction
@@ -36,6 +37,8 @@ public class Transaction   {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_seq")
   private Integer transactionId;
 
+  //@ManyToMany
+  //I WILL NEED TO CHANGE THIS TO USER LATER.
   @JsonProperty("userPerforming")
   private Integer userPerforming = null;
 
@@ -48,7 +51,7 @@ public class Transaction   {
   }
 
   //the max amount of transaction that can be done per day
-  private int  cumulativeTransaction = 10;
+  private int  cumulativeTransaction = 5;
 
   //the maximum amount per transaction.
   private double transactionAmoutLimit = 10000.0;
@@ -68,14 +71,15 @@ public class Transaction   {
     this.datetime = datetime;
   }
 
+  @Valid
   public int getCumulativeTransaction() {
     return cumulativeTransaction;
   }
-
+  @Valid
   public double getTransactionAmoutLimit() {
     return transactionAmoutLimit;
   }
-
+  @Valid
   public double getAbsoluteLimit() {
     return absoluteLimit;
   }
