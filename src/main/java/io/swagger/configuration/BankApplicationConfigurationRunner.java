@@ -109,8 +109,6 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
                     .accountType(Account.AccountTypeEnum.CURRENT)
         );
         accounts.forEach(account->accountRepository.save(account));
-        List<Account> acc = (List<Account>) accountRepository.findAll();
-        acc.forEach(System.out::println);
     }
 
 }

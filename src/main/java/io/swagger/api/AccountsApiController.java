@@ -90,7 +90,7 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(HttpStatus.OK);
     }
 
     public ResponseEntity<ExtendedAccount> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
