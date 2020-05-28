@@ -7,7 +7,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.model.Account;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
+
+import javax.persistence.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
@@ -16,12 +19,14 @@ import javax.validation.constraints.*;
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
+@Configuration
+@Entity
 public class ExtendedAccount extends Account  {
   @JsonProperty("iban")
-  private String iban = null;
+  private String iban = "MMM111111111111111";
 
   @JsonProperty("balance")
-  private Double balance = null;
+  private Double balance = 1.0;
 
   public ExtendedAccount iban(String iban) {
     this.iban = iban;
