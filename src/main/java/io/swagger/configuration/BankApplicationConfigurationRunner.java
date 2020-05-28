@@ -93,6 +93,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
         for (Transaction transaction : transactionRepository.findAll()) {
             System.out.println(transaction);
         }
+        transactionList.forEach(System.out::println);
     }
 
 
