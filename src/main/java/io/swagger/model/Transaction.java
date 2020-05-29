@@ -20,10 +20,12 @@ import javax.validation.Valid;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Transaction   {
   @JsonProperty("sender")
-  private String sender = null;
+  @ManyToOne(cascade = {CascadeType.ALL})
+  private Account sender = null;
 
   @JsonProperty("recipient")
-  private String recipient = null;
+  @ManyToOne(cascade = {CascadeType.ALL})
+  private Account recipient = null;
 
   @JsonProperty("amount")
   private Double amount = null;
@@ -45,7 +47,7 @@ public class Transaction   {
   @JsonProperty("timestamp")
   private LocalDateTime datetime;
 
-  public Transaction sender(String sender) {
+  public Transaction sender(Account sender) {
     this.sender = sender;
     return this;
   }
@@ -62,7 +64,7 @@ public class Transaction   {
   public Transaction() {
   }
 
-  public Transaction(String sender, String recipient, Double amount, TransactionTypeEnum transactionType, Integer userPerforming, LocalDateTime datetime) {
+  public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, Integer userPerforming, LocalDateTime datetime) {
     this.sender = sender;
     this.recipient = recipient;
     this.amount = amount;
@@ -123,15 +125,15 @@ public class Transaction   {
   **/
   @ApiModelProperty(example = "NL01INHO0000000001", value = "")
   
-    public String getSender() {
+    public Account getSender() {
     return sender;
   }
 
-  public void setSender(String sender) {
+  public void setSender(Account sender) {
     this.sender = sender;
   }
 
-  public Transaction recipient(String recipient) {
+  public Transaction recipient(Account recipient) {
     this.recipient = recipient;
     return this;
   }
@@ -142,11 +144,11 @@ public class Transaction   {
   **/
   @ApiModelProperty(example = "NL53INHO0858545222", value = "")
   
-    public String getRecipient() {
+    public Account getRecipient() {
     return recipient;
   }
 
-  public void setRecipient(String recipient) {
+  public void setRecipient(Account recipient) {
     this.recipient = recipient;
   }
 

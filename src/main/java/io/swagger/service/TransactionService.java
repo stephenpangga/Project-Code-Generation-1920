@@ -44,7 +44,7 @@ public class TransactionService {
 
         this.transaction = transaction;
 
-        if(!transactionDayLimitChecker(transaction.getSender()))
+        if(!transactionDayLimitChecker(transaction.getSender().getIban()))
         {
             throw new Exception(" Transaction limit reached");
         }

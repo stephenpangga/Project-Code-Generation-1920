@@ -27,13 +27,13 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    AccountRepository accountRepository;
+    private AccountRepository accountRepository;
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         loadTransactions();
         loadUsers();
-        LoadAccounts();
+        loadAccounts();
     }
 
     /*** save the datas here ***/
@@ -69,21 +69,23 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     public void loadTransactions()
     {
+        Account account1 = new Account(5,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account2 = new Account(2,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Transaction> transactionList = Arrays.asList(
-                new Transaction("NL01INHO1c",
-                        "NL02INHO2",
+                new Transaction(account1,
+                        account2,
                         503.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
-                new Transaction("NL01INHO1b",
-                        "NL02INHO2",
+                new Transaction(account1,
+                        account2,
                         502.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
-                new Transaction("NL01INHO1a",
-                        "NL02INHO2",
+                new Transaction(account2,
+                        account1,
                         501.73,
                         Transaction.TransactionTypeEnum.WITHDRAW,
                         1,
@@ -98,14 +100,16 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
-  public void LoadAccounts(){
+
+    public void loadAccounts(){
         List<Account> accounts = Arrays.asList(
-          new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS),
-        new Account().authorId(3).accountType(Account.AccountTypeEnum.CURRENT)
-      );
+                new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS),
+                new Account().authorId(3).accountType(Account.AccountTypeEnum.CURRENT)
+        );
+
         accounts.forEach(acc->accountRepository.save(acc));
         List<Account>acc = (List<Account>) accountRepository.findAll();
         acc.forEach(System.out::println);
-  }
+    }
 
 }
