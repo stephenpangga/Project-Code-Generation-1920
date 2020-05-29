@@ -8,13 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Entity;
-import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
@@ -26,9 +22,9 @@ import java.util.Objects;
 @Getter
 @Setter
 @AllArgsConstructor
+@Entity
 @SequenceGenerator(name ="account_sq", initialValue = 2000000232)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
-@Entity
 public class Account   {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_sq")
