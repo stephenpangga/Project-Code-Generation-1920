@@ -20,4 +20,18 @@ public class UserService {
     {
         return (List<User>) userRepository.findAll();
     }
+
+    public void DeleteUser(int id){
+        userRepository.delete(id);
+    }
+
+    public User registerUser(String email,String password,String firstName,String lastName){
+       User user =  new User(email,password,
+               firstName,
+               lastName, User.AccessLevelEnum.CUSTOMER
+       );
+       userRepository.save(user);
+        return user;
+    }
+
 }
