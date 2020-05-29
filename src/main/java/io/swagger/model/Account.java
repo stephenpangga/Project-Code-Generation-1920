@@ -4,10 +4,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
@@ -15,11 +22,20 @@ import java.util.Objects;
  * Account
  */
 @Validated
+@NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@SequenceGenerator(name ="account_sq", initialValue = 2000000232)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 @Entity
 public class Account   {
-  @JsonProperty("authorId")
   @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_sq")
+  @JsonProperty("accountNumber")
+  private Integer accountNumber = null;
+
+  @JsonProperty("authorId")
   private Integer authorId = null;
 
   @JsonProperty("iban")
@@ -31,15 +47,12 @@ public class Account   {
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public Account() {
-  }
-
-  public Account(Integer authorId, String iban, Double balance, AccountTypeEnum accountType) {
+  public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;
-    this.iban = iban;
     this.balance = balance;
     this.accountType = accountType;
   }
+
 
   /**
    * type of account to be created
@@ -183,5 +196,9 @@ public class Account   {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+  public String setIBAN(String accNumber) {
+    String bankCode = "NL02INH2";
+    return iban = bankCode + accNumber;
   }
 }

@@ -101,8 +101,8 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
   public void LoadAccounts(){
 
           List<Account> accounts = Arrays.asList(
-          new Account(2,"NL02INHO2000000001",0.00, Account.AccountTypeEnum.SAVINGS),
-                  new Account(1,"NL02INHO2000000231",0.00, Account.AccountTypeEnum.CURRENT)
+          new Account(2000000231,2,"NL02INH22000000231",0.0, Account.AccountTypeEnum.SAVINGS),
+                  new Account(2000000232,1,"NL02INH22000000232",0.0, Account.AccountTypeEnum.SAVINGS)
 
                   );
         accounts.forEach(acc->accountRepository.save(acc));
