@@ -1,13 +1,15 @@
 package io.swagger.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.Entity;
+import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * RegistrationUser

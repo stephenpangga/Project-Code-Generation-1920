@@ -99,10 +99,12 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
         }
     }
   public void LoadAccounts(){
-        List<Account> accounts = Arrays.asList(
-          new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS),
-        new Account().authorId(3).accountType(Account.AccountTypeEnum.CURRENT)
-      );
+
+          List<Account> accounts = Arrays.asList(
+          new Account(2,"NL02INHO2000000001",0.00, Account.AccountTypeEnum.SAVINGS),
+                  new Account(1,"NL02INHO2000000231",0.00, Account.AccountTypeEnum.CURRENT)
+
+                  );
         accounts.forEach(acc->accountRepository.save(acc));
         List<Account>acc = (List<Account>) accountRepository.findAll();
         acc.forEach(System.out::println);
