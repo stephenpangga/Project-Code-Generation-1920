@@ -19,6 +19,27 @@ public class Account   {
   @JsonProperty("authorId")
   private Integer authorId = null;
 
+  @JsonProperty("accountType")
+  private AccountTypeEnum accountType = null;
+
+  @JsonProperty("iban")
+  private String iban = null;
+
+  @JsonProperty("balance")
+  private Double balance = null;
+
+
+  @ApiModelProperty(example = "NL23INHO2298608059", value = "unique string that identifies the bank and account")
+
+  @Size(min=18,max=18)
+  public String getIban() {
+    return iban;
+  }
+
+  public void setIban(String iban) {
+    this.iban = iban;
+  }
+
   /**
    * type of account to be created
    */
@@ -49,8 +70,23 @@ public class Account   {
       return null;
     }
   }
-  @JsonProperty("accountType")
-  private AccountTypeEnum accountType = null;
+
+  @ApiModelProperty(example = "0", value = "")
+
+  public Double getBalance() {
+    return balance;
+  }
+
+  public void setBalance(Double balance) {
+    this.balance = balance;
+  }
+
+  public Account(Integer authorId, AccountTypeEnum accountType, String iban, Double balance) {
+    this.authorId = authorId;
+    this.accountType = accountType;
+    this.iban = iban;
+    this.balance = balance;
+  }
 
   public Account authorId(Integer authorId) {
     this.authorId = authorId;
@@ -90,23 +126,23 @@ public class Account   {
     this.accountType = accountType;
   }
 
-
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
     Account account = (Account) o;
-    return Objects.equals(this.authorId, account.authorId) &&
-        Objects.equals(this.accountType, account.accountType);
+    return authorId.equals(account.authorId) &&
+            accountType == account.accountType &&
+            iban.equals(account.iban) &&
+            balance.equals(account.balance);
+  }
+
+  public Account() {
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorId, accountType);
+    return Objects.hash(authorId, accountType, iban, balance);
   }
 
   @Override
@@ -116,6 +152,8 @@ public class Account   {
     
     sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -129,5 +167,10 @@ public class Account   {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  public Account balance(Double balance) {
+    this.balance = balance;
+    return this;
   }
 }
