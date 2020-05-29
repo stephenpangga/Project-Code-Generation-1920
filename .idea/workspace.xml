@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="fixing account model - removing unnecessary inheritance with michael">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-spring.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/service/TransactionService.class" afterDir="false" />
     </list>
@@ -45,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project-Code-Generation-1920-master(1)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -128,25 +127,25 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1590756526967" />
-    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1590769257156">
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1590769726428">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1590769257156" />
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1590769726428" />
     <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1590769257156">
+    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1590769726428">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1590769257156" />
+    <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1590769726428" />
     <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1590769257155">
+    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1590769726428">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1590769257155" />
+    <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1590769726428" />
     <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1590769257156">
+    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1590769726428">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1590769257156" />
+    <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1590769726428" />
     <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
     <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590760110229">
       <screen x="0" y="0" width="1920" height="1040" />
