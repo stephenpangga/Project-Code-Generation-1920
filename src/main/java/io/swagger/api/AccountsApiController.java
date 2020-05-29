@@ -1,7 +1,6 @@
 package io.swagger.api;
 
 import io.swagger.model.Account;
-import io.swagger.model.ExtendedAccount;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
 import io.swagger.service.AccountService;
@@ -81,7 +80,7 @@ public class AccountsApiController implements AccountsApi {
     }
 
     public ResponseEntity<Account> accountsIBANPut(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
-,@ApiParam(value = ""  )  @Valid @RequestBody ExtendedAccount body
+,@ApiParam(value = ""  )  @Valid @RequestBody Account body
 ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
@@ -96,19 +95,19 @@ public class AccountsApiController implements AccountsApi {
         return new ResponseEntity<Account>(HttpStatus.OK);
     }
 
-    public ResponseEntity<ExtendedAccount> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
+    public ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
 ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ExtendedAccount>(objectMapper.readValue("{\n  \"balance\" : 0,\n  \"iban\" : \"NL23INHO2298608059\"\n}", ExtendedAccount.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"balance\" : 0,\n  \"iban\" : \"NL23INHO2298608059\"\n}", Account.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<ExtendedAccount>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<ExtendedAccount>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
     }
 
 }

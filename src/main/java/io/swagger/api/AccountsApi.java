@@ -6,8 +6,8 @@
 package io.swagger.api;
 
 import io.swagger.model.Account;
-import io.swagger.model.ExtendedAccount;
 import io.swagger.annotations.*;
+import io.swagger.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -77,20 +77,20 @@ public interface AccountsApi {
         consumes = { "application/json" },
         method = RequestMethod.PUT)
     ResponseEntity<Account> accountsIBANPut(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
-,@ApiParam(value = ""  )  @Valid @RequestBody ExtendedAccount body
+,@ApiParam(value = ""  )  @Valid @RequestBody Account body
 );
 
 
-    @ApiOperation(value = "Create a new account", nickname = "accountsPost", notes = "", response = ExtendedAccount.class, authorizations = {
+    @ApiOperation(value = "Create a new account", nickname = "accountsPost", notes = "", response = User.AccessLevelEnum.class, authorizations = {
         @Authorization(value = "ApiKeyAuth")    }, tags={ "Account", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Created", response = ExtendedAccount.class),
+        @ApiResponse(code = 200, message = "Created", response = Account.class),
         @ApiResponse(code = 400, message = "Bad request") })
     @RequestMapping(value = "/accounts",
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    ResponseEntity<ExtendedAccount> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
+    ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
 );
 
 }
