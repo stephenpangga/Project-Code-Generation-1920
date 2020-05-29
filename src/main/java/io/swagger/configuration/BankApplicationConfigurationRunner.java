@@ -1,10 +1,7 @@
 package io.swagger.configuration;
 
-import io.swagger.model.Account;
-import io.swagger.model.ExtendedAccount;
 import io.swagger.model.Transaction;
 import io.swagger.model.User;
-import io.swagger.repository.AccountRepository;
 import io.swagger.repository.TransactionRepository;
 import io.swagger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +14,6 @@ import org.threeten.bp.LocalDateTime;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 @ConditionalOnProperty(prefix = "Banking_application.autorun", name = "enabled", havingValue = "true", matchIfMissing = true)
@@ -28,16 +24,12 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     private TransactionRepository transactionRepository;
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private AccountRepository accountRepository;
-    @Autowired
-    ExtendedAccount extendedAccount;
+
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         loadTransactions();
         loadUsers();
-        LoadAccounts();
     }
 
     /*** save the datas here ***/
@@ -102,14 +94,6 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
-    public void LoadAccounts(){
 
-        List<Account>accounts = Arrays.asList(
-            new Account()
-                    .authorId(3)
-                    .accountType(Account.AccountTypeEnum.CURRENT)
-        );
-        accounts.forEach(account->accountRepository.save(account));
-    }
 
 }

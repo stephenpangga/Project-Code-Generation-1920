@@ -1,12 +1,11 @@
 package io.swagger.api;
 
 import io.swagger.model.Account;
+import io.swagger.model.ExtendedAccount;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
-import io.swagger.service.AccountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -33,8 +32,7 @@ public class AccountsApiController implements AccountsApi {
     private final ObjectMapper objectMapper;
 
     private final HttpServletRequest request;
-    @Autowired
-    private AccountService service;
+
     @org.springframework.beans.factory.annotation.Autowired
     public AccountsApiController(ObjectMapper objectMapper, HttpServletRequest request) {
         this.objectMapper = objectMapper;
@@ -61,7 +59,7 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<List<Account>>(service.GetAllAccounts(),HttpStatus.OK);
+        return new ResponseEntity<List<Account>>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<Account> accountsIBANGet(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
@@ -80,7 +78,7 @@ public class AccountsApiController implements AccountsApi {
     }
 
     public ResponseEntity<Account> accountsIBANPut(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
-,@ApiParam(value = ""  )  @Valid @RequestBody Account body
+,@ApiParam(value = ""  )  @Valid @RequestBody ExtendedAccount body
 ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
@@ -92,22 +90,22 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(HttpStatus.OK);
+        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
+    public ResponseEntity<ExtendedAccount> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
 ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"balance\" : 0,\n  \"iban\" : \"NL23INHO2298608059\"\n}", Account.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<ExtendedAccount>(objectMapper.readValue("{\n  \"balance\" : 0,\n  \"iban\" : \"NL23INHO2298608059\"\n}", ExtendedAccount.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<ExtendedAccount>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<ExtendedAccount>(HttpStatus.NOT_IMPLEMENTED);
     }
 
 }
