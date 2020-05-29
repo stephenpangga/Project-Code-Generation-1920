@@ -1,7 +1,9 @@
 package io.swagger.configuration;
 
+import io.swagger.model.Account;
 import io.swagger.model.Transaction;
 import io.swagger.model.User;
+import io.swagger.repository.AccountRepository;
 import io.swagger.repository.TransactionRepository;
 import io.swagger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +26,14 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     private TransactionRepository transactionRepository;
     @Autowired
     private UserRepository userRepository;
-
+    @Autowired
+    AccountRepository accountRepository;
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         loadTransactions();
         loadUsers();
+        LoadAccounts();
     }
 
     /*** save the datas here ***/
@@ -94,6 +98,14 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
-
+  public void LoadAccounts(){
+        List<Account> accounts = Arrays.asList(
+          new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS),
+        new Account().authorId(3).accountType(Account.AccountTypeEnum.CURRENT)
+      );
+        accounts.forEach(acc->accountRepository.save(acc));
+        List<Account>acc = (List<Account>) accountRepository.findAll();
+        acc.forEach(System.out::println);
+  }
 
 }
