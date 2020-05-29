@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,25 @@ public class Account   {
   @JsonProperty("authorId")
   @Id
   private Integer authorId = null;
+
+  @JsonProperty("iban")
+  private String iban = null;
+
+  @JsonProperty("balance")
+  private Double balance = null;
+
+  @JsonProperty("accountType")
+  private AccountTypeEnum accountType = null;
+
+  public Account() {
+  }
+
+  public Account(Integer authorId, String iban, Double balance, AccountTypeEnum accountType) {
+    this.authorId = authorId;
+    this.iban = iban;
+    this.balance = balance;
+    this.accountType = accountType;
+  }
 
   /**
    * type of account to be created
@@ -51,8 +71,7 @@ public class Account   {
       return null;
     }
   }
-  @JsonProperty("accountType")
-  private AccountTypeEnum accountType = null;
+
 
   public Account authorId(Integer authorId) {
     this.authorId = authorId;
@@ -91,33 +110,66 @@ public class Account   {
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
   }
+  /**
+   * unique string that identifies the bank and account
+   * @return iban
+   **/
+  @ApiModelProperty(example = "NL23INHO2298608059", value = "unique string that identifies the bank and account")
+
+  @Size(min=18,max=18)   public String getIban() {
+    return iban;
+  }
+
+  public void setIban(String iban) {
+    this.iban = iban;
+  }
+
+  public Account balance(Double balance) {
+    this.balance = balance;
+    return this;
+  }
+
+
+  /**
+   * Get balance
+   * @return balance
+   **/
+  @ApiModelProperty(example = "0", value = "")
+
+  public Double getBalance() {
+    return balance;
+  }
+
+  public void setBalance(Double balance) {
+    this.balance = balance;
+  }
+
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
     Account account = (Account) o;
-    return Objects.equals(this.authorId, account.authorId) &&
-        Objects.equals(this.accountType, account.accountType);
+    return Objects.equals(authorId, account.authorId) &&
+            Objects.equals(iban, account.iban) &&
+            Objects.equals(balance, account.balance) &&
+            accountType == account.accountType;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorId, accountType);
+    return Objects.hash(authorId, iban, balance, accountType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Account {\n");
-    
     sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("}");
     return sb.toString();
   }

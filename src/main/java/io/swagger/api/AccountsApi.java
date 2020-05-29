@@ -5,25 +5,13 @@
  */
 package io.swagger.api;
 
-import io.swagger.model.Account;
-import io.swagger.model.ExtendedAccount;
 import io.swagger.annotations.*;
+import io.swagger.model.Account;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.*;
 import java.util.List;
-import java.util.Map;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 @Api(value = "accounts", description = "the accounts API")
 public interface AccountsApi {
@@ -77,20 +65,20 @@ public interface AccountsApi {
         consumes = { "application/json" },
         method = RequestMethod.PUT)
     ResponseEntity<Account> accountsIBANPut(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
-,@ApiParam(value = ""  )  @Valid @RequestBody ExtendedAccount body
+,@ApiParam(value = ""  )  @Valid @RequestBody Account body
 );
 
 
-    @ApiOperation(value = "Create a new account", nickname = "accountsPost", notes = "", response = ExtendedAccount.class, authorizations = {
+    @ApiOperation(value = "Create a new account", nickname = "accountsPost", notes = "", response = Account.class, authorizations = {
         @Authorization(value = "ApiKeyAuth")    }, tags={ "Account", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Created", response = ExtendedAccount.class),
+        @ApiResponse(code = 200, message = "Created", response = Account.class),
         @ApiResponse(code = 400, message = "Bad request") })
     @RequestMapping(value = "/accounts",
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    ResponseEntity<ExtendedAccount> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
+    ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
 );
 
 }

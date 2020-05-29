@@ -1,59 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="working with frances.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/repository/AccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="fixing account model - removing unnecessary inheritance with michael">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-spring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/Banking_Application$ExitException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/Banking_Application$ExitException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/Banking_Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/Banking_Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/RFC3339DateFormat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/RFC3339DateFormat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiOriginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiOriginFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiResponseMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiResponseMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/NotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/NotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromDecimalArguments.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromDecimalArguments.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromIntegerArguments.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromIntegerArguments.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/JacksonConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/JacksonConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/SwaggerDocumentationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/SwaggerDocumentationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Body.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Body.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/ExtendedAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/ExtendedAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/ExtendedAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/InlineResponse200.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/InlineResponse200.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TransactionTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TransactionTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/service/TransactionService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,14 +91,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="working with frances." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1590606712935">
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1590759347038">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590606712935" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759347038" />
     <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590605923885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605923885" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590759361238">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
     <state x="277" y="49" key="CommitChangelistDialog2" timestamp="1590758690437">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -153,30 +112,25 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1590756526967" />
-    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1590758390264">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1877" height="357" key="GridCell.Tab.0.bottom" timestamp="1590759093262">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1590758390264" />
-    <state width="1877" height="428" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590607122664" />
-    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1590758390263">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
+    <state width="1877" height="357" key="GridCell.Tab.0.center" timestamp="1590759093262">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1590758390263" />
-    <state width="1877" height="428" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590607122664" />
-    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1590758390263">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
+    <state width="1877" height="357" key="GridCell.Tab.0.left" timestamp="1590759093262">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1590758390263" />
-    <state width="1877" height="428" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590607122664" />
-    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1590758390263">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
+    <state width="1877" height="357" key="GridCell.Tab.0.right" timestamp="1590759093262">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1590758390263" />
-    <state width="1877" height="428" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590607122664" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1590758389694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.swagger.*</FILTER>
-    </SUITE>
+    <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
   </component>
 </project>

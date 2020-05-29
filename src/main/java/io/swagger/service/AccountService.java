@@ -12,10 +12,10 @@ import java.util.Optional;
 public class AccountService {
 
     @Autowired
-    private AccountRepository repository;
+    private AccountRepository accountRepository;
 
     public List<Account> GetAllAccounts() {
-        List<Account> accounts = (List<Account>) repository.findAll();
+        List<Account> accounts = (List<Account>) accountRepository.findAll();
         return  accounts;
     }
 
@@ -25,17 +25,17 @@ public class AccountService {
         Account acc = new Account( )
                 .accountType(accountType)
                 .authorId(UserID);
-        repository.save(acc);
+        accountRepository.save(acc);
         return acc;
     }
 
     public void updateAccount(Account account, Integer id) {
 
-        Optional<Account> OriginalAccount = Optional.ofNullable(repository.findOne(id));
+        Optional<Account> OriginalAccount = Optional.ofNullable(accountRepository.findOne(id));
         if (OriginalAccount.isPresent()) {
             Account Edited_account = OriginalAccount.get();
            Edited_account.setAccountType(account.getAccountType());
-            repository.save(Edited_account);
+            accountRepository.save(Edited_account);
         }
     }
 }
