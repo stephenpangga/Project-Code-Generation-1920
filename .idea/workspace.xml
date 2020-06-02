@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-spring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -129,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590775826225</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591101016209</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591101016209</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -162,10 +164,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="277" y="49" key="CommitChangelistDialog2" timestamp="1590775823448">
+    <state x="277" y="49" key="CommitChangelistDialog2" timestamp="1591101013909">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="277" y="49" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1590775823448" />
+    <state x="277" y="49" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591101013909" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1590784785107">
       <screen x="0" y="0" width="1600" height="860" />
