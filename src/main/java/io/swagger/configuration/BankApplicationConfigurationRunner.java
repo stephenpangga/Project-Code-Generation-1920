@@ -69,23 +69,23 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     public void loadTransactions()
     {
-        Account account1 = new Account(5,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account1 = new Account(1,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
         Account account2 = new Account(2,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Transaction> transactionList = Arrays.asList(
-                new Transaction(account1,
-                        account2,
+                new Transaction("NL23INHO2298608059",
+                        "NL23INHO2298608058",
                         503.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
-                new Transaction(account1,
-                        account2,
+                new Transaction("NL23INHO2298608059",
+                        "NL23INHO2298608058",
                         502.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
-                new Transaction(account2,
-                        account1,
+                new Transaction("NL23INHO2298608058",
+                        "NL23INHO2298608059",
                         501.73,
                         Transaction.TransactionTypeEnum.WITHDRAW,
                         1,
@@ -104,12 +104,11 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     public void loadAccounts(){
         List<Account> accounts = Arrays.asList(
                 new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS),
-                new Account().authorId(3).accountType(Account.AccountTypeEnum.CURRENT)
+                new Account().authorId(2).accountType(Account.AccountTypeEnum.CURRENT)
         );
 
         accounts.forEach(acc->accountRepository.save(acc));
         List<Account>acc = (List<Account>) accountRepository.findAll();
-        acc.forEach(System.out::println);
+        //acc.forEach(System.out::println);
     }
-
 }

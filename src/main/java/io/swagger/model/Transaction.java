@@ -20,18 +20,18 @@ import javax.validation.Valid;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Transaction   {
   @JsonProperty("sender")
-  @ManyToOne(cascade = {CascadeType.ALL})
-  private Account sender = null;
+  //@ManyToOne(cascade = {CascadeType.ALL})
+  private String sender;
 
   @JsonProperty("recipient")
-  @ManyToOne(cascade = {CascadeType.ALL})
-  private Account recipient = null;
+  //@ManyToOne(cascade = {CascadeType.ALL})
+  private String recipient;
 
   @JsonProperty("amount")
-  private Double amount = null;
+  private Double amount;
 
   @JsonProperty("transactionType")
-  private TransactionTypeEnum transactionType = null;
+  private TransactionTypeEnum transactionType;
 
   @JsonProperty("transaction_id")
   @Id
@@ -39,15 +39,13 @@ public class Transaction   {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_seq")
   private Integer transactionId;
 
-  //@ManyToMany
-  //I WILL NEED TO CHANGE THIS TO USER LATER.
   @JsonProperty("userPerforming")
   private Integer userPerforming = null;
 
   @JsonProperty("timestamp")
   private LocalDateTime datetime;
 
-  public Transaction sender(Account sender) {
+  public Transaction sender(String sender) {
     this.sender = sender;
     return this;
   }
@@ -64,7 +62,7 @@ public class Transaction   {
   public Transaction() {
   }
 
-  public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, Integer userPerforming, LocalDateTime datetime) {
+  public Transaction(String sender, String recipient, Double amount, TransactionTypeEnum transactionType, Integer userPerforming, LocalDateTime datetime) {
     this.sender = sender;
     this.recipient = recipient;
     this.amount = amount;
@@ -125,15 +123,15 @@ public class Transaction   {
   **/
   @ApiModelProperty(example = "NL01INHO0000000001", value = "")
   
-    public Account getSender() {
+    public String getSender() {
     return sender;
   }
 
-  public void setSender(Account sender) {
+  public void setSender(String sender) {
     this.sender = sender;
   }
 
-  public Transaction recipient(Account recipient) {
+  public Transaction recipient(String recipient) {
     this.recipient = recipient;
     return this;
   }
@@ -144,11 +142,11 @@ public class Transaction   {
   **/
   @ApiModelProperty(example = "NL53INHO0858545222", value = "")
   
-    public Account getRecipient() {
+    public String getRecipient() {
     return recipient;
   }
 
-  public void setRecipient(Account recipient) {
+  public void setRecipient(String recipient) {
     this.recipient = recipient;
   }
 

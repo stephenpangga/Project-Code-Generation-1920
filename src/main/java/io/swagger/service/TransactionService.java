@@ -1,6 +1,7 @@
 package io.swagger.service;
 
 
+import io.swagger.model.Account;
 import io.swagger.model.Transaction;
 import io.swagger.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class TransactionService {
 
         this.transaction = transaction;
 
-        if(!transactionDayLimitChecker(transaction.getSender().getIban()))
+        if(!transactionDayLimitChecker(transaction.getSender()))
         {
             throw new Exception(" Transaction limit reached");
         }

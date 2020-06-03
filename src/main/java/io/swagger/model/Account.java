@@ -8,7 +8,9 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -30,6 +32,7 @@ public class Account   {
 
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
+
 
   public Account() {
   }
