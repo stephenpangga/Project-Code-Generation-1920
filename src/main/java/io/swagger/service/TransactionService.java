@@ -3,6 +3,7 @@ package io.swagger.service;
 
 import io.swagger.model.Account;
 import io.swagger.model.Transaction;
+import io.swagger.repository.AccountRepository;
 import io.swagger.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public class TransactionService {
 
     @Autowired
     private TransactionRepository transactionRepository;
+
+    @Autowired
+    private AccountRepository accountRepository;
 
     private Transaction transaction;
 
@@ -53,11 +57,13 @@ public class TransactionService {
         {
             throw new Exception("The amount requested exceeds the maximum amount allowed");
         }
+        System.out.println(transaction);
+        //transaction.setTransactionId(7);
         transactionRepository.save(transaction);
     }
 
     //checker if the account has reached the day transaction limit
-    public boolean transactionDayLimitChecker(String Iban)
+    public boolean transactionDayLimitChecker(Account Iban)
     {
         LocalDateTime dayMin = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
         LocalDateTime dayMax = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);

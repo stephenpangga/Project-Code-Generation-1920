@@ -128,7 +128,7 @@ public class TransactionsApiController implements TransactionsApi {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
         }
         System.out.println("print the body");
-        System.out.println(body);
+        //System.out.println(body);
 
         return new ResponseEntity<Transaction>(HttpStatus.OK);
     }

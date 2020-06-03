@@ -21,10 +21,10 @@ import java.util.Objects;
 @Entity
 public class Account   {
   @JsonProperty("authorId")
-  @Id
   private Integer authorId = null;
 
   @JsonProperty("iban")
+  @Id
   private String iban = null;
 
   @JsonProperty("balance")
@@ -42,6 +42,11 @@ public class Account   {
     this.iban = iban;
     this.balance = balance;
     this.accountType = accountType;
+  }
+
+  public Account iban(String iban) {
+    this.iban = iban;
+    return this;
   }
 
   /**

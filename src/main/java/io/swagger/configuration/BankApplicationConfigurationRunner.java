@@ -31,9 +31,9 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        loadTransactions();
         loadUsers();
         loadAccounts();
+        loadTransactions();
     }
 
     /*** save the datas here ***/
@@ -69,23 +69,23 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     public void loadTransactions()
     {
-        Account account1 = new Account(1,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
-        Account account2 = new Account(2,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account1 = new Account(3,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account2 = new Account(4,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Transaction> transactionList = Arrays.asList(
-                new Transaction("NL23INHO2298608059",
-                        "NL23INHO2298608058",
+                new Transaction(account1,
+                        account2,
                         503.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
-                new Transaction("NL23INHO2298608059",
-                        "NL23INHO2298608058",
+                new Transaction(account1,
+                        account2,
                         502.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
                         1,
                         LocalDateTime.now()),
-                new Transaction("NL23INHO2298608058",
-                        "NL23INHO2298608059",
+                new Transaction(account2,
+                        account1,
                         501.73,
                         Transaction.TransactionTypeEnum.WITHDRAW,
                         1,
@@ -102,9 +102,12 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     }
 
     public void loadAccounts(){
+        Account account1 = new Account(3,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account2 = new Account(4,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Account> accounts = Arrays.asList(
-                new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS),
-                new Account().authorId(2).accountType(Account.AccountTypeEnum.CURRENT)
+                new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS).iban("NL23INHO2298608069"),
+                new Account().authorId(2).accountType(Account.AccountTypeEnum.CURRENT).iban("NL23INHO2298608079"),
+                account1, account2
         );
 
         accounts.forEach(acc->accountRepository.save(acc));

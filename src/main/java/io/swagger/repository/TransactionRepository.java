@@ -21,5 +21,5 @@ public interface TransactionRepository extends CrudRepository<Transaction, Integ
     List<Transaction> findByAmountBetween(Double min, Double max);
 
     //limit checkers
-    List<Transaction> findBySenderEqualsAndDatetimeBetween(String userIban, LocalDateTime dayMin, LocalDateTime dayMax);
+    List<Transaction> findBySenderEqualsAndDatetimeBetween(Account userIban, LocalDateTime dayMin, LocalDateTime dayMax);
 }
