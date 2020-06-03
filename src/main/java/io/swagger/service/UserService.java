@@ -21,10 +21,12 @@ public class UserService {
         return (List<User>) userRepository.findAll();
     }
 
-    public List<User> deteleteUserById(int id) {
+    public void deteleteUserById(int id) {
         userRepository.delete(id);
-        List<User> user = userRepository.findAll();
-        return user;
+    }
+
+    public void updateUser(int userId) {
+        userRepository.save(userId);
     }
 
     public User registerUser(String email, String password, String firstName, String lastName, User.AccessLevelEnum accessLevel){
