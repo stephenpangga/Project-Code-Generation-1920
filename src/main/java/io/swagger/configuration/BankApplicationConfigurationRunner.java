@@ -44,20 +44,28 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     public void loadUsers()
     {
         List<User> userList = Arrays.asList(
-                new User("Stephen",
-                        "Pangga",
-                        "stephen@gmail.com",
-                        "password", User.AccessLevelEnum.EMPLOYEE
+                new User("inholland@gmail.com",
+                        "inhollandbank",
+                        "Bank",
+                        "bank",
+                        User.AccessLevelEnum.EMPLOYEE),
+                new User("stephen@gmail.com",
+                        "password",
+                        "Stephen",
+                        "pangga",
+                        User.AccessLevelEnum.EMPLOYEE
                 ),
-                new User("Frances",
-                "Agasino",
-                "frances@gmail.com",
-                "password", User.AccessLevelEnum.CUSTOMER
+                new User("frances@gmail.com",
+                        "password",
+                        "Frances",
+                        "Agasino",
+                        User.AccessLevelEnum.CUSTOMER
                 ),
-                new User("Sisa",
+                new User("sisa@gmail.com",
+                        "password",
+                        "Sisa",
                         "Mokranova",
-                        "sisa@gmail.com",
-                        "somethingstrongerthanpassword", User.AccessLevelEnum.CUSTOMER
+                        User.AccessLevelEnum.CUSTOMER
                 )
         );
         for(User user: userList)
@@ -69,6 +77,8 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     public void loadTransactions()
     {
+        User u = new User("stephen@gmail.com", "password", "Stephen", "pangga", User.AccessLevelEnum.EMPLOYEE);
+        u.setId(10002);
         Account account1 = new Account(3,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
         Account account2 = new Account(4,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Transaction> transactionList = Arrays.asList(
@@ -76,19 +86,19 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
                         account2,
                         503.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
-                        1,
+                        u,
                         LocalDateTime.now()),
                 new Transaction(account1,
                         account2,
                         502.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
-                        1,
+                        u,
                         LocalDateTime.now()),
                 new Transaction(account2,
                         account1,
                         501.73,
                         Transaction.TransactionTypeEnum.WITHDRAW,
-                        1,
+                        u,
                         LocalDateTime.now())
         );
 

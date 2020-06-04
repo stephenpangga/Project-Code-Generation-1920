@@ -3,6 +3,7 @@ package io.swagger.service;
 
 import io.swagger.model.Account;
 import io.swagger.model.Transaction;
+import io.swagger.model.User;
 import io.swagger.repository.AccountRepository;
 import io.swagger.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,6 @@ public class TransactionService {
     }
 
     //filters for Transaction
-
     public List<Transaction> findBy(Double min, Double max)
     {
         return transactionRepository.findByAmountBetween(min, max);
@@ -53,6 +53,9 @@ public class TransactionService {
        /* if(!checkIfAccountsExists(transaction)){
             throw new Exception("sender or recipient doenst exist");
         }*/
+        if(!transactionAbsoluteLimitChecker(transaction)){
+            throw new Exception("balance will be too low, can't perform transaction");
+        }
         if(!transactionDayLimitChecker(transaction.getSender()))
         {
             throw new Exception(" Transaction limit reached");
@@ -61,6 +64,8 @@ public class TransactionService {
         {
             throw new Exception("The amount requested exceeds the maximum amount allowed");
         }
+        checkTransactionType(transaction);
+
         System.out.println(transaction);
         //transaction.setTransactionId(7);
         transactionRepository.save(transaction);
@@ -99,6 +104,9 @@ public class TransactionService {
         //get the account info.
         //check diff between balance and transaction amount.
         //then check diff with absolute limit.
+        if(transaction.getSender().getBalance() - transaction.getAmount() >= transaction.getAbsoluteLimit()){
+            return true;
+        }
         return false;
     }
 
@@ -113,26 +121,91 @@ public class TransactionService {
         return false;
     }
 
-
-    /*
-     * todo
-     *  checker for account balance
-     *  a method to update balance
-     *  reduce balance method
-     *  add balance method
-     *  check if the user is the owner of the account or an employee logged in.
-     *  update balance from account
-     *  get account type
-     *  withdraw method
-     *  deposit method
-     *  perform transaction based on account type, current or savings
-     */
-
-    public void checkAccountBalance()
+    public void checkAccountBalance(Transaction transaction)
     {
+        Account sender = transaction.getSender();
+
         //check the transaction type
         //get account balance
         //check the balance with absolute value
         //if not possible check
     }
+
+    public void checkUserPerforming() throws Exception {
+       User userPerforming = transaction.getUserPerforming();
+       //if michael fixes his part then do userPerforming.equals(transaction.getSender().getOwner());
+       if(!(userPerforming.getAccessLevel().equals(User.AccessLevelEnum.EMPLOYEE) || userPerforming.getId().equals(transaction.getSender().getAuthorId()))){
+           throw new Exception ("user is not authorised");
+       }
+        //check if its employee or owner, return that
+        //if(user performing is not owner or employee)
+            //throw new exception ("you are not authorised");
+    }
+
+    private void changeBalance(Account account, Double amount){
+        account.setBalance(account.getBalance()+amount);
+        accountRepository.save(account);
+    }
+
+    private void transferMoney(Account sender, Account recipient, Transaction transaction) throws Exception {
+        if(sender.getAccountType().equals(Account.AccountTypeEnum.SAVINGS) || recipient.getAccountType().equals(Account.AccountTypeEnum.SAVINGS)){
+            if(sender.getAuthorId().equals(recipient.getAuthorId())){
+                changeBalance(sender, transaction.getAmount()*-1);//-1 to turn the value negative.
+                changeBalance(recipient, transaction.getAmount());
+            }else{
+                throw new Exception("Can't do this transaction, savings account owner doesn't match");
+            }
+        }
+        changeBalance(sender, transaction.getAmount()*-1);
+        changeBalance(recipient, transaction.getAmount());
+    }
+
+    private void withdrawMoney(Account sender, Transaction transaction) throws Exception {
+        if(sender.getAccountType().equals(Account.AccountTypeEnum.CURRENT)){
+            changeBalance(sender, transaction.getAmount()*-1);
+        }else{
+            throw new Exception("cannot withdraw directly from a savings account");
+        }
+    }
+
+    private void depositMoney(Account recipient, Transaction transaction) throws Exception {
+        if(recipient.getAccountType().equals(Account.AccountTypeEnum.CURRENT)){
+            changeBalance(recipient, transaction.getAmount());
+        }else{
+            throw new Exception("cannot deposit directly to a savings account");
+        }
+    }
+
+    public void checkTransactionType(Transaction transaction) throws Exception {
+        //check if user performing owns the account or is an employee
+        checkUserPerforming();
+        Account sender = transaction.getSender();
+        Account recipient = transaction.getRecipient();
+        if(transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.TRANSFER)){
+            // change ballance of both sender and recipient
+            // for savings account, check if both accounts have the same owner
+            transferMoney(sender, recipient, transaction);
+        } else if (transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.WITHDRAW)){
+            //check if account is current
+            // reduce amount of sender, ignore recipient
+            withdrawMoney(sender, transaction);
+        } else if (transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.DEPOSIT)){
+            //check if its current
+            //increase amount of recipient
+            depositMoney(recipient, transaction);
+        }
+    }
 }
+/*
+ * todo
+ *  checker for account balance - done
+ *  a method to update balance - done
+ *  reduce balance method - done
+ *  add balance method - done
+ *  check if the user is the owner of the account or an employee logged in. - done
+ *  update balance from account - done
+ *  get account type
+ *  withdraw method
+ *  deposit method
+ *  perform transaction based on account type, current or savings
+ */

@@ -41,7 +41,8 @@ public class Transaction   {
   private Integer transactionId;
 
   @JsonProperty("userPerforming")
-  private Integer userPerforming = null;
+  @ManyToOne(cascade = {CascadeType.REFRESH})
+  private User userPerforming = null;
 
   @JsonProperty("timestamp")
   private LocalDateTime datetime;
@@ -63,7 +64,7 @@ public class Transaction   {
   public Transaction() {
   }
 
-  public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, Integer userPerforming, LocalDateTime datetime) {
+  public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, User userPerforming, LocalDateTime datetime) {
     this.sender = sender;
     this.recipient = recipient;
     this.amount = amount;
@@ -216,7 +217,7 @@ public class Transaction   {
     this.datetime = datetime;
   }
 
-  public Transaction userPerforming(Integer userPerforming) {
+  public Transaction userPerforming(User userPerforming) {
     this.userPerforming = userPerforming;
     return this;
   }
@@ -227,11 +228,11 @@ public class Transaction   {
    **/
   @ApiModelProperty(example = "1", value = "")
 
-  public Integer getUserPerforming() {
+  public User getUserPerforming() {
     return userPerforming;
   }
 
-  public void setUserPerforming(Integer userPerforming) {
+  public void setUserPerforming(User userPerforming) {
     this.userPerforming = userPerforming;
   }
 

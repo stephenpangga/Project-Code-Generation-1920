@@ -17,6 +17,14 @@ import javax.persistence.*;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class User  {
 
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
