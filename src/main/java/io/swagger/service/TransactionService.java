@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.threeten.bp.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TransactionService {
@@ -49,6 +50,9 @@ public class TransactionService {
 
         this.transaction = transaction;
 
+       /* if(!checkIfAccountsExists(transaction)){
+            throw new Exception("sender or recipient doenst exist");
+        }*/
         if(!transactionDayLimitChecker(transaction.getSender()))
         {
             throw new Exception(" Transaction limit reached");
@@ -95,6 +99,17 @@ public class TransactionService {
         //get the account info.
         //check diff between balance and transaction amount.
         //then check diff with absolute limit.
+        return false;
+    }
+
+    public boolean checkIfAccountsExists(Transaction transaction)
+    {
+        Account sender = null; //= accountRepository.findOne(transaction.getSender().getIban()); - need to fix based on michael's code, call correct @Id
+        Account recipient = null; //= accountRepository.findOne(transaction.getRecipient().getIban());
+        if(sender!= null && recipient != null)
+        {
+            return true;
+        }
         return false;
     }
 

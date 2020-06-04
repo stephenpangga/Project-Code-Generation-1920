@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/TransactionsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/TransactionsApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/repository/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/repository/AccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TransactionTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TransactionTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApiController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,14 +84,22 @@
       <option name="project" value="LOCAL" />
       <updated>1591218173359</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix error where transaction Id is now generating when posting because cascade.type = refresh child entity also gets reloaded from the database whenever the parent entity is refreshed.">
+      <created>1591221480684</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591221480684</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working with frances." />
     <MESSAGE value="oneToMany annotation for Transaction sender and recipient" />
     <MESSAGE value="reverting back to integer &quot;sender&quot; variable for debugging purpose" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverting back to integer &quot;sender&quot; variable for debugging purpose" />
+    <MESSAGE value="fix error where transaction Id is now generating when posting because cascade.type = refresh child entity also gets reloaded from the database whenever the parent entity is refreshed." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix error where transaction Id is now generating when posting because cascade.type = refresh child entity also gets reloaded from the database whenever the parent entity is refreshed." />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1590606712935">
@@ -111,34 +110,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605923885" />
-    <state x="332" y="111" key="CommitChangelistDialog2" timestamp="1591218172367">
+    <state x="332" y="111" key="CommitChangelistDialog2" timestamp="1591221479945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591218172367" />
-    <state width="1877" height="373" key="GridCell.Tab.0.bottom" timestamp="1591221329486">
+    <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591221479945" />
+    <state width="1877" height="373" key="GridCell.Tab.0.bottom" timestamp="1591272167713">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591221329486" />
-    <state width="1877" height="373" key="GridCell.Tab.0.center" timestamp="1591221329485">
+    <state width="1877" height="373" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591272167713" />
+    <state width="1877" height="373" key="GridCell.Tab.0.center" timestamp="1591272167713">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591221329485" />
-    <state width="1877" height="373" key="GridCell.Tab.0.left" timestamp="1591221329485">
+    <state width="1877" height="373" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591272167713" />
+    <state width="1877" height="373" key="GridCell.Tab.0.left" timestamp="1591272167713">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591221329485" />
-    <state width="1877" height="373" key="GridCell.Tab.0.right" timestamp="1591221329485">
+    <state width="1877" height="373" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591272167713" />
+    <state width="1877" height="373" key="GridCell.Tab.0.right" timestamp="1591272167713">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591221329485" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591218174966">
+    <state width="1877" height="373" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591272167713" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591221510101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591218174966" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1591099719070">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591221510101" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1591269695861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591099719070" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591269695861" />
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591215207708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
