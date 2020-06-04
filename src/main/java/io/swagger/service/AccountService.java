@@ -16,14 +16,13 @@ public class AccountService {
 
     public List<Account> GetAllAccounts() {
         List<Account> accounts = (List<Account>) accountRepository.findAll();
-        accounts.forEach(account -> account.setIBAN(Integer.toString(account.getAccountNumber())));
         return  accounts;
     }
 
     public Account AddAccount(Integer userID,String StringAccType) {
         Account.AccountTypeEnum accountType = Account.AccountTypeEnum.valueOf(StringAccType);
         Double defaultBalance = 0.00;
-        Account acc = new Account(userID,defaultBalance, accountType);
+        Account acc = new Account(4,defaultBalance, accountType);
         accountRepository.save(acc);
         return acc;
     }

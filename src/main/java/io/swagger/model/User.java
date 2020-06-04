@@ -16,7 +16,7 @@ import java.util.Objects;
 @Entity
 @SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
-public class User  {
+public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
   @JsonProperty("id")
