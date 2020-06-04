@@ -31,11 +31,11 @@ public class AccountService {
 
     public void updateAccount(Account account, Integer id) {
 
-        Optional<Account> OriginalAccount = Optional.ofNullable(accountRepository.findOne(id));
+        /*Optional<Account> OriginalAccount = Optional.ofNullable(accountRepository.findOne(id));
         if (OriginalAccount.isPresent()) {
             Account Edited_account = OriginalAccount.get();
            Edited_account.setAccountType(account.getAccountType());
             accountRepository.save(Edited_account);
-        }
+        }*/
     }
 }

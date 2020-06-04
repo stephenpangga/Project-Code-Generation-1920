@@ -40,10 +40,26 @@ public class TransactionService {
         return (List<Transaction>) transactionRepository.findByOrderBySender();
     }
 
+    public List<Transaction> findByIbanAndDatetimeBetweenAndAmountBetween(String iban, Double min, Double max, LocalDate dateMin, LocalDate dateMax) throws Exception {
+        //initialize values
+        Account a = accountRepository.findOne(iban); //change to whatever michael uses for @id in the end
+        if(a == null) throw new Exception("Account requested doesn't exist");
+        LocalDateTime dayMin = LocalDateTime.of(dateMin, LocalTime.MIN);
+        LocalDateTime dayMax = LocalDateTime.of(dateMax, LocalTime.MAX);
+
+        //get transactions from db
+        List<Transaction> t = transactionRepository.findByRecipientAndDatetimeBetweenAndAmountBetween(a, dayMin, dayMax, min, max);
+        t.addAll(transactionRepository.findBySenderAndDatetimeBetweenAndAmountBetween(a, dayMin, dayMax, min, max));
+
+        return t;
+    }
+
     //filters for Transaction
-    public List<Transaction> findBy(Double min, Double max)
+    public List<Transaction> findBy(Double min, Double max, LocalDate dateMin, LocalDate dateMax)
     {
-        return transactionRepository.findByAmountBetween(min, max);
+        LocalDateTime dayMin = LocalDateTime.of(dateMin, LocalTime.MIN);
+        LocalDateTime dayMax = LocalDateTime.of(dateMax, LocalTime.MAX);
+        return transactionRepository.findByAmountBetweenAndDatetimeBetween(min, max, dayMin, dayMax);
     }
 
     public void saveTransaction(Transaction transaction) throws Exception {

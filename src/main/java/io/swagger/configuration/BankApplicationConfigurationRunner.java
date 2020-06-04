@@ -79,8 +79,8 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     {
         User u = new User("stephen@gmail.com", "password", "Stephen", "pangga", User.AccessLevelEnum.EMPLOYEE);
         u.setId(10002);
-        Account account1 = new Account(3,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
-        Account account2 = new Account(4,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account1 = new Account(10003,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account2 = new Account(10002,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Transaction> transactionList = Arrays.asList(
                 new Transaction(account1,
                         account2,
@@ -112,11 +112,11 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     }
 
     public void loadAccounts(){
-        Account account1 = new Account(3,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
-        Account account2 = new Account(4,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account1 = new Account(10003,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
+        Account account2 = new Account(10002,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Account> accounts = Arrays.asList(
-                new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS).iban("NL23INHO2298608069"),
-                new Account().authorId(2).accountType(Account.AccountTypeEnum.CURRENT).iban("NL23INHO2298608079"),
+                new Account().authorId(10003).accountType(Account.AccountTypeEnum.SAVINGS).iban("NL23INHO2298608069"),
+                new Account().authorId(10002).accountType(Account.AccountTypeEnum.CURRENT).iban("NL23INHO2298608079"),
                 account1, account2
         );
 
