@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.service.IBANGenerator;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,7 +23,6 @@ import java.util.Random;
 @NoArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
 @Entity
 //@SequenceGenerator(name ="account_sq", initialValue = 1)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
@@ -37,21 +35,29 @@ public class Account   {
           name = "acc_sq",
           strategy = "io.swagger.service.IBANGenerator",
           parameters = {
-                  @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INH"),
-                  @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%011d")})
+                  @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INHO"),
+                  @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
   @JsonProperty("iban")
   private String iban;
 
   @JsonProperty("authorId")
   private Integer authorId = null;
-
+  @javax.persistence.Transient
   private  int checkSum;
+  @javax.persistence.Transient
   private Random rnd;
   @JsonProperty("balance")
   private Double balance = null;
 
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
+
+  public Account(String iban, Integer authorId, Double balance, AccountTypeEnum accountType) {
+    this.iban = iban;
+    this.authorId = authorId;
+    this.balance = balance;
+    this.accountType = accountType;
+  }
 
   public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;

@@ -14,10 +14,10 @@ import java.io.Serializable;
 import java.util.Properties;
 public class IBANGenerator extends SequenceStyleGenerator {
     public static final String CODE_NUMBER_SEPARATOR_PARAMETER = "codeNumberSeparator";
-    public static final String CODE_NUMBER_SEPARATOR_DEFAULT = "INH";
+    public static final String CODE_NUMBER_SEPARATOR_DEFAULT = "INHO";
 
     public static final String NUMBER_FORMAT_PARAMETER = "numberFormat";
-    public static final String NUMBER_FORMAT_DEFAULT = "%011d";
+    public static final String NUMBER_FORMAT_DEFAULT = "%010d";
     private String format;
     @Override
     public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
