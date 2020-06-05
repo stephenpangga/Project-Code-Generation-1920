@@ -56,7 +56,6 @@ public class Account   {
     return iban;
   }
 
-
   public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;
     this.balance = balance;
