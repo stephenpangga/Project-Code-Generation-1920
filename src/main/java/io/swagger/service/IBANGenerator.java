@@ -1,6 +1,5 @@
 package io.swagger.service;
 
-import io.swagger.model.Account;
 import org.hibernate.HibernateException;
 import org.hibernate.MappingException;
 import org.hibernate.engine.spi.SessionImplementor;
@@ -21,7 +20,7 @@ public class IBANGenerator extends SequenceStyleGenerator {
     private String format;
     @Override
     public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
-        return String.format(format, ((Account)object).getCheckSum(), super.generate(session, object));    }
+        return String.format(format, super.generate(session, object));    }
     @Override
     public void configure(Type type, Properties params,
                           ServiceRegistry serviceRegistry) throws MappingException {

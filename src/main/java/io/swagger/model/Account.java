@@ -1,7 +1,6 @@
 package io.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
@@ -15,7 +14,6 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Random;
 
 /**
  * Account
@@ -43,12 +41,7 @@ public class Account   {
 
   @JsonProperty("authorId")
   private Integer authorId = null;
-  @JsonIgnore
-  @javax.persistence.Transient
-  private  int checkSum;
-  @JsonIgnore
-  @javax.persistence.Transient
-  private Random rnd;
+
   @JsonProperty("balance")
   private Double balance = null;
 
@@ -66,13 +59,10 @@ public class Account   {
     this.authorId = authorId;
     this.balance = balance;
     this.accountType = accountType;
-    rnd = new Random();
-   this.checkSum = rnd.nextInt(150);
+
   }
 
-  public Random getRnd() {
-    return rnd;
-  }
+
 
   /**
    * type of account to be created
