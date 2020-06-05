@@ -21,11 +21,8 @@ public class AccountService {
     }
 
     public Account AddAccount(Account newAcc) {
-        Account.AccountTypeEnum accountType = Account.AccountTypeEnum.valueOf(newAcc.getStringAccType());
-        Double defaultBalance = 0.00;
-        Account acc = new Account(newAcc.getAuthorId(),defaultBalance, accountType);
-        accountRepository.save(acc);
-        return acc;
+        accountRepository.save(newAcc);
+        return newAcc;
     }
 
     public void updateAccount(Account account, Integer id) {
