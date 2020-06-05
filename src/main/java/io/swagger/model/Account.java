@@ -57,7 +57,6 @@ public class Account   {
     this.authorId = authorId;
     this.balance = balance;
     this.accountType = accountType;
-
     rnd = new Random();
    this.checkSum = rnd.nextInt(150);
   }
