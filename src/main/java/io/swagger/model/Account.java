@@ -1,6 +1,7 @@
 package io.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,8 +43,10 @@ public class Account   {
 
   @JsonProperty("authorId")
   private Integer authorId = null;
+  @JsonIgnore
   @javax.persistence.Transient
   private  int checkSum;
+  @JsonIgnore
   @javax.persistence.Transient
   private Random rnd;
   @JsonProperty("balance")
