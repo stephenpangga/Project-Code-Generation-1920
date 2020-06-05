@@ -79,8 +79,12 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     {
         User u = new User("stephen@gmail.com", "password", "Stephen", "pangga", User.AccessLevelEnum.EMPLOYEE);
         u.setId(10002);
-        Account account1 = new Account(10003,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
-        Account account2 = new Account(10002,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
+        List<Account> a = accountRepository.findAll();
+
+        Account account1 = a.get(0);
+        Account account2 = a.get(1);
+
+
         List<Transaction> transactionList = Arrays.asList(
                 new Transaction(account1,
                         account2,
@@ -110,22 +114,22 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
-  public void LoadAccounts(){
-
-          List<Account> accounts = Arrays.asList(
-          new Account(2,0.0, Account.AccountTypeEnum.SAVINGS),
-      new Account(2,0.0, Account.AccountTypeEnum.CURRENT));
-      accounts.forEach(acc->accountRepository.save(acc));
-        Account account1 = new Account(10003,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
-        Account account2 = new Account(10002,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
-        List<Account> accounts = Arrays.asList(
-                new Account().authorId(10003).accountType(Account.AccountTypeEnum.SAVINGS).iban("NL23INHO2298608069"),
-                new Account().authorId(10002).accountType(Account.AccountTypeEnum.CURRENT).iban("NL23INHO2298608079"),
-                account1, account2
-        );
-
-        accounts.forEach(acc->accountRepository.save(acc));
-        List<Account>acc = (List<Account>) accountRepository.findAll();
-        //acc.forEach(System.out::println);
+    public void loadAccounts() {
+        Account bankAccount = new Account(99999,  1500.0, Account.AccountTypeEnum.CURRENT);
+        bankAccount.setIban("NL01INHO0000000001");
+        Account account1 = new Account(10003,100.1, Account.AccountTypeEnum.CURRENT);
+        account1.setIban("NL23INHO2298608059");
+        Account account2 = new Account(10002,100.1, Account.AccountTypeEnum.CURRENT);
+        account2.setIban("NL23INHO2298608058");
+        List<Account> accounts = Arrays.asList(bankAccount, account1, account2);
+        accounts.forEach((accx) -> {
+            this.accountRepository.save(accx);
+        });
+        /*List<Account> acc = (List)this.accountRepository.findAll();
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        acc.forEach(var10001::println);*/
     }
+
+
 }

@@ -8,10 +8,11 @@ import io.swagger.repository.AccountRepository;
 import io.swagger.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.threeten.bp.*;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.LocalDateTime;
+import org.threeten.bp.LocalTime;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TransactionService {
@@ -128,8 +129,8 @@ public class TransactionService {
 
     public boolean checkIfAccountsExists(Transaction transaction)
     {
-        Account sender = null; //= accountRepository.findOne(transaction.getSender().getIban()); - need to fix based on michael's code, call correct @Id
-        Account recipient = null; //= accountRepository.findOne(transaction.getRecipient().getIban());
+        Account sender = accountRepository.findOne(transaction.getSender().getIban());
+        Account recipient = accountRepository.findOne(transaction.getRecipient().getIban());
         if(sender!= null && recipient != null)
         {
             return true;
