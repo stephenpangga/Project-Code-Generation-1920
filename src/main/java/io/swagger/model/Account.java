@@ -13,10 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 import java.util.Random;
 
@@ -29,14 +26,15 @@ import java.util.Random;
 @Setter
 @AllArgsConstructor
 @Entity
-//@SequenceGenerator(name ="account_sq", initialValue = 1000846141)
+//@SequenceGenerator(name ="account_sq", initialValue = 1)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
+  @Column(columnDefinition = "LONGVARCHAR")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acc_sq")
   @GenericGenerator(
-          name = "book_seq",
+          name = "acc_sq",
           strategy = "io.swagger.service.IBANGenerator",
           parameters = {
                   @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INH"),
@@ -61,7 +59,7 @@ public class Account   {
     this.accountType = accountType;
 
     rnd = new Random();
-   this.checkSum = rnd.nextInt(15)+30;
+   this.checkSum = rnd.nextInt(150);
   }
 
   public Random getRnd() {

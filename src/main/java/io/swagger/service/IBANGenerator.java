@@ -17,7 +17,7 @@ public class IBANGenerator extends SequenceStyleGenerator {
     public static final String CODE_NUMBER_SEPARATOR_DEFAULT = "INH";
 
     public static final String NUMBER_FORMAT_PARAMETER = "numberFormat";
-    public static final String NUMBER_FORMAT_DEFAULT = "%05d";
+    public static final String NUMBER_FORMAT_DEFAULT = "%011d";
     private String format;
     @Override
     public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
@@ -28,7 +28,6 @@ public class IBANGenerator extends SequenceStyleGenerator {
         super.configure(LongType.INSTANCE, params, serviceRegistry);
         String codeNumberSeparator = ConfigurationHelper.getString(CODE_NUMBER_SEPARATOR_PARAMETER, params, CODE_NUMBER_SEPARATOR_DEFAULT);
         String numberFormat = ConfigurationHelper.getString(NUMBER_FORMAT_PARAMETER, params, NUMBER_FORMAT_DEFAULT);
-        this.format = "%1$s"+codeNumberSeparator+numberFormat; ;
         this.format ="NL"+"%1$s"+codeNumberSeparator+numberFormat;
     }
 
