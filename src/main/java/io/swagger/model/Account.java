@@ -35,7 +35,6 @@ public class Account   {
           name = "acc_sq",
           strategy = "io.swagger.service.IBANGenerator",
           parameters = {
-
                   @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INHO"),
                   @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
   @JsonProperty("iban")
@@ -64,8 +63,6 @@ public class Account   {
     this.accountType = accountType;
 
   }
-
-
 
   /**
    * type of account to be created
