@@ -98,7 +98,7 @@ public class AccountsApiController implements AccountsApi {
                 return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"balance\" : 0,\n  \"iban\" : \"NL23INHO2298608059\"\n}", Account.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<Account>(accountService.AddAccount(body),HttpStatus.OK);
             }
         }
 

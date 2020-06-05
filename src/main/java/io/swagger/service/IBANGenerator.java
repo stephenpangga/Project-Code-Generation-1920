@@ -16,7 +16,7 @@ public class IBANGenerator extends SequenceStyleGenerator {
     public static final String CODE_NUMBER_SEPARATOR_DEFAULT = "INHO";
 
     public static final String NUMBER_FORMAT_PARAMETER = "numberFormat";
-    public static final String NUMBER_FORMAT_DEFAULT = "%010d";
+    public static final String NUMBER_FORMAT_DEFAULT = "";
     private String format;
     @Override
     public Serializable generate(SessionImplementor session, Object object) throws HibernateException {

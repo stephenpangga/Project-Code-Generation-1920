@@ -23,13 +23,11 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-//@SequenceGenerator(name ="account_sq", initialValue = 1)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
 
   @Id
-  @Column(columnDefinition = "LONGVARCHAR")
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acc_sq")
+  @GeneratedValue(strategy = GenerationType.AUTO, generator = "acc_sq")
   @GenericGenerator(
           name = "acc_sq",
           strategy = "io.swagger.service.IBANGenerator",
@@ -38,6 +36,8 @@ public class Account   {
                   @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
   @JsonProperty("iban")
   private String iban;
+
+  private String currency = "Euro";
 
   @JsonProperty("authorId")
   private Integer authorId = null;
@@ -48,12 +48,10 @@ public class Account   {
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public Account(String iban, Integer authorId, Double balance, AccountTypeEnum accountType) {
-    this.iban = iban;
-    this.authorId = authorId;
-    this.balance = balance;
-    this.accountType = accountType;
+  public String getIban() {
+    return iban;
   }
+
 
   public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;
