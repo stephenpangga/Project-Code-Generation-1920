@@ -20,18 +20,19 @@ public class AccountService {
         return  accounts;
     }
 
-    public Account AddAccount(Account newAcc) {
+    public Account CreateAccount(Account newAcc) {
         accountRepository.save(newAcc);
         return newAcc;
     }
 
-    public void updateAccount(Account account, Integer id) {
-
-        Optional<Account> OriginalAccount = Optional.ofNullable(accountRepository.findOne(id));
+    public Account UpdateAccount(Account account, String IBAN) {
+        Account edite_Account = null;
+        Optional<Account> OriginalAccount = Optional.ofNullable(accountRepository.findOne(IBAN));
         if (OriginalAccount.isPresent()) {
-            Account Edited_account = OriginalAccount.get();
-           Edited_account.setAccountType(account.getAccountType());
-            accountRepository.save(Edited_account);
+             edite_Account = OriginalAccount.get();
+           edite_Account.setAccountType(account.getAccountType());
+            accountRepository.save(edite_Account);
         }
+        return  edite_Account;
     }
 }
