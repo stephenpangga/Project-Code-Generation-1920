@@ -27,7 +27,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private AccountRepository accountRepository;
+    AccountRepository accountRepository;
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
@@ -110,8 +110,12 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
+  public void LoadAccounts(){
 
-    public void loadAccounts(){
+          List<Account> accounts = Arrays.asList(
+          new Account(2,0.0, Account.AccountTypeEnum.SAVINGS),
+      new Account(2,0.0, Account.AccountTypeEnum.CURRENT));
+      accounts.forEach(acc->accountRepository.save(acc));
         Account account1 = new Account(10003,"NL23INHO2298608059",100.1, Account.AccountTypeEnum.CURRENT);
         Account account2 = new Account(10002,"NL23INHO2298608058",100.1, Account.AccountTypeEnum.CURRENT);
         List<Account> accounts = Arrays.asList(

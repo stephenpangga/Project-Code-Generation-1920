@@ -4,29 +4,54 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.service.IBANGenerator;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * Account
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
+@NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
 @Entity
+//@SequenceGenerator(name ="account_sq", initialValue = 1000846141)
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
+  @GenericGenerator(
+          name = "book_seq",
+          strategy = "io.swagger.service.IBANGenerator",
+          parameters = {
+                  @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INH"),
+                  @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%011d")})
+  @JsonProperty("iban")
+  private String iban;
+
   @JsonProperty("authorId")
   private Integer authorId = null;
 
-  @JsonProperty("iban")
-  @Id
-  private String iban = null;
-
+  private  int checkSum;
+  private Random rnd;
   @JsonProperty("balance")
   private Double balance = null;
 
@@ -39,9 +64,15 @@ public class Account   {
 
   public Account(Integer authorId, String iban, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;
-    this.iban = iban;
     this.balance = balance;
     this.accountType = accountType;
+
+    rnd = new Random();
+   this.checkSum = rnd.nextInt(15)+30;
+  }
+
+  public Random getRnd() {
+    return rnd;
   }
 
   public Account iban(String iban) {
@@ -124,9 +155,9 @@ public class Account   {
    **/
   @ApiModelProperty(example = "NL23INHO2298608059", value = "unique string that identifies the bank and account")
 
-  @Size(min=18,max=18)   public String getIban() {
-    return iban;
-  }
+ // @Size(min=18,max=18)   public String getIban() {
+   // return iban;
+ // }
 
   public void setIban(String iban) {
     this.iban = iban;
@@ -192,4 +223,5 @@ public class Account   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

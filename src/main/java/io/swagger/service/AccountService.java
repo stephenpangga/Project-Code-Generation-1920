@@ -19,12 +19,10 @@ public class AccountService {
         return  accounts;
     }
 
-
-    public Account AddAccount(Integer UserID,String StringAccType) {
+    public Account AddAccount(Integer userID,String StringAccType) {
         Account.AccountTypeEnum accountType = Account.AccountTypeEnum.valueOf(StringAccType);
-        Account acc = new Account( )
-                .accountType(accountType)
-                .authorId(UserID);
+        Double defaultBalance = 0.00;
+        Account acc = new Account(4,defaultBalance, accountType);
         accountRepository.save(acc);
         return acc;
     }

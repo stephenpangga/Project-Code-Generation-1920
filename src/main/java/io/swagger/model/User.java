@@ -8,12 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * RegistrationUser
  */
 @Validated
 @Entity
+@SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class User  {
 
