@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
+    <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="working with frances.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/BaseUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/User_notUsed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/User_notUsed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyFistApp" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -94,10 +87,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590608935808" />
-    <state x="332" y="111" key="CommitChangelistDialog2" timestamp="1590605782299">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591352611740">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591352611740" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591351763274">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591351763274" />
     <state width="1877" height="370" key="GridCell.Tab.0.bottom" timestamp="1590608969752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
