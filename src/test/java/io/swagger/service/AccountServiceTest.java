@@ -36,7 +36,7 @@ class AccountServiceTest {
     public void CallingAllAccountsShouldReturnOK() throws Exception {
         given( accountRepository.findAll())
                 .willReturn(Arrays.asList(account));
-        service.perform(service.GetAllAccounts())
+        this.mvc.perform(get("/accounts"))
                 .andExpect(status().isOk());
     }
 
