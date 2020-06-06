@@ -95,23 +95,23 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     public void loadTransactions()
     {
         List<Transaction> transactionList = Arrays.asList(
-                new Transaction("NL01INHO1c",
-                        "NL02INHO2",
+                new Transaction(accountRepository.findAll().get(0),
+                        accountRepository.findAll().get(1),
                         503.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
-                        1,
+                        userRepository.findAll().get(1),
                         LocalDateTime.now()),
-                new Transaction("NL01INHO1b",
-                        "NL02INHO2",
+                new Transaction(accountRepository.findAll().get(2),
+                        accountRepository.findAll().get(1),
                         502.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
-                        1,
+                        userRepository.findAll().get(2),
                         LocalDateTime.now()),
-                new Transaction("NL01INHO1a",
-                        "NL02INHO2",
+                new Transaction(accountRepository.findAll().get(2),
+                        accountRepository.findAll().get(0),
                         501.73,
                         Transaction.TransactionTypeEnum.WITHDRAW,
-                        1,
+                        userRepository.findAll().get(0),
                         LocalDateTime.now())
         );
 
