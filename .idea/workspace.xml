@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/swagger/service/AccountServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/model/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/model/AccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591424957966</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591447586917</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1591447586917</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -328,34 +331,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591424956038">
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591447583153">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591424956038" />
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591447583153" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591400868742">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591400868742" />
-    <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591441192023">
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591447875064">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591441192023" />
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591447875064" />
     <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.center" timestamp="1591441192022">
+    <state width="1557" height="217" key="GridCell.Tab.0.center" timestamp="1591447875064">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591441192022" />
+    <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591447875064" />
     <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.left" timestamp="1591441192022">
+    <state width="1557" height="217" key="GridCell.Tab.0.left" timestamp="1591447875064">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591441192022" />
+    <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591447875064" />
     <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.right" timestamp="1591441192023">
+    <state width="1557" height="217" key="GridCell.Tab.0.right" timestamp="1591447875064">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591441192023" />
+    <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591447875064" />
     <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
     <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
       <screen x="0" y="0" width="1600" height="860" />
@@ -383,7 +386,7 @@
     <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1591403313474" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1591433996289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1591447661100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.swagger.*</FILTER>
     </SUITE>
   </component>

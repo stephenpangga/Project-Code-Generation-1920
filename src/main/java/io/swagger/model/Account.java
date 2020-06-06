@@ -53,8 +53,9 @@ public class Account   {
   @JsonProperty("balance")
   private Double balance = null;
 
-  public Account(Integer authorId, AccountTypeEnum accountType) {
+  public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;
+    this.balance = balance;
     this.accountType = accountType;
 
 
