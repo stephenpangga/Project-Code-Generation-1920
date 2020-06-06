@@ -1,7 +1,6 @@
 package io.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
@@ -14,6 +13,7 @@ import org.hibernate.annotations.Parameter;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 /**
@@ -27,6 +27,7 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
 
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "acc_sq")
   @GenericGenerator(
@@ -38,19 +39,46 @@ public class Account   {
   @JsonProperty("iban")
   private String iban;
 
+  @JsonProperty("balance")
+  private Double balance = 0D;
+
   @javax.persistence.Transient
   private String currency = "Euro";
 
   @JsonProperty("authorId")
-  private Integer authorId = null;
+  @ManyToOne(cascade = {CascadeType.REFRESH})
+  private User authorId = null;
 
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public Account(Integer authorId, AccountTypeEnum accountType) {
+  public Account(User authorId, AccountTypeEnum accountType) {
     this.authorId = authorId;
     this.accountType = accountType;
+  }
 
+
+  public Account(String iban, Double balance, User authorId, AccountTypeEnum accountType) {
+    this.iban = iban;
+    this.balance = balance;
+    this.authorId = authorId;
+    this.accountType = accountType;
+  }
+
+  public Double getBalance() {
+    return balance;
+  }
+
+  public void setBalance(Double balance) {
+    this.balance = balance;
+  }
+
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
   }
 
   /**
@@ -85,7 +113,7 @@ public class Account   {
   }
 
 
-  public Account authorId(Integer authorId) {
+  public Account authorId(User authorId) {
     this.authorId = authorId;
     return this;
   }
@@ -96,11 +124,11 @@ public class Account   {
   **/
   @ApiModelProperty(example = "1", value = "")
   
-    public Integer getAuthorId() {
+    public User getAuthorId() {
     return authorId;
   }
 
-  public void setAuthorId(Integer authorId) {
+  public void setAuthorId(User authorId) {
     this.authorId = authorId;
   }
 
@@ -128,7 +156,8 @@ public class Account   {
    **/
   @ApiModelProperty(example = "NL23INHO2298608059", value = "unique string that identifies the bank and account")
 
-  @Size(min=18,max=18)   public String getIban() {
+  @Size(min=18,max=18)
+  public String getIban() {
     return iban;
    }
 
@@ -136,16 +165,11 @@ public class Account   {
     this.iban = iban;
   }
 
-
-
-
   /**
    * Get balance
    * @return balance
    **/
   @ApiModelProperty(example = "0", value = "")
-
-
 
 
   @Override

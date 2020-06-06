@@ -1,8 +1,7 @@
 package io.swagger.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
@@ -49,7 +48,16 @@ public class User  {
 
   }
 
-  public User(String email, String password, String firstName, String lastName, AccessLevelEnum accessLevel) {
+    public User(Integer id, String email, String password, String firstName, String lastName, AccessLevelEnum accessLevel) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.accessLevel = accessLevel;
+    }
+
+    public User(String email, String password, String firstName, String lastName, AccessLevelEnum accessLevel) {
     this.email = email;
     this.password = password;
     this.firstName = firstName;
@@ -95,7 +103,23 @@ public class User  {
     return this;
   }
 
-  /**
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
    * Get email
    * @return email
   **/
