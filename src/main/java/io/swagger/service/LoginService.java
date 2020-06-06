@@ -20,8 +20,10 @@ public class LoginService {
     public String login(String email, String password) {
         String token = "";
         User user = userRepository.findByEmail(email);
-        if (user.getPassword().equals(password)) {
-            token = loginRepository.findOne(email).getToken();
+        if (user != null) {
+            if (user.getPassword().equals(password)) {
+                token = loginRepository.findOne(email).getToken();
+            }
         }
         return token;
     }
