@@ -2,10 +2,10 @@ package io.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
 /**
@@ -18,8 +18,8 @@ public class Login {
   @JsonProperty("token")
   private String token = null;
 
-  @JsonProperty("email")
   @Id
+  @JsonProperty("email")
   private String email;
 
   public String getEmail() {
