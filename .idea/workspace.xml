@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83b6b8cf-2eac-4b60-9c61-019f025ce0b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/service/AccountServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/service/AccountServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" afterDir="false" />
-    </list>
+    <list default="true" id="83b6b8cf-2eac-4b60-9c61-019f025ce0b7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,11 +74,20 @@
       <option name="presentableId" value="Default" />
       <updated>1589830059748</updated>
     </task>
+    <task id="LOCAL-00001" summary="fixed the author ID to be `USER type` In model Account">
+      <created>1591482829672</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591482829672</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working with frances." />
-    <option name="LAST_COMMIT_MESSAGE" value="working with frances." />
+    <MESSAGE value="fixed the author ID to be `USER type` In model Account" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the author ID to be `USER type` In model Account" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1591482350798">
@@ -107,11 +109,11 @@
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591465664115" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="332" y="111" key="CommitChangelistDialog2" timestamp="1591482738321">
+    <state x="332" y="111" key="CommitChangelistDialog2" timestamp="1591482828871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="49" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1590758690437" />
-    <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591482738321" />
+    <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591482828871" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1590756526967">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -156,6 +158,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591465657566" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591482832103">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591482832103" />
     <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1591458238414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
