@@ -3,7 +3,7 @@ package io.swagger.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiParam;
 import io.swagger.model.Body;
-import io.swagger.model.InlineResponse200;
+import io.swagger.model.Login;
 import io.swagger.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,20 +35,20 @@ public class LoginApiController implements LoginApi {
         this.request = request;
     }
 
-    public ResponseEntity<InlineResponse200> login(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Body body
+    public ResponseEntity<Login> login(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Body body
 ) {
         String token = loginService.login(body.getEmail(), body.getPassword());
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<InlineResponse200>(objectMapper.readValue("{\n  \"token\" : \"token\"\n}", InlineResponse200.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<Login>(objectMapper.readValue("{\n  \"token\" : \"token\"\n}", Login.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<InlineResponse200>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<Login>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<InlineResponse200>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Login>(HttpStatus.NOT_IMPLEMENTED);
     }
 
 }

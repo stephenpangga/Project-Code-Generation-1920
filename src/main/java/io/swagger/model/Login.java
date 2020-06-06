@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
-public class InlineResponse200   {
+public class Login {
   @JsonProperty("token")
   private String token = null;
 
@@ -28,7 +28,7 @@ public class InlineResponse200   {
     this.email = email;
   }
 
-  public InlineResponse200 token(String token) {
+  public Login token(String token) {
     this.token = token;
     return this;
   }
@@ -47,7 +47,7 @@ public class InlineResponse200   {
     this.token = token;
   }
 
-  public InlineResponse200 email (String email) {
+  public Login email (String email) {
     this.email = email;
     return this;
   }
@@ -61,8 +61,8 @@ public class InlineResponse200   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.token, inlineResponse200.token);
+    Login login = (Login) o;
+    return Objects.equals(this.token, login.token);
   }
 
   @Override

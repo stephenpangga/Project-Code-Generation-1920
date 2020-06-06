@@ -1,7 +1,7 @@
 package io.swagger.configuration;
 
 import io.swagger.model.Account;
-import io.swagger.model.InlineResponse200;
+import io.swagger.model.Login;
 import io.swagger.model.Transaction;
 import io.swagger.model.User;
 import io.swagger.repository.AccountRepository;
@@ -114,12 +114,12 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
   }
 
   public void LoadLogins() {
-        List<InlineResponse200> logins = Arrays.asList(
-                new InlineResponse200().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").email("625242@student.inholland.nl"),
-                new InlineResponse200().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").email("629860@student.inholland.nl")
+        List<Login> logins = Arrays.asList(
+                new Login().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").email("625242@student.inholland.nl"),
+                new Login().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").email("629860@student.inholland.nl")
         );
         logins.forEach(login -> loginRepository.save(login));
-        List<InlineResponse200> login = (List<InlineResponse200>) loginRepository.findAll();
+        List<Login> login = (List<Login>) loginRepository.findAll();
         login.forEach(System.out::println);
   }
 

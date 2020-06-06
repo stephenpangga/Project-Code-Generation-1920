@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="fixing account model - removing unnecessary inheritance with michael">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/InlineResponse200.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/InlineResponse200.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/InlineResponse200.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/repository/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/repository/LoginRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,9 +98,10 @@
     </state>
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591444913028" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759347038" />
-    <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590605923885">
+    <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591445952539">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591445952539" />
     <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605923885" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590759361238">
       <screen x="0" y="0" width="1920" height="1040" />
