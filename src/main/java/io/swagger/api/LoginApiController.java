@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.IOException;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 @Controller
 public class LoginApiController implements LoginApi {
@@ -40,15 +39,11 @@ public class LoginApiController implements LoginApi {
         String token = loginService.login(body.getEmail(), body.getPassword());
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<Login>(objectMapper.readValue("{\n  \"token\" : \"token\"\n}", Login.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<Login>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
+            ResponseEntity<Login> loginResponseEntity = new ResponseEntity<Login>(HttpStatus.OK);
+            return loginResponseEntity;
         }
 
-        return new ResponseEntity<Login>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Login>(HttpStatus.BAD_REQUEST);
     }
 
 }
