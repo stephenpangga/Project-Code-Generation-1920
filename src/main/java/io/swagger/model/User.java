@@ -1,24 +1,23 @@
 package io.swagger.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * RegistrationUser
  */
 @Validated
 @Entity
+@SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
-public class User  {
-
+public class User {
   @Id
-  @SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
   @JsonProperty("id")
   private Integer id;

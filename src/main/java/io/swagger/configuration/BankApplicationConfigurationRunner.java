@@ -35,10 +35,11 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
+        LoadAccounts();
         loadTransactions();
         loadUsers();
-        LoadAccounts();
         LoadLogins();
+
     }
 
     /*** save the datas here ***/
@@ -123,11 +124,12 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
         }
     }
   public void LoadAccounts(){
-        List<Account> accounts = Arrays.asList(
-          new Account().authorId(1).accountType(Account.AccountTypeEnum.SAVINGS),
-        new Account().authorId(3).accountType(Account.AccountTypeEnum.CURRENT)
-      );
-        accounts.forEach(acc->accountRepository.save(acc));
+
+          List<Account> accounts = Arrays.asList(
+      new Account(2, 0.0,Account.AccountTypeEnum.CURRENT),
+                  new Account(2, 0.0,Account.AccountTypeEnum.SAVINGS)
+                  );
+      accounts.forEach(acc->accountRepository.save(acc));
         List<Account>acc = (List<Account>) accountRepository.findAll();
         acc.forEach(System.out::println);
   }
