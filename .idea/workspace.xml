@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/swagger/model/TransactionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,14 +16,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1c5t0bJcTtYnghuNFjP8PYNPEOU" />
   <component name="ProjectViewState">
@@ -62,7 +66,7 @@
       <recent name="C:\Users\Stephen Pangga\Documents\GitHub\Project-Code-Generation-1920\src\main\java" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TransactionTest.getTransactions">
     <configuration name="Banking_Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.swagger.Banking_Application" />
       <module name="swagger-spring" />
@@ -76,8 +80,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TransactionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="swagger-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.swagger.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.swagger.model" />
+      <option name="MAIN_CLASS_NAME" value="io.swagger.model.TransactionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionTest.getTransactions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="swagger-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.swagger.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.swagger.model" />
+      <option name="MAIN_CLASS_NAME" value="io.swagger.model.TransactionTest" />
+      <option name="METHOD_NAME" value="getTransactions" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TransactionTest.getTransactions" />
+        <item itemvalue="JUnit.TransactionTest" />
         <item itemvalue="Application.Banking_Application" />
       </list>
     </recent_temporary>
@@ -184,13 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591372559592</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="adding some comments">
+      <created>1591463840582</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1591463840582</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working with frances." />
     <MESSAGE value="fixing account model - removing unnecessary inheritance with michael" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing account model - removing unnecessary inheritance with michael" />
+    <MESSAGE value="adding some comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding some comments" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="9" key="#Project_Structure" timestamp="1591260958633">
@@ -222,43 +267,44 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591372558245">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="332" y="111" key="CommitChangelistDialog2" timestamp="1591463839851">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591372558245" />
-    <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
+    <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591463839851" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591317423455">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591317423455" />
-    <state width="1877" height="193" key="GridCell.Tab.0.bottom" timestamp="1591454008068">
+    <state width="1877" height="431" key="GridCell.Tab.0.bottom" timestamp="1591465321825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591373909936" />
-    <state width="1877" height="193" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008068" />
-    <state width="1877" height="193" key="GridCell.Tab.0.center" timestamp="1591454008066">
+    <state width="1877" height="431" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591465321825" />
+    <state width="1877" height="431" key="GridCell.Tab.0.center" timestamp="1591465321825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="193" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008066" />
-    <state width="1877" height="193" key="GridCell.Tab.0.left" timestamp="1591454008066">
+    <state width="1877" height="431" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591465321825" />
+    <state width="1877" height="431" key="GridCell.Tab.0.left" timestamp="1591465321825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="193" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008066" />
-    <state width="1877" height="193" key="GridCell.Tab.0.right" timestamp="1591454008067">
+    <state width="1877" height="431" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591465321825" />
+    <state width="1877" height="431" key="GridCell.Tab.0.right" timestamp="1591465321825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="193" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008067" />
+    <state width="1877" height="431" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591465321825" />
     <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="330" y="85" key="Maven.ArtifactSearchDialog/0.0.1600.860@0.0.1600.860" timestamp="1591192750015" />
-    <state x="564" y="133" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1591100735338">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="677" y="161" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1591464265739">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="133" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860@0.0.1600.860" timestamp="1591100735338" />
+    <state x="677" y="161" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591464265739" />
     <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591453255429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
