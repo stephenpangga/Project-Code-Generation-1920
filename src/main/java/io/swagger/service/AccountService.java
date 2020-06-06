@@ -26,13 +26,13 @@ public class AccountService {
     }
 
     public Account UpdateAccount(Account account, String IBAN) {
-        Account edite_Account = null;
+        Account editeAccount = null;
         Optional<Account> originalAccount = Optional.ofNullable(accountRepository.findOne(IBAN));
         if (originalAccount.isPresent()) {
-             edite_Account = originalAccount.get();
-           edite_Account.setAccountType(account.getAccountType());
-            accountRepository.save(edite_Account);
+             editeAccount = originalAccount.get();
+           editeAccount.setAccountType(account.getAccountType());
+            accountRepository.save(editeAccount);
         }
-        return  edite_Account;
+        return  editeAccount;
     }
 }

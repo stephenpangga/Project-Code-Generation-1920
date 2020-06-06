@@ -16,6 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 /**
@@ -46,19 +47,11 @@ public class Account   {
   @JsonProperty("authorId")
   private Integer authorId = null;
 
-  @JsonProperty("balance")
-  private Double balance = null;
-
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public String getIban() {
-    return iban;
-  }
-
-  public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
+  public Account(Integer authorId, AccountTypeEnum accountType) {
     this.authorId = authorId;
-    this.balance = balance;
     this.accountType = accountType;
 
   }
@@ -138,18 +131,15 @@ public class Account   {
    **/
   @ApiModelProperty(example = "NL23INHO2298608059", value = "unique string that identifies the bank and account")
 
- // @Size(min=18,max=18)   public String getIban() {
-   // return iban;
- // }
+  @Size(min=18,max=18)   public String getIban() {
+    return iban;
+   }
 
   public void setIban(String iban) {
     this.iban = iban;
   }
 
-  public Account balance(Double balance) {
-    this.balance = balance;
-    return this;
-  }
+
 
 
   /**
@@ -158,13 +148,6 @@ public class Account   {
    **/
   @ApiModelProperty(example = "0", value = "")
 
-  public Double getBalance() {
-    return balance;
-  }
-
-  public void setBalance(Double balance) {
-    this.balance = balance;
-  }
 
 
 
@@ -175,13 +158,12 @@ public class Account   {
     Account account = (Account) o;
     return Objects.equals(authorId, account.authorId) &&
             Objects.equals(iban, account.iban) &&
-            Objects.equals(balance, account.balance) &&
             accountType == account.accountType;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorId, iban, balance, accountType);
+    return Objects.hash(authorId, iban, accountType);
   }
 
   @Override
@@ -191,7 +173,6 @@ public class Account   {
     sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("}");
     return sb.toString();
   }
