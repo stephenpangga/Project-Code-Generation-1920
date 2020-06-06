@@ -1,9 +1,11 @@
 package io.swagger.configuration;
 
 import io.swagger.model.Account;
+import io.swagger.model.InlineResponse200;
 import io.swagger.model.Transaction;
 import io.swagger.model.User;
 import io.swagger.repository.AccountRepository;
+import io.swagger.repository.LoginRepository;
 import io.swagger.repository.TransactionRepository;
 import io.swagger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +30,15 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     private UserRepository userRepository;
     @Autowired
     AccountRepository accountRepository;
+    @Autowired
+    LoginRepository loginRepository;
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         loadTransactions();
         loadUsers();
         LoadAccounts();
+        LoadLogins();
     }
 
     /*** save the datas here ***/
@@ -106,6 +111,16 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
         accounts.forEach(acc->accountRepository.save(acc));
         List<Account>acc = (List<Account>) accountRepository.findAll();
         acc.forEach(System.out::println);
+  }
+
+  public void LoadLogins() {
+        List<InlineResponse200> logins = Arrays.asList(
+                new InlineResponse200().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").email("625242@student.inholland.nl"),
+                new InlineResponse200().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").email("629860@student.inholland.nl")
+        );
+        logins.forEach(login -> loginRepository.save(login));
+        List<InlineResponse200> login = (List<InlineResponse200>) loginRepository.findAll();
+        login.forEach(System.out::println);
   }
 
 }

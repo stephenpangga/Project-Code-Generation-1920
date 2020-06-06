@@ -47,6 +47,11 @@ public class InlineResponse200   {
     this.token = token;
   }
 
+  public InlineResponse200 email (String email) {
+    this.email = email;
+    return this;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
