@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.service.IBANGenerator;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * Account
@@ -23,30 +25,32 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 @Entity
+//@SequenceGenerator(name ="account_sq", initialValue = 1)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO, generator = "acc_sq")
+  @Column(columnDefinition = "LONGVARCHAR")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acc_sq")
   @GenericGenerator(
           name = "acc_sq",
           strategy = "io.swagger.service.IBANGenerator",
           parameters = {
-
-                  @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INHO"),
-                  @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
+                  @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INH"),
+                  @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%011d")})
   @JsonProperty("iban")
   private String iban;
 
-  @javax.persistence.Transient
-  private String currency = "Euro";
-  @JsonIgnore
-  @javax.persistence.Transient
-  private  String stringAccType;
-
   @JsonProperty("authorId")
   private Integer authorId = null;
+
+  @JsonIgnore
+  private  int checkSum;
+
+  @JsonIgnore
+  private Random rnd;
 
   @JsonProperty("balance")
   private Double balance = null;
@@ -54,26 +58,28 @@ public class Account   {
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public String getIban() {
-    return iban;
-  }
-
-
   public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;
     this.balance = balance;
     this.accountType = accountType;
-
+    rnd = new Random();
+    this.checkSum = rnd.nextInt(150);
   }
 
+  public Random getRnd() {
+    return rnd;
+  }
 
+  public String getIban() {
+    return iban;
+  }
 
   /**
    * type of account to be created
    */
   public enum AccountTypeEnum {
     SAVINGS("savings"),
-    
+
     CURRENT("current");
 
     private String value;
@@ -108,10 +114,10 @@ public class Account   {
   /**
    * Get authorId
    * @return authorId
-  **/
+   **/
   @ApiModelProperty(example = "1", value = "")
-  
-    public Integer getAuthorId() {
+
+  public Integer getAuthorId() {
     return authorId;
   }
 
@@ -127,10 +133,10 @@ public class Account   {
   /**
    * type of account to be created
    * @return accountType
-  **/
+   **/
   @ApiModelProperty(example = "current", value = "type of account to be created")
-  
-    public AccountTypeEnum getAccountType() {
+
+  public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
@@ -143,9 +149,9 @@ public class Account   {
    **/
   @ApiModelProperty(example = "NL23INHO2298608059", value = "unique string that identifies the bank and account")
 
- // @Size(min=18,max=18)   public String getIban() {
-   // return iban;
- // }
+  // @Size(min=18,max=18)   public String getIban() {
+  // return iban;
+  // }
 
   public void setIban(String iban) {
     this.iban = iban;
@@ -156,6 +162,9 @@ public class Account   {
     return this;
   }
 
+  public int getCheckSum() {
+    return checkSum;
+  }
 
   /**
    * Get balance
