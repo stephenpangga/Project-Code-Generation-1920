@@ -50,7 +50,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     public void loadUsers()
     {
         List<User> userList = Arrays.asList(
-                new User("stepehn@gmail.com",
+                new User("stephen@gmail.com",
                         "password",
                         "Stephen",
                         "Pangga", User.AccessLevelEnum.EMPLOYEE
