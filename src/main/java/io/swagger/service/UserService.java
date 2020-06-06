@@ -23,8 +23,10 @@ public class UserService {
         return (List<User>) userRepository.findAll();
     }
 
-    public void deteleteUserById(int id) {
-        userRepository.delete(id);
+    public List<User> deteleteUser(int userId) {
+        userRepository.delete(userId);
+        List<User> user = userRepository.findAll();
+        return user;
     }
 
     public void updateUser(int userId, User newUserValues) { // you need an account object with new values
