@@ -47,16 +47,18 @@ public class Account   {
   @JsonProperty("authorId")
   private Integer authorId = null;
 
-  @JsonProperty("authorId")
-  private Double balance = null;
-
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public Account(Integer authorId, Double balance,AccountTypeEnum accountType) {
+  @JsonProperty("balance")
+  private Double balance = null;
+
+  public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
     this.authorId = authorId;
     this.balance = balance;
     this.accountType = accountType;
+
+
 
   }
 
@@ -65,7 +67,7 @@ public class Account   {
    */
   public enum AccountTypeEnum {
     SAVINGS("savings"),
-    
+
     CURRENT("current");
 
     private String value;
@@ -100,10 +102,10 @@ public class Account   {
   /**
    * Get authorId
    * @return authorId
-  **/
+   **/
   @ApiModelProperty(example = "1", value = "")
-  
-    public Integer getAuthorId() {
+
+  public Integer getAuthorId() {
     return authorId;
   }
 
@@ -119,10 +121,10 @@ public class Account   {
   /**
    * type of account to be created
    * @return accountType
-  **/
+   **/
   @ApiModelProperty(example = "current", value = "type of account to be created")
-  
-    public AccountTypeEnum getAccountType() {
+
+  public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
@@ -137,13 +139,16 @@ public class Account   {
 
   @Size(min=18,max=18)   public String getIban() {
     return iban;
-   }
+  }
 
   public void setIban(String iban) {
     this.iban = iban;
   }
 
-
+  public Account balance(Double balance) {
+    this.balance = balance;
+    return this;
+  }
 
 
   /**
@@ -162,22 +167,25 @@ public class Account   {
     Account account = (Account) o;
     return Objects.equals(authorId, account.authorId) &&
             Objects.equals(iban, account.iban) &&
+            Objects.equals(balance, account.balance) &&
             accountType == account.accountType;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorId, iban, accountType);
+    return Objects.hash(authorId, iban, balance, accountType);
   }
+
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Account {\n");
-    sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
-    sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-    sb.append("}");
+    final StringBuffer sb = new StringBuffer("Account{");
+    sb.append("iban='").append(iban).append('\'');
+    sb.append(", currency='").append(currency).append('\'');
+    sb.append(", authorId=").append(authorId);
+    sb.append(", accountType=").append(accountType);
+    sb.append(", balance=").append(balance);
+    sb.append('}');
     return sb.toString();
   }
 
