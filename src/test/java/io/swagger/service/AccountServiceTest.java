@@ -30,7 +30,7 @@ class AccountServiceTest {
 
     @BeforeEach
     public void Setup(){
-        account = new Account(2, Account.AccountTypeEnum.SAVINGS);
+        account = new Account(2,0.0, Account.AccountTypeEnum.SAVINGS);
     }
     @Test
     public void CallingAllAccountsShouldReturnOK() throws Exception {

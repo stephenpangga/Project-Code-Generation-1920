@@ -41,6 +41,9 @@ public class Account   {
     @JsonProperty("iban")
     private String iban;
 
+    @JsonProperty("authorId")
+    private Double balance = null;
+
     @javax.persistence.Transient
     private String currency = "Euro";
 
@@ -50,8 +53,9 @@ public class Account   {
     @JsonProperty("accountType")
     private AccountTypeEnum accountType = null;
 
-    public Account(Integer authorId, AccountTypeEnum accountType) {
+    public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
         this.authorId = authorId;
+        this.balance = balance;
         this.accountType = accountType;
 
     }

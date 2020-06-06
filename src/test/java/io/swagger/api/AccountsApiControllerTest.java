@@ -32,7 +32,7 @@ class AccountsApiControllerTest {
     private Account account;
     @BeforeEach
     public void Setup(){
-        account = new Account(2, Account.AccountTypeEnum.CURRENT);
+        account = new Account(2,0.0, Account.AccountTypeEnum.CURRENT);
     }
     @Test
     public void CallingAllAccountShouldReturnOK() throws Exception {
