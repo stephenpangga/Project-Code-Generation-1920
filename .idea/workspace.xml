@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NewP/Project-Code-Generation-1920" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../feedback forms/Project-Code-Generation-1920" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -95,6 +94,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AccountsApiControllerTest.CallingAllAccountShouldReturnOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="swagger-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.swagger.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.swagger.api" />
+      <option name="MAIN_CLASS_NAME" value="io.swagger.api.AccountsApiControllerTest" />
+      <option name="METHOD_NAME" value="CallingAllAccountShouldReturnOK" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AccountsApiControllerTest.CreatingaNewAccShouldReturnTheCreatedAcc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swagger-spring" />
       <extension name="coverage">
@@ -106,22 +121,6 @@
       <option name="PACKAGE_NAME" value="io.swagger.api" />
       <option name="MAIN_CLASS_NAME" value="io.swagger.api.AccountsApiControllerTest" />
       <option name="METHOD_NAME" value="CreatingaNewAccShouldReturnTheCreatedAcc" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountsApiControllerTest.CreatingaNewAccShouldReturnTheCreatedAccK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="swagger-spring" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.swagger.api.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="io.swagger.api" />
-      <option name="MAIN_CLASS_NAME" value="io.swagger.api.AccountsApiControllerTest" />
-      <option name="METHOD_NAME" value="CreatingaNewAccShouldReturnTheCreatedAccK" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,10 +145,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Banking_Application" />
+        <item itemvalue="JUnit.AccountsApiControllerTest.CallingAllAccountShouldReturnOK" />
         <item itemvalue="JUnit.AccountsApiControllerTest.UpdatingAccShouldReturnTheUpdatedAcc" />
         <item itemvalue="JUnit.AccountServiceTest.CallingAllAccountsShouldReturnOK" />
         <item itemvalue="JUnit.AccountsApiControllerTest.CreatingaNewAccShouldReturnTheCreatedAcc" />
-        <item itemvalue="JUnit.AccountsApiControllerTest.CreatingaNewAccShouldReturnTheCreatedAccK" />
       </list>
     </recent_temporary>
   </component>
@@ -339,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591451703202</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591452255509</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1591452255509</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -360,10 +366,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="430" y="158" key="#com.intellij.ide.util.ExportDialog/0.0.1600.860@0.0.1600.860" timestamp="1590774435121" />
-    <state x="841" y="259" key="#com.intellij.ide.util.MemberChooser" timestamp="1591437522408">
+    <state x="841" y="259" key="#com.intellij.ide.util.MemberChooser" timestamp="1591456410821">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="841" y="259" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1591437522408" />
+    <state x="841" y="259" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1591456410821" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759347038" />
     <state x="574" y="324" width="451" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591307091976">
       <screen x="0" y="0" width="1600" height="860" />
@@ -378,34 +384,34 @@
     </state>
     <state x="575" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1591450432340" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591451700425">
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591452252692">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591451700425" />
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591452252692" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591450228429">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591456618339">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591450228429" />
-    <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591452146210">
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591456618339" />
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591457537483">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591452146210" />
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
     <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.center" timestamp="1591452146210">
+    <state width="1557" height="217" key="GridCell.Tab.0.center" timestamp="1591457537483">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591452146210" />
+    <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
     <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.left" timestamp="1591452146210">
+    <state width="1557" height="217" key="GridCell.Tab.0.left" timestamp="1591457537483">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591452146210" />
+    <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
     <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.right" timestamp="1591452146210">
+    <state width="1557" height="217" key="GridCell.Tab.0.right" timestamp="1591457537483">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591452146210" />
+    <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
     <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
     <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
       <screen x="0" y="0" width="1600" height="860" />
@@ -437,7 +443,7 @@
     <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1591403313474" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1591433996289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1591457087413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.swagger.*</FILTER>
     </SUITE>
   </component>

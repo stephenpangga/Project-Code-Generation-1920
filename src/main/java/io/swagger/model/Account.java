@@ -1,6 +1,7 @@
 package io.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +41,7 @@ public class Account   {
                     @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
     @JsonProperty("iban")
     private String iban;
-
+    @JsonIgnore
     @JsonProperty("authorId")
     private Double balance = null;
 
@@ -144,8 +145,6 @@ public class Account   {
     }
 
 
-
-
     /**
      * Get balance
      * @return balance
@@ -162,22 +161,24 @@ public class Account   {
         Account account = (Account) o;
         return Objects.equals(authorId, account.authorId) &&
                 Objects.equals(iban, account.iban) &&
+                Objects.equals(balance, account.balance) &&
                 accountType == account.accountType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorId, iban, accountType);
+        return Objects.hash(authorId, iban, balance, accountType);
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Account {\n");
-        sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
-        sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-        sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-        sb.append("}");
+        final StringBuffer sb = new StringBuffer("Account{");
+        sb.append("iban='").append(iban).append('\'');
+        sb.append(", balance=").append(balance);
+        sb.append(", currency='").append(currency).append('\'');
+        sb.append(", authorId=").append(authorId);
+        sb.append(", accountType=").append(accountType);
+        sb.append('}');
         return sb.toString();
     }
 

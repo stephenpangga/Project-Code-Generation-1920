@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@ComponentScan()
+@ComponentScan("module-service")
 public class AccountService {
 
     @Autowired
@@ -23,6 +23,7 @@ public class AccountService {
     }
 
     public Account CreateAccount(Account newAccount) {
+        newAccount.setBalance(0.0);
         accountRepository.save(newAccount);
         return newAccount;
     }

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@WebMvcTest(controllers = AccountsApiControllerTest.class)
 class AccountsApiControllerTest {
     @Autowired
     private MockMvc mvc;
@@ -31,7 +33,7 @@ class AccountsApiControllerTest {
 
     private Account account;
     @BeforeEach
-    public void Setup(){
+    public void setUp(){
         account = new Account(2,0.0, Account.AccountTypeEnum.CURRENT);
     }
     @Test
@@ -39,7 +41,7 @@ class AccountsApiControllerTest {
         given(accountService.GetAllAccounts())
         .willReturn(Arrays.asList(account));
 
-        this.mvc.perform(get("/accounts"))
+        this.mvc.perform(get("api/accounts"))
         .andExpect(status().isOk())
         .andExpect((ResultMatcher) jsonPath("$",hasSize(1)));
 
@@ -49,7 +51,7 @@ class AccountsApiControllerTest {
         given(accountService.CreateAccount(account))
                 .willReturn(account);
 
-        this.mvc.perform(post("/accounts"))
+        this.mvc.perform(post("api/accounts"))
                 .andExpect(status().isOk())
                 .andExpect((ResultMatcher) jsonPath("$",hasSize(1)));
 
@@ -59,7 +61,7 @@ class AccountsApiControllerTest {
         given(accountService.UpdateAccount(account,"NL01INHO0000000001"))
                 .willReturn(account);
 
-        this.mvc.perform(put("/accounts/NL01INHO0000000001"))
+        this.mvc.perform(put("api/accounts/{IBAN}"))
                 .andExpect(status().isOk())
                 .andExpect((ResultMatcher) content().contentType("application/json"));
 
