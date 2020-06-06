@@ -16,8 +16,18 @@ import java.util.Objects;
 @Entity
 @SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
-public class User {
+public class User  {
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
   @Id
+  @SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
   @JsonProperty("id")
   private Integer id;
@@ -38,7 +48,16 @@ public class User {
 
   }
 
-  public User(String email, String password, String firstName, String lastName, AccessLevelEnum accessLevel) {
+    public User(Integer id, String email, String password, String firstName, String lastName, AccessLevelEnum accessLevel) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.accessLevel = accessLevel;
+    }
+
+    public User(String email, String password, String firstName, String lastName, AccessLevelEnum accessLevel) {
     this.email = email;
     this.password = password;
     this.firstName = firstName;
@@ -84,7 +103,23 @@ public class User {
     return this;
   }
 
-  /**
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
    * Get email
    * @return email
   **/

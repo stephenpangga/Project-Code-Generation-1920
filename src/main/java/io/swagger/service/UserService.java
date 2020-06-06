@@ -18,7 +18,7 @@ public class UserService {
     public UserService() {
     }
 
-   public List<User> getAllUser()
+    public List<User> getAllUser()
     {
         return (List<User>) userRepository.findAll();
     }
@@ -28,6 +28,7 @@ public class UserService {
         List<User> user = userRepository.findAll();
         return user;
     }
+
 
     public void updateUser(int userId, User newUserValues) { // you need an account object with new values
 

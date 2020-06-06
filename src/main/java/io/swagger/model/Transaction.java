@@ -19,16 +19,19 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Transaction   {
   @JsonProperty("sender")
-  private String sender = null;
+  @ManyToOne(cascade = {CascadeType.REFRESH})
+  private Account sender;
 
+  //https://www.baeldung.com/jpa-cascade-types
   @JsonProperty("recipient")
-  private String recipient = null;
+  @ManyToOne(cascade = {CascadeType.REFRESH})
+  private Account recipient;
 
   @JsonProperty("amount")
-  private Double amount = null;
+  private Double amount;
 
   @JsonProperty("transactionType")
-  private TransactionTypeEnum transactionType = null;
+  private TransactionTypeEnum transactionType;
 
   @JsonProperty("transaction_id")
   @Id
@@ -36,15 +39,14 @@ public class Transaction   {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_seq")
   private Integer transactionId;
 
-  //@ManyToMany
-  //I WILL NEED TO CHANGE THIS TO USER LATER.
   @JsonProperty("userPerforming")
-  private Integer userPerforming = null;
+  @ManyToOne(cascade = {CascadeType.REFRESH})
+  private User userPerforming = null;
 
   @JsonProperty("timestamp")
   private LocalDateTime datetime;
 
-  public Transaction sender(String sender) {
+  public Transaction sender(Account sender) {
     this.sender = sender;
     return this;
   }
@@ -61,7 +63,7 @@ public class Transaction   {
   public Transaction() {
   }
 
-  public Transaction(String sender, String recipient, Double amount, TransactionTypeEnum transactionType, Integer userPerforming, LocalDateTime datetime) {
+  public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, User userPerforming, LocalDateTime datetime) {
     this.sender = sender;
     this.recipient = recipient;
     this.amount = amount;
@@ -88,9 +90,9 @@ public class Transaction   {
    */
   public enum TransactionTypeEnum {
     TRANSFER("transfer"),
-    
+
     WITHDRAW("withdraw"),
-    
+
     DEPOSIT("deposit");
 
     private String value;
@@ -119,18 +121,18 @@ public class Transaction   {
   /**
    * Get sender
    * @return sender
-  **/
+   **/
   @ApiModelProperty(example = "NL01INHO0000000001", value = "")
-  
-    public String getSender() {
+
+  public Account getSender() {
     return sender;
   }
 
-  public void setSender(String sender) {
+  public void setSender(Account sender) {
     this.sender = sender;
   }
 
-  public Transaction recipient(String recipient) {
+  public Transaction recipient(Account recipient) {
     this.recipient = recipient;
     return this;
   }
@@ -138,14 +140,14 @@ public class Transaction   {
   /**
    * Get recipient
    * @return recipient
-  **/
+   **/
   @ApiModelProperty(example = "NL53INHO0858545222", value = "")
-  
-    public String getRecipient() {
+
+  public Account getRecipient() {
     return recipient;
   }
 
-  public void setRecipient(String recipient) {
+  public void setRecipient(Account recipient) {
     this.recipient = recipient;
   }
 
@@ -157,10 +159,10 @@ public class Transaction   {
   /**
    * Get amount
    * @return amount
-  **/
+   **/
   @ApiModelProperty(example = "500.73", value = "")
-  
-    public Double getAmount() {
+
+  public Double getAmount() {
     return amount;
   }
 
@@ -176,10 +178,10 @@ public class Transaction   {
   /**
    * a different transaction can occur.
    * @return transactionType
-  **/
+   **/
   @ApiModelProperty(example = "transaction", value = "a different transaction can occur.")
-  
-    public TransactionTypeEnum getTransactionType() {
+
+  public TransactionTypeEnum getTransactionType() {
     return transactionType;
   }
 
@@ -195,9 +197,9 @@ public class Transaction   {
   /**
    * Get transactionId
    * @return transactionId
-  **/
+   **/
   @ApiModelProperty(example = "488558", value = "")
-  
+
   public Integer getTransactionId() {
     return transactionId;
   }
@@ -214,7 +216,7 @@ public class Transaction   {
     this.datetime = datetime;
   }
 
-  public Transaction userPerforming(Integer userPerforming) {
+  public Transaction userPerforming(User userPerforming) {
     this.userPerforming = userPerforming;
     return this;
   }
@@ -222,14 +224,14 @@ public class Transaction   {
   /**
    * Get userPerforming
    * @return userPerforming
-  **/
+   **/
   @ApiModelProperty(example = "1", value = "")
-  
-    public Integer getUserPerforming() {
+
+  public User getUserPerforming() {
     return userPerforming;
   }
 
-  public void setUserPerforming(Integer userPerforming) {
+  public void setUserPerforming(User userPerforming) {
     this.userPerforming = userPerforming;
   }
 
@@ -244,11 +246,11 @@ public class Transaction   {
     }
     Transaction transaction = (Transaction) o;
     return Objects.equals(this.sender, transaction.sender) &&
-        Objects.equals(this.recipient, transaction.recipient) &&
-        Objects.equals(this.amount, transaction.amount) &&
-        Objects.equals(this.transactionType, transaction.transactionType) &&
-        Objects.equals(this.transactionId, transaction.transactionId) &&
-        Objects.equals(this.userPerforming, transaction.userPerforming);
+            Objects.equals(this.recipient, transaction.recipient) &&
+            Objects.equals(this.amount, transaction.amount) &&
+            Objects.equals(this.transactionType, transaction.transactionType) &&
+            Objects.equals(this.transactionId, transaction.transactionId) &&
+            Objects.equals(this.userPerforming, transaction.userPerforming);
   }
 
   @Override
@@ -283,3 +285,4 @@ public class Transaction   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+
