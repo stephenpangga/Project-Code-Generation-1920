@@ -18,12 +18,10 @@ public class AccountService {
 
     public List<Account> GetAllAccounts() {
         List<Account> accounts = (List<Account>) accountRepository.findAll();
-        accounts.forEach(acc->acc.getCurrency());
         return  accounts;
     }
 
     public Account CreateAccount(Account newAccount) {
-        newAccount.setBalance(0.0);
         accountRepository.save(newAccount);
         return newAccount;
     }
