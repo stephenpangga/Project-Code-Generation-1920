@@ -28,7 +28,7 @@ public interface LoginApi {
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    ResponseEntity<Login> login(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Body body
+    ResponseEntity<String> login(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Body body
 );
 
 }

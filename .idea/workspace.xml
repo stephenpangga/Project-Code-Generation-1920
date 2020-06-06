@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="fixing account model - removing unnecessary inheritance with michael">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/repository/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/repository/LoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project-Code-Generation-1920-master(1)" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -113,43 +122,45 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1590756526967" />
-    <state width="1877" height="230" key="GridCell.Tab.0.bottom" timestamp="1591451811420">
+    <state width="1877" height="226" key="GridCell.Tab.0.bottom" timestamp="1591456874973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.bottom/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591451811420" />
+    <state width="1877" height="226" key="GridCell.Tab.0.bottom/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591456874973" />
     <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1590758390264" />
     <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
-    <state width="1877" height="230" key="GridCell.Tab.0.center" timestamp="1591451811420">
+    <state width="1877" height="226" key="GridCell.Tab.0.center" timestamp="1591456874973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.center/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591451811420" />
+    <state width="1877" height="226" key="GridCell.Tab.0.center/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591456874973" />
     <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1590758390263" />
     <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
-    <state width="1877" height="230" key="GridCell.Tab.0.left" timestamp="1591451811420">
+    <state width="1877" height="226" key="GridCell.Tab.0.left" timestamp="1591456874972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.left/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591451811420" />
+    <state width="1877" height="226" key="GridCell.Tab.0.left/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591456874972" />
     <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1590758390263" />
     <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
-    <state width="1877" height="230" key="GridCell.Tab.0.right" timestamp="1591451811420">
+    <state width="1877" height="226" key="GridCell.Tab.0.right" timestamp="1591456874973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.right/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591451811420" />
+    <state width="1877" height="226" key="GridCell.Tab.0.right/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591456874973" />
     <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1590758390263" />
     <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759093262" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java</url>
-          <line>47</line>
-          <properties class="io.swagger.model.Transaction" method="sender">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1591455843401">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591455843401" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1591455843401">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591455843401" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1591455843401">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591455843401" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1591455843401">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.245.1920.1040/1920.259.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591455843401" />
   </component>
 </project>

@@ -129,8 +129,8 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
   public void LoadLogins() {
         List<Login> logins = Arrays.asList(
-                new Login().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").user(userRepository.findOne(0)),
-                new Login().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").user(userRepository.findOne(1))
+                new Login().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").user(userRepository.findAll().get(0)),
+                new Login().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").user(userRepository.findAll().get(1))
         );
         logins.forEach(login -> loginRepository.save(login));
         List<Login> login = (List<Login>) loginRepository.findAll();

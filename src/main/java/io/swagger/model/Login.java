@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
@@ -23,6 +20,7 @@ public class Login {
 
   @JsonProperty("userId")
   @OneToOne(cascade = {CascadeType.REFRESH})
+  @JoinColumn(name = "userId", referencedColumnName = "id")
   private User user;
 
   public User getUser() {
@@ -81,6 +79,7 @@ public class Login {
     sb.append("class InlineResponse200 {\n");
     
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
