@@ -36,8 +36,8 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         LoadAccounts();
-        loadTransactions();
         loadUsers();
+        loadTransactions();
         LoadLogins();
 
     }
@@ -101,13 +101,13 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
                         Transaction.TransactionTypeEnum.TRANSFER,
                         userRepository.findAll().get(1),
                         LocalDateTime.now()),
-                new Transaction(accountRepository.findAll().get(2),
+                new Transaction(accountRepository.findAll().get(0),
                         accountRepository.findAll().get(1),
                         502.73,
                         Transaction.TransactionTypeEnum.TRANSFER,
-                        userRepository.findAll().get(2),
+                        userRepository.findAll().get(1),
                         LocalDateTime.now()),
-                new Transaction(accountRepository.findAll().get(2),
+                new Transaction(accountRepository.findAll().get(1),
                         accountRepository.findAll().get(0),
                         501.73,
                         Transaction.TransactionTypeEnum.WITHDRAW,
