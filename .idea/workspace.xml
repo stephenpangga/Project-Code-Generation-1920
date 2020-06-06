@@ -3,60 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-spring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/Banking_Application$ExitException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/Banking_Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/RFC3339DateFormat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiOriginFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiResponseMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/LoginApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/NotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionsApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromDecimalArguments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromIntegerArguments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/JacksonConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/SwaggerDocumentationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Body.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/InlineResponse200.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TransactionTypeEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -73,10 +36,27 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ToolWindowCoverage.ShowToolbar" value="false" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../untitled10" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="io.swagger.model" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="io.swagger.service" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Stephen Pangga\Documents\GitHub\Project-Code-Generation-1920\src\main\java" />
     </key>
@@ -112,44 +92,188 @@
       <option name="presentableId" value="Default" />
       <updated>1589830059748</updated>
     </task>
+    <task id="LOCAL-00001" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1590761509096</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590761509096</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1590768191525</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590768191525</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1590769840259</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590769840259</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1590774301146</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1590774301146</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1590775826225</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590775826225</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591101016209</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591101016209</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591191953701</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1591191953701</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591311030025</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591311030025</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591360350060</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1591360350060</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591363992540</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1591363992540</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591368724080</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1591368724080</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591372391032</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1591372391032</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591372559592</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1591372559592</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working with frances." />
-    <option name="LAST_COMMIT_MESSAGE" value="working with frances." />
+    <MESSAGE value="fixing account model - removing unnecessary inheritance with michael" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing account model - removing unnecessary inheritance with michael" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1590608850927">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="392" y="9" key="#Project_Structure" timestamp="1591260958633">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590608850927" />
+    <state x="392" y="9" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1591260958633" />
+    <state x="575" y="233" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591100617879">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="575" y="233" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1591100617879" />
+    <state x="430" y="158" key="#com.intellij.ide.util.ExportDialog" timestamp="1590774435121">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="430" y="158" key="#com.intellij.ide.util.ExportDialog/0.0.1600.860@0.0.1600.860" timestamp="1590774435121" />
+    <state x="841" y="259" key="#com.intellij.ide.util.MemberChooser" timestamp="1591368485904">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="841" y="259" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1591368485904" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759347038" />
+    <state x="574" y="324" width="451" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591307091976">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="574" y="324" width="451" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1600.860@0.0.1600.860" timestamp="1591307091976" />
     <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590605923885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605923885" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590608935808">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590759361238">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590608935808" />
-    <state x="332" y="111" key="CommitChangelistDialog2" timestamp="1590605782299">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591372558245">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591372558245" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
-    <state width="1877" height="202" key="GridCell.Tab.0.bottom" timestamp="1591439558895">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591317423455">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591317423455" />
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591373909936">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591373909936" />
+    <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
+    <state width="1557" height="217" key="GridCell.Tab.0.center" timestamp="1591373909935">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
+    <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
+    <state width="1557" height="217" key="GridCell.Tab.0.left" timestamp="1591373909935">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
+    <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
+    <state width="1557" height="217" key="GridCell.Tab.0.right" timestamp="1591373909935">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
+    <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
+    <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="330" y="85" key="Maven.ArtifactSearchDialog/0.0.1600.860@0.0.1600.860" timestamp="1591192750015" />
+    <state x="564" y="133" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1591100735338">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="564" y="133" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860@0.0.1600.860" timestamp="1591100735338" />
+    <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590760110229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="202" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591439558895" />
-    <state width="1877" height="202" key="GridCell.Tab.0.center" timestamp="1591439558895">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590760110229" />
+    <state x="182" y="91" key="new project wizard" timestamp="1591279180667">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1877" height="202" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591439558895" />
-    <state width="1877" height="202" key="GridCell.Tab.0.left" timestamp="1591439558895">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="182" y="91" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1591279180667" />
+    <state x="456" y="195" key="run.anything.popup" timestamp="1590760595017">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1877" height="202" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591439558895" />
-    <state width="1877" height="202" key="GridCell.Tab.0.right" timestamp="1591439558895">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="202" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591439558895" />
+    <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1590760595017" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1591373909738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.swagger.*</FILTER>
+    </SUITE>
   </component>
 </project>

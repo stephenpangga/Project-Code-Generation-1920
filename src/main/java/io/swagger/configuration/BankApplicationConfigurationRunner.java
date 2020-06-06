@@ -31,9 +31,10 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        loadUsers();
-        loadAccounts();
+        LoadAccounts();
         loadTransactions();
+        loadUsers();
+
     }
 
     /*** save the datas here ***/
@@ -114,22 +115,16 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
-    public void loadAccounts() {
-        Account bankAccount = new Account(99999,  1500.0, Account.AccountTypeEnum.CURRENT);
-        bankAccount.setIban("NL01INHO0000000001");
-        Account account1 = new Account(10003,100.1, Account.AccountTypeEnum.CURRENT);
-        account1.setIban("NL23INHO2298608059");
-        Account account2 = new Account(10002,100.1, Account.AccountTypeEnum.CURRENT);
-        account2.setIban("NL23INHO2298608058");
-        List<Account> accounts = Arrays.asList(bankAccount, account1, account2);
-        accounts.forEach((accx) -> {
-            this.accountRepository.save(accx);
-        });
-        /*List<Account> acc = (List)this.accountRepository.findAll();
-        PrintStream var10001 = System.out;
-        Objects.requireNonNull(var10001);
-        acc.forEach(var10001::println);*/
-    }
+  public void LoadAccounts(){
 
+          List<Account> accounts = Arrays.asList(
+      new Account(2, Account.AccountTypeEnum.CURRENT),
+                  new Account(2, Account.AccountTypeEnum.SAVINGS),
+      new Account(2, Account.AccountTypeEnum.CURRENT)
+                  );
+      accounts.forEach(acc->accountRepository.save(acc));
+        List<Account>acc = (List<Account>) accountRepository.findAll();
+        acc.forEach(System.out::println);
+  }
 
 }

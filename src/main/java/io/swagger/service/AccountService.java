@@ -16,24 +16,23 @@ public class AccountService {
 
     public List<Account> GetAllAccounts() {
         List<Account> accounts = (List<Account>) accountRepository.findAll();
+        accounts.forEach(acc->acc.getCurrency());
         return  accounts;
     }
 
-    public Account AddAccount(Integer userID,String StringAccType) {
-        Account.AccountTypeEnum accountType = Account.AccountTypeEnum.valueOf(StringAccType);
-        Double defaultBalance = 0.00;
-        Account acc = new Account(4,defaultBalance, accountType);
-        accountRepository.save(acc);
-        return acc;
+    public Account CreateAccount(Account newAccount) {
+        accountRepository.save(newAccount);
+        return newAccount;
     }
 
-    public void updateAccount(Account account, Integer id) {
-
-        /*Optional<Account> OriginalAccount = Optional.ofNullable(accountRepository.findOne(id));
-        if (OriginalAccount.isPresent()) {
-            Account Edited_account = OriginalAccount.get();
-           Edited_account.setAccountType(account.getAccountType());
-            accountRepository.save(Edited_account);
-        }*/
+    public Account UpdateAccount(Account account, String IBAN) {
+        Account editeAccount = null;
+        Optional<Account> originalAccount = Optional.ofNullable(accountRepository.findOne(IBAN));
+        if (originalAccount.isPresent()) {
+             editeAccount = originalAccount.get();
+           editeAccount.setAccountType(account.getAccountType());
+            accountRepository.save(editeAccount);
+        }
+        return  editeAccount;
     }
 }
