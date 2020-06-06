@@ -28,6 +28,7 @@ public class UserService {
         userRepository.delete(id);
     }
 
+
     public void updateUser(int userId,User newUserValues) { // you need an account object with new values
 
         User userToBeEdited = userRepository.findOne(userId);
