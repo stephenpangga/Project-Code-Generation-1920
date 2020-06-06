@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +61,7 @@
       <recent name="C:\Users\Stephen Pangga\Documents\GitHub\Project-Code-Generation-1920\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Banking_Application">
+  <component name="RunManager" selected="JUnit.AccountsApiControllerTest.CreatingaNewAccShouldReturnTheCreatedAcc">
     <configuration name="Banking_Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.swagger.Banking_Application" />
       <module name="swagger-spring" />
@@ -78,18 +75,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountServiceTest.CallingAllAccountsShouldReturnOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountsApiControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swagger-spring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.swagger.service.*" />
+          <option name="PATTERN" value="io.swagger.api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="io.swagger.service" />
-      <option name="MAIN_CLASS_NAME" value="io.swagger.service.AccountServiceTest" />
-      <option name="METHOD_NAME" value="CallingAllAccountsShouldReturnOK" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="io.swagger.api" />
+      <option name="MAIN_CLASS_NAME" value="io.swagger.api.AccountsApiControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Banking_Application" />
+        <item itemvalue="JUnit.AccountsApiControllerTest.CreatingaNewAccShouldReturnTheCreatedAcc" />
         <item itemvalue="JUnit.AccountsApiControllerTest.CallingAllAccountShouldReturnOK" />
         <item itemvalue="JUnit.AccountsApiControllerTest.UpdatingAccShouldReturnTheUpdatedAcc" />
-        <item itemvalue="JUnit.AccountServiceTest.CallingAllAccountsShouldReturnOK" />
-        <item itemvalue="JUnit.AccountsApiControllerTest.CreatingaNewAccShouldReturnTheCreatedAcc" />
+        <item itemvalue="JUnit.AccountsApiControllerTest" />
+        <item itemvalue="Application.Banking_Application" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591452255509</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fixing account model - removing unnecessary inheritance with michael">
+      <created>1591457712551</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1591457712551</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -384,34 +387,34 @@
     </state>
     <state x="575" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1591450432340" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591452252692">
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591457707159">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591452252692" />
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591457707159" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591456618339">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591456618339" />
-    <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591457537483">
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591460608747">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
+    <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591460608747" />
     <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.center" timestamp="1591457537483">
+    <state width="1557" height="217" key="GridCell.Tab.0.center" timestamp="1591460608747">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
+    <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591460608747" />
     <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.left" timestamp="1591457537483">
+    <state width="1557" height="217" key="GridCell.Tab.0.left" timestamp="1591460608747">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
+    <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591460608747" />
     <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1557" height="217" key="GridCell.Tab.0.right" timestamp="1591457537483">
+    <state width="1557" height="217" key="GridCell.Tab.0.right" timestamp="1591460608747">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591457537483" />
+    <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591460608747" />
     <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
     <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
       <screen x="0" y="0" width="1600" height="860" />

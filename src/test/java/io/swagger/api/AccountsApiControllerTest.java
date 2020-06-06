@@ -5,14 +5,15 @@ import io.swagger.service.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.BDDMockito.given;
@@ -21,9 +22,8 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-@WebMvcTest(controllers = AccountsApiControllerTest.class)
+@WebMvcTest(AccountsApiController.class)
+@ActiveProfiles("test")
 class AccountsApiControllerTest {
     @Autowired
     private MockMvc mvc;
@@ -38,22 +38,20 @@ class AccountsApiControllerTest {
     }
     @Test
     public void CallingAllAccountShouldReturnOK() throws Exception {
-        given(accountService.GetAllAccounts())
-        .willReturn(Arrays.asList(account));
 
-        this.mvc.perform(get("api/accounts"))
+        List<Account> allAccounts = Arrays.asList(account);
+        given(accountService.GetAllAccounts()).willReturn(allAccounts);
+
+        mvc.perform(get("/api/accounts"))
         .andExpect(status().isOk())
         .andExpect((ResultMatcher) jsonPath("$",hasSize(1)));
 
     }
     @Test
     public void CreatingaNewAccShouldReturnTheCreatedAcc() throws Exception {
-        given(accountService.CreateAccount(account))
-                .willReturn(account);
-
-        this.mvc.perform(post("api/accounts"))
-                .andExpect(status().isOk())
-                .andExpect((ResultMatcher) jsonPath("$",hasSize(1)));
+        this.mvc.perform(post("accounts").contentType(MediaType.APPLICATION_JSON)
+                            .content("{ }"))
+                .andExpect(status().isCreated());
 
     }
     @Test
