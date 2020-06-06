@@ -344,19 +344,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="466" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605923885" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590759361238">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="575" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591450432340">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state x="575" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1591450432340" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591450002277">
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1591450480001">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591450002277" />
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591450480001" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591400868742">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591450228429">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591400868742" />
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591450228429" />
     <state width="1557" height="217" key="GridCell.Tab.0.bottom" timestamp="1591441192023">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
