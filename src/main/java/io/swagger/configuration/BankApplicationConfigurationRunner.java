@@ -31,9 +31,10 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
+        LoadAccounts();
         loadTransactions();
         loadUsers();
-        LoadAccounts();
+
     }
 
     /*** save the datas here ***/
@@ -101,9 +102,9 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
   public void LoadAccounts(){
 
           List<Account> accounts = Arrays.asList(
-          new Account(2,0.0, Account.AccountTypeEnum.SAVINGS),
-      new Account(2,0.0, Account.AccountTypeEnum.CURRENT)
-
+      new Account(2, Account.AccountTypeEnum.CURRENT),
+                  new Account(2, Account.AccountTypeEnum.SAVINGS),
+      new Account(2, Account.AccountTypeEnum.CURRENT)
                   );
       accounts.forEach(acc->accountRepository.save(acc));
         List<Account>acc = (List<Account>) accountRepository.findAll();
