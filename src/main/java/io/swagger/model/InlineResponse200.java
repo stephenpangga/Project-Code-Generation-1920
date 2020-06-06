@@ -1,13 +1,11 @@
 package io.swagger.model;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import java.util.Objects;
 
 /**
  * InlineResponse200
@@ -17,6 +15,18 @@ import javax.validation.constraints.*;
 public class InlineResponse200   {
   @JsonProperty("token")
   private String token = null;
+
+  @JsonProperty("email")
+  @Id
+  private String email;
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
   public InlineResponse200 token(String token) {
     this.token = token;
