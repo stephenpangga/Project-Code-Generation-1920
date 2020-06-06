@@ -5,20 +5,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.service.IBANGenerator;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Columns;
-import org.hibernate.annotations.Entity;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.util.Objects;
-import java.util.Random;
 
 /**
  * Account
@@ -27,44 +26,34 @@ import java.util.Random;
 @NoArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
 @Entity
-//@SequenceGenerator(name ="account_sq", initialValue = 1)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
 
   @Id
-  @Ge(strategy = GenerationType.SEQUENCE, generator = "acc_sq")
+  @GeneratedValue(strategy = GenerationType.AUTO, generator = "acc_sq")
   @GenericGenerator(
           name = "acc_sq",
           strategy = "io.swagger.service.IBANGenerator",
           parameters = {
-                  @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INH"),
-                  @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%011d")})
+                  @Parameter(name = IBANGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "INHO"),
+                  @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
   @JsonProperty("iban")
   private String iban;
+
+  @javax.persistence.Transient
+  private String currency = "Euro";
 
   @JsonProperty("authorId")
   private Integer authorId = null;
 
-  private  int checkSum;
-  private Random rnd;
-  @JsonProperty("balance")
-  private Double balance = null;
-
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
+  public Account(Integer authorId, AccountTypeEnum accountType) {
     this.authorId = authorId;
-    this.balance = balance;
     this.accountType = accountType;
-    rnd = new Random();
-   this.checkSum = rnd.nextInt(150);
-  }
 
-  public Random getRnd() {
-    return rnd;
   }
 
   /**
@@ -72,7 +61,7 @@ public class Account   {
    */
   public enum AccountTypeEnum {
     SAVINGS("savings"),
-    
+
     CURRENT("current");
 
     private String value;
@@ -107,10 +96,10 @@ public class Account   {
   /**
    * Get authorId
    * @return authorId
-  **/
+   **/
   @ApiModelProperty(example = "1", value = "")
-  
-    public Integer getAuthorId() {
+
+  public Integer getAuthorId() {
     return authorId;
   }
 
@@ -126,10 +115,10 @@ public class Account   {
   /**
    * type of account to be created
    * @return accountType
-  **/
+   **/
   @ApiModelProperty(example = "current", value = "type of account to be created")
-  
-    public AccountTypeEnum getAccountType() {
+
+  public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
@@ -142,18 +131,15 @@ public class Account   {
    **/
   @ApiModelProperty(example = "NL23INHO2298608059", value = "unique string that identifies the bank and account")
 
- // @Size(min=18,max=18)   public String getIban() {
-   // return iban;
- // }
+  @Size(min=18,max=18)   public String getIban() {
+    return iban;
+  }
 
   public void setIban(String iban) {
     this.iban = iban;
   }
 
-  public Account balance(Double balance) {
-    this.balance = balance;
-    return this;
-  }
+
 
 
   /**
@@ -162,13 +148,6 @@ public class Account   {
    **/
   @ApiModelProperty(example = "0", value = "")
 
-  public Double getBalance() {
-    return balance;
-  }
-
-  public void setBalance(Double balance) {
-    this.balance = balance;
-  }
 
 
 
@@ -179,13 +158,12 @@ public class Account   {
     Account account = (Account) o;
     return Objects.equals(authorId, account.authorId) &&
             Objects.equals(iban, account.iban) &&
-            Objects.equals(balance, account.balance) &&
             accountType == account.accountType;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorId, iban, balance, accountType);
+    return Objects.hash(authorId, iban, accountType);
   }
 
   @Override
@@ -195,7 +173,6 @@ public class Account   {
     sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("}");
     return sb.toString();
   }
