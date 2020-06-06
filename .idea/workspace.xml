@@ -4,15 +4,9 @@
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/IBANGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/IBANGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-spring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,26 +231,26 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591317423455" />
-    <state width="1877" height="265" key="GridCell.Tab.0.bottom" timestamp="1591451219680">
+    <state width="1877" height="193" key="GridCell.Tab.0.bottom" timestamp="1591454008068">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591373909936" />
-    <state width="1877" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591451219680" />
-    <state width="1877" height="265" key="GridCell.Tab.0.center" timestamp="1591451219680">
+    <state width="1877" height="193" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008068" />
+    <state width="1877" height="193" key="GridCell.Tab.0.center" timestamp="1591454008066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="265" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591451219680" />
-    <state width="1877" height="265" key="GridCell.Tab.0.left" timestamp="1591451219680">
+    <state width="1877" height="193" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008066" />
+    <state width="1877" height="193" key="GridCell.Tab.0.left" timestamp="1591454008066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="265" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591451219680" />
-    <state width="1877" height="265" key="GridCell.Tab.0.right" timestamp="1591451219680">
+    <state width="1877" height="193" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008066" />
+    <state width="1877" height="193" key="GridCell.Tab.0.right" timestamp="1591454008067">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="265" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591451219680" />
+    <state width="1877" height="193" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591454008067" />
     <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -265,10 +259,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="564" y="133" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860@0.0.1600.860" timestamp="1591100735338" />
-    <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1590760110229">
+    <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591453255429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590760110229" />
+    <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591453255429" />
     <state x="182" y="91" key="new project wizard" timestamp="1591279180667">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

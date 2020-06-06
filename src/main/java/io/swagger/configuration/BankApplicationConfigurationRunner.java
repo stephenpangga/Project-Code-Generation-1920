@@ -77,6 +77,9 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     public void loadTransactions()
     {
+        /*
+        *since the iban is auto generated, i have to find them and make them fit to the examples below
+         */
         List<Account> a = accountRepository.findAll();
         List<User> users = userRepository.findAll();
 
@@ -85,26 +88,26 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
         User u = users.get(0);
 
-
+        // this are example values so that my transaction table isnt empty in the h2 database.
         List<Transaction> transactionList = Arrays.asList(
-                new Transaction(account1,
-                        account2,
-                        503.73,
-                        Transaction.TransactionTypeEnum.TRANSFER,
-                        u,
-                        LocalDateTime.now()),
-                new Transaction(account1,
-                        account2,
-                        502.73,
-                        Transaction.TransactionTypeEnum.TRANSFER,
-                        u,
-                        LocalDateTime.now()),
-                new Transaction(account2,
-                        account1,
-                        501.73,
-                        Transaction.TransactionTypeEnum.WITHDRAW,
-                        u,
-                        LocalDateTime.now())
+            new Transaction(account1,
+                    account2,
+                    102.73,
+                    Transaction.TransactionTypeEnum.TRANSFER,
+                    u,
+                    LocalDateTime.now()),
+            new Transaction(account1,
+                    account2,
+                    103.73,
+                    Transaction.TransactionTypeEnum.TRANSFER,
+                    u,
+                    LocalDateTime.now()),
+            new Transaction(account2,
+                    account1,
+                    501.73,
+                    Transaction.TransactionTypeEnum.WITHDRAW,
+                    u,
+                    LocalDateTime.now())
         );
 
         for (Transaction transaction : transactionList) {
@@ -115,6 +118,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
+
   public void LoadAccounts(){
         List<User> users = userRepository.findAll();
         User bankUser = users.get(0);
@@ -123,7 +127,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
             List<Account> accounts = Arrays.asList(
                 new Account("NL01INHO0000000001", 100.0, users.get(0), Account.AccountTypeEnum.CURRENT),
-                new Account("NL01INHO0000000002", 100.0, users.get(0), Account.AccountTypeEnum.SAVINGS),
+                new Account("NL01INHO0000000002", 10000.0, users.get(0), Account.AccountTypeEnum.SAVINGS),
                 new Account("NL01INHO0000000078", 100.1, users.get(1), Account.AccountTypeEnum.CURRENT),
                 new Account("NL01INHO0000000895",1058.1, users.get(2), Account.AccountTypeEnum.CURRENT)
             );
