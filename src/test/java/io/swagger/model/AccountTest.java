@@ -8,15 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountTest {
 Account acc = null;
 @BeforeEach
-public void start(){
+public void Start(){
     acc = new Account();
 }
     @Test
-    public void creatNewAccShouldNotBeNull(){
+    public void WhenICreatNewAccShouldNotBeNull(){
         assertNotNull(acc);
     }
     @Test
-    public void currencyShldBeEuro(){
+    public void CurrencyShldBeEuro(){
         assertEquals("Euro", acc.getCurrency());
     }
 
