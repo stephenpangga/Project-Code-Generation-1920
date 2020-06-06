@@ -47,11 +47,15 @@ public class Account   {
   @JsonProperty("authorId")
   private Integer authorId = null;
 
+  @JsonProperty("authorId")
+  private Double balance = null;
+
   @JsonProperty("accountType")
   private AccountTypeEnum accountType = null;
 
-  public Account(Integer authorId, AccountTypeEnum accountType) {
+  public Account(Integer authorId, Double balance,AccountTypeEnum accountType) {
     this.authorId = authorId;
+    this.balance = balance;
     this.accountType = accountType;
 
   }
