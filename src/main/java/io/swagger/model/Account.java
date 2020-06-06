@@ -9,8 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.Entity;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -31,8 +34,7 @@ import java.util.Random;
 public class Account   {
 
   @Id
-  @Column(columnDefinition = "LONGVARCHAR")
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acc_sq")
+  @Ge(strategy = GenerationType.SEQUENCE, generator = "acc_sq")
   @GenericGenerator(
           name = "acc_sq",
           strategy = "io.swagger.service.IBANGenerator",
