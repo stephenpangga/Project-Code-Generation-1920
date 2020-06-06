@@ -63,6 +63,20 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
                         "Mokranova",
                         "sisa@gmail.com",
                         "somethingstrongerthanpassword", User.AccessLevelEnum.CUSTOMER
+                ),
+                new User (
+                        "625242@student.inholland.nl",
+                        "Thomas",
+                        "de Joode",
+                        "admin",
+                        User.AccessLevelEnum.CUSTOMER
+                ),
+                new User (
+                        "629860@student.inholland.nl",
+                        "Stephen",
+                        "Pangga",
+                        "admin",
+                        User.AccessLevelEnum.EMPLOYEE
                 )
         );
         for(User user: userList)
@@ -115,8 +129,8 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
   public void LoadLogins() {
         List<Login> logins = Arrays.asList(
-                new Login().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").email("625242@student.inholland.nl"),
-                new Login().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").email("629860@student.inholland.nl")
+                new Login().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").user(userRepository.findOne(0)),
+                new Login().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").user(userRepository.findOne(1))
         );
         logins.forEach(login -> loginRepository.save(login));
         List<Login> login = (List<Login>) loginRepository.findAll();

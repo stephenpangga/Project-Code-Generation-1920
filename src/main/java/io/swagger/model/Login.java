@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.Objects;
 
 /**
@@ -15,19 +17,20 @@ import java.util.Objects;
 @Entity
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Login {
+  @Id
   @JsonProperty("token")
   private String token = null;
 
-  @Id
-  @JsonProperty("email")
-  private String email;
+  @JsonProperty("userId")
+  @OneToOne(cascade = {CascadeType.REFRESH})
+  private User user;
 
-  public String getEmail() {
-    return email;
+  public User getUser() {
+    return user;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setUser(User user) {
+    this.user = user;
   }
 
   public Login token(String token) {
@@ -49,8 +52,8 @@ public class Login {
     this.token = token;
   }
 
-  public Login email (String email) {
-    this.email = email;
+  public Login user (User user) {
+    this.user = user;
     return this;
   }
 
