@@ -35,11 +35,10 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        LoadAccounts();
         loadUsers();
+        LoadAccounts();
         loadTransactions();
         LoadLogins();
-
     }
 
     /*** save the datas here ***/
@@ -123,16 +122,36 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             System.out.println(transaction);
         }
     }
-  public void LoadAccounts(){
+
+    public void LoadAccounts(){
+
+          List<User> users = userRepository.findAll();
+          User bankUser = users.get(0);
+          User stephen= users.get(0);
+          User dogOwner = users.get(0);
 
           List<Account> accounts = Arrays.asList(
-      new Account(2, 0.0,Account.AccountTypeEnum.CURRENT),
-                  new Account(2, 0.0,Account.AccountTypeEnum.SAVINGS)
-                  );
-      accounts.forEach(acc->accountRepository.save(acc));
-        List<Account>acc = (List<Account>) accountRepository.findAll();
-        acc.forEach(System.out::println);
-  }
+                  new Account(100.0, users.get(0), Account.AccountTypeEnum.CURRENT),
+                  new Account( 10000.0, users.get(0), Account.AccountTypeEnum.SAVINGS),
+                  new Account(100.1, users.get(1), Account.AccountTypeEnum.CURRENT),
+                  new Account(1058.1, users.get(2), Account.AccountTypeEnum.CURRENT)
+          );
+          accounts.forEach(acc->accountRepository.save(acc));
+          List<Account>acc = (List<Account>) accountRepository.findAll();
+          acc.forEach(System.out::println);
+
+            /*
+              List<Account> accounts = Arrays.asList(
+          new Account(2, 0.0,Account.AccountTypeEnum.CURRENT),
+                      new Account(2, 0.0,Account.AccountTypeEnum.SAVINGS)
+                      );
+          accounts.forEach(acc->accountRepository.save(acc));
+            List<Account>acc = (List<Account>) accountRepository.findAll();
+            acc.forEach(System.out::println);
+
+             */
+
+    }
 
   public void LoadLogins() {
         List<Login> logins = Arrays.asList(

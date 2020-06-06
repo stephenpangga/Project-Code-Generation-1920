@@ -2,7 +2,6 @@ package io.swagger.service;
 
 import io.swagger.model.Account;
 import io.swagger.repository.AccountRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,11 +26,13 @@ class AccountServiceTest {
     @MockBean
     private AccountRepository accountRepository;
     private Account account;
-
+/*
     @BeforeEach
     public void Setup(){
         account = new Account(2,0.0, Account.AccountTypeEnum.SAVINGS);
     }
+    */
+
     @Test
     public void CallingAllAccountsShouldReturnOK() throws Exception {
         given( accountRepository.findAll())
