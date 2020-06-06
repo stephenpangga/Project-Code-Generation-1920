@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -28,7 +27,7 @@ public class UserService {
         userRepository.delete(id);
     }
 
-    public void updateUser(int userId,User newUserValues) { // you need an account object with new values
+    public void updateUser(int userId, User newUserValues) { // you need an account object with new values
 
         User userToBeEdited = userRepository.findOne(userId);
         if (userToBeEdited.getEmail() != null) { //Check if any one of the properties is not empty just to make sure the object was retrieved;

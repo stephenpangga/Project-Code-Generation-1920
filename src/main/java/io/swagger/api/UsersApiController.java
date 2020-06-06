@@ -115,7 +115,7 @@ public class UsersApiController implements UsersApi {
 ,@ApiParam(value = ""  )  @Valid @RequestBody User body
 ) {
         String accept = request.getHeader("Accept");
-        userService.updateUser(20002);
+        userService.updateUser(userId, body);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
