@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.threeten.bp.LocalDateTime;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -11,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class TransactionTest {
 
     Transaction transaction;
+
     @BeforeEach
     public void setup()
     {
@@ -44,26 +46,42 @@ class TransactionTest {
 
     //Create Transactions
     @Test
-    public void whenICreateTransactionItShoutNotBeNull()
+    public void whenICreateTransactionItShouldNotBeNull()
     {
         assertNotNull(transaction);
     }
 
     //specific Transactions
     @Test
-    public void getIbanShouldNotBeNull()
+    public void gettingSpecificTransactionItShouldNotBeNull()
     {
-
+        assertNotNull(transaction);
     }
 
     //the transactions limits
-
+    //absolute limit 10
+    //cumulative limit
+    //transaction amount limit
     //variables to make transactions
     @Test
     public void getSenderShouldNotBeNull()
     {
         assertNotNull(transaction.getSender());
     }
+
+    @Test
+    public void getRecipientShouldNotBeNull()
+    {
+        assertNotNull(transaction.getRecipient());
+    }
+
+    @Test
+    public void setRecipientShouldNotBeNull()
+    {
+        transaction.setRecipient(null);
+        assertNull(transaction.getRecipient());
+    }
+
     //amount
     @Test
     public void getAmountShouldNotBeNull()
