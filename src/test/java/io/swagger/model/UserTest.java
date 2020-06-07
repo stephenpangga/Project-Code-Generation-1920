@@ -8,8 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserTest {
     User user;
     @BeforeEach
-    public void SetUp(){
-        user = new User();
+    public void setUp(){
+        user =  new User("jjh@gmail.com",
+                "jjh97",
+                "Jaehyun",
+                "Jung",
+                User.AccessLevelEnum.EMPLOYEE);
     }
 
     @Test
