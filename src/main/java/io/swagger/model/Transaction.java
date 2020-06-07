@@ -167,6 +167,9 @@ public class Transaction   {
   }
 
   public void setAmount(Double amount) {
+    if(amount < 0) {
+      throw new IllegalArgumentException();
+    }
     this.amount = amount;
   }
 
