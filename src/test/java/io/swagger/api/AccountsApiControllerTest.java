@@ -2,7 +2,6 @@ package io.swagger.api;
 
 import io.swagger.model.Account;
 import io.swagger.service.AccountService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +35,7 @@ class AccountsApiControllerTest {
 
     private Account account;
 
-    @BeforeEach
-    /*public void setUp(){
-        account = new Account(2,0.0, Account.AccountTypeEnum.CURRENT);
-    }*/
+
     @Test
     public void CallingAllAccountShouldReturnOK() throws Exception {
 

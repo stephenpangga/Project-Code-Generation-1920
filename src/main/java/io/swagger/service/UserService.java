@@ -1,12 +1,15 @@
 package io.swagger.service;
 
+import io.swagger.model.Account;
 import io.swagger.model.Login;
 import io.swagger.model.User;
+import io.swagger.repository.AccountRepository;
 import io.swagger.repository.LoginRepository;
 import io.swagger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -16,9 +19,12 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
+    private AccountRepository accountRepository;
+
+    @Autowired
     private LoginRepository loginRepository;
 
-    private TokenGenerator tokenGenerator = new TokenGenerator();
+    private final TokenGenerator tokenGenerator = new TokenGenerator();
 
     public UserService() {
     }
@@ -27,6 +33,7 @@ public class UserService {
     {
         return (List<User>) userRepository.findAll();
     }
+
 
     public List<User> deteleteUser(int userId) {
         userRepository.delete(userId);
@@ -54,4 +61,15 @@ public class UserService {
         return user;
     }
 
+    public List<Account> GetCustomerAccounts(int customerID) {
+        List<Account> accounts = new java.util.ArrayList<>(Collections.emptyList());
+
+        for (Account account : accountRepository.findAll()) {
+            if (account.getAuthorId() == customerID) {
+                accounts.add(account);
+            }
+        }
+
+        return  accounts;
+    }
 }

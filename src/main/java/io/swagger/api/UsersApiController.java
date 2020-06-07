@@ -118,7 +118,7 @@ public class UsersApiController implements UsersApi {
     }
 
     public ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId
-) {
+    ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -129,7 +129,7 @@ public class UsersApiController implements UsersApi {
             }
         }
 
-        return new ResponseEntity<List<Account>>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<Account>>(userService.GetCustomerAccounts(Integer.parseInt(userId)),HttpStatus.NOT_IMPLEMENTED);
     }
 
 }

@@ -45,7 +45,7 @@ public class Account   {
     }
 
     @JsonIgnore
-    @JsonProperty("authorId")
+    @JsonProperty("balance")
     private Double balance = 0.0;
 
 
@@ -57,27 +57,18 @@ public class Account   {
     private String currency = "Euro";
 
     @JsonProperty("authorId")
-    @ManyToOne(cascade = {CascadeType.REFRESH})
-    private User authorId = null;
+    private int authorId = 0;
 
     @JsonProperty("accountType")
     private AccountTypeEnum accountType = null;
 
-    public Account( Double balance, User authorId, AccountTypeEnum accountType) {
+    public Account( Double balance, int authorId, AccountTypeEnum accountType) {
         this.authorId = authorId;
         this.balance = balance;
         this.accountType = accountType;
 
     }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
-
+    
     /**
      * type of account to be created
      */
@@ -110,7 +101,7 @@ public class Account   {
     }
 
 
-    public Account authorId(User authorId) {
+    public Account authorId(int authorId) {
         this.authorId = authorId;
         return this;
     }
@@ -121,11 +112,11 @@ public class Account   {
      **/
     @ApiModelProperty(example = "1", value = "")
 
-    public User getAuthorId() {
+    public int getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(User authorId) {
+    public void setAuthorId(int authorId) {
         this.authorId = authorId;
     }
 

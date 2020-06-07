@@ -37,8 +37,7 @@ public class AccountsApiController implements AccountsApi {
     }
 
     public ResponseEntity<Void> accountsDelete(@ApiParam(value = "Account IBAN to delete",required=true) @PathVariable("IBAN") String IBAN
-) {
-        String accept = request.getHeader("Accept");
+)   {
         accountService.DeleteAccount(IBAN);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
@@ -65,14 +64,14 @@ public class AccountsApiController implements AccountsApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}", Account.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}", Account.class), HttpStatus.OK);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(accountService.GetAccount(IBAN),HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<Account> accountsIBANPut(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
@@ -105,5 +104,6 @@ public class AccountsApiController implements AccountsApi {
 
         return new ResponseEntity<Account>(accountService.CreateAccount(body),HttpStatus.CREATED);
     }
+
 
 }
