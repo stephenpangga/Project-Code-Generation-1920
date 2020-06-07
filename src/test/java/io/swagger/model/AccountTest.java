@@ -9,7 +9,7 @@ class AccountTest {
 Account acc = null;
 @BeforeEach
 public void Start(){
-    acc = new Account();
+    //acc = new Account();
 }
     @Test
     public void WhenICreatNewAccShouldNotBeNull(){

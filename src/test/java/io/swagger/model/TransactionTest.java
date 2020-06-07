@@ -1,17 +1,21 @@
 package io.swagger.model;
 
+import io.swagger.repository.TransactionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.threeten.bp.LocalDateTime;
 
 import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class TransactionTest {
 
     Transaction transaction;
+
+    @Autowired
+    TransactionRepository transactionRepository;
 
     @BeforeEach
     public void setup()
@@ -83,6 +87,12 @@ class TransactionTest {
     }
 
     //amount
+    @Test
+    public void AmountShouldBeDouble()
+    {
+        assertEquals(000.0D,transaction.getAmount());
+    }
+
     @Test
     public void getAmountShouldNotBeNull()
     {
