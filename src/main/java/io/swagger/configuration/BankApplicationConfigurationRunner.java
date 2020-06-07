@@ -49,6 +49,11 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     public void loadUsers()
     {
         List<User> userList = Arrays.asList(
+                new User("inholland@gmail.com",
+                        "inhollandbank",
+                        "Bank",
+                        "bank", User.AccessLevelEnum.EMPLOYEE
+                ),
                 new User("stephen@gmail.com",
                         "password",
                         "Stephen",
