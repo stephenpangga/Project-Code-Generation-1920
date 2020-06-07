@@ -19,12 +19,12 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Transaction   {
   @JsonProperty("sender")
-  @ManyToOne(cascade = {CascadeType.REFRESH})
+  @ManyToOne(cascade = CascadeType.ALL)
   private Account sender;
 
   //https://www.baeldung.com/jpa-cascade-types
   @JsonProperty("recipient")
-  @ManyToOne(cascade = {CascadeType.REFRESH})
+  @ManyToOne(cascade = CascadeType.ALL)
   private Account recipient;
 
   @JsonProperty("amount")
@@ -40,7 +40,7 @@ public class Transaction   {
   private Integer transactionId;
 
   @JsonProperty("userPerforming")
-  @ManyToOne(cascade = {CascadeType.REFRESH})
+  @ManyToOne()
   private User userPerforming = null;
 
   @JsonProperty("timestamp")

@@ -37,9 +37,9 @@ public class AccountsApiController implements AccountsApi {
     }
 
     public ResponseEntity<Void> accountsDelete(@ApiParam(value = "Account IBAN to delete",required=true) @PathVariable("IBAN") String IBAN
-) {
-        String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+)   {
+        accountService.DeleteAccount(IBAN);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<List<Account>> accountsGet(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset
@@ -64,14 +64,14 @@ public class AccountsApiController implements AccountsApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}", Account.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}", Account.class), HttpStatus.OK);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(accountService.GetAccount(IBAN),HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<Account> accountsIBANPut(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
@@ -87,7 +87,7 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(accountService.UpdateAccount(body,IBAN),HttpStatus.OK);
     }
 
     public ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
@@ -102,7 +102,8 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(accountService.CreateAccount(body),HttpStatus.OK);
+        return new ResponseEntity<Account>(accountService.CreateAccount(body),HttpStatus.CREATED);
     }
+
 
 }

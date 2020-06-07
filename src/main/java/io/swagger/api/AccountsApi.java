@@ -22,7 +22,7 @@ public interface AccountsApi {
         @ApiResponse(code = 200, message = "Account has been deleted."),
         @ApiResponse(code = 400, message = "Invalid ID supplied"),
         @ApiResponse(code = 404, message = "Account not found") })
-    @RequestMapping(value = "/accounts",
+    @RequestMapping(value = "/accounts/{IBAN}",
         method = RequestMethod.DELETE)
     ResponseEntity<Void> accountsDelete(@ApiParam(value = "Account IBAN to delete",required=true) @PathVariable("IBAN") String IBAN
 );
@@ -80,5 +80,6 @@ public interface AccountsApi {
         method = RequestMethod.POST)
     ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
 );
+
 
 }

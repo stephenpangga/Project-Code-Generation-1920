@@ -151,7 +151,7 @@ public class TransactionService {
     public void checkUserPerforming() throws Exception {
        User userPerforming = transaction.getUserPerforming();
        //if michael fixes his part then do userPerforming.equals(transaction.getSender().getOwner());
-       if(!(userPerforming.getAccessLevel().equals(User.AccessLevelEnum.EMPLOYEE) || userPerforming.getId().equals(transaction.getSender().getAuthorId()))){
+       if(!(userPerforming.getAccessLevel().equals(User.AccessLevelEnum.EMPLOYEE) || userPerforming.getId().equals(transaction.getSender().getOwner()))){
            throw new Exception ("user is not authorised");
        }
         //check if its employee or owner, return that
@@ -166,7 +166,7 @@ public class TransactionService {
 
     private void transferMoney(Account sender, Account recipient, Transaction transaction) throws Exception {
         if(sender.getAccountType().equals(Account.AccountTypeEnum.SAVINGS) || recipient.getAccountType().equals(Account.AccountTypeEnum.SAVINGS)){
-            if(sender.getAuthorId().equals(recipient.getAuthorId())){
+            if(sender.getOwner() == recipient.getOwner()){
                 changeBalance(sender, transaction.getAmount()*-1);//-1 to turn the value negative.
                 changeBalance(recipient, transaction.getAmount());
             }else{

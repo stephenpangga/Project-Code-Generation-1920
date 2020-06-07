@@ -7,6 +7,8 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -31,6 +33,9 @@ public class User  {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
   @JsonProperty("id")
   private Integer id;
+
+  @OneToMany(mappedBy = "owner",cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Account> accounts = new ArrayList<Account>();
 
   @JsonProperty("email")
   private String email;

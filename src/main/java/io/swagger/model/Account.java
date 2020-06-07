@@ -38,35 +38,39 @@ public class Account   {
                     @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
     @JsonProperty("iban")
     private String iban;
+
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     @JsonIgnore
-    @JsonProperty("authorId")
-    private Double balance = null;
+    @JsonProperty("balance")
+    private Double balance = 0.0;
+
+
+    public String getCurrency() {
+        return currency;
+    }
 
     @javax.persistence.Transient
     private String currency = "Euro";
 
-    @JsonProperty("authorId")
-    @ManyToOne(cascade = {CascadeType.REFRESH})
-    private User authorId = null;
+    @JsonProperty("owner")
+    @ManyToOne()
+    @JoinColumn(name = "fk_user")
+    private User owner = null;
 
     @JsonProperty("accountType")
     private AccountTypeEnum accountType = null;
 
-    public Account( Double balance, User authorId, AccountTypeEnum accountType) {
-        this.authorId = authorId;
+    public Account( Double balance, User owner, AccountTypeEnum accountType) {
+        this.owner = owner;
         this.balance = balance;
         this.accountType = accountType;
 
     }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
-
+    
     /**
      * type of account to be created
      */
@@ -99,23 +103,23 @@ public class Account   {
     }
 
 
-    public Account authorId(User authorId) {
-        this.authorId = authorId;
+    public Account owner(User owner) {
+        this.owner = owner;
         return this;
     }
 
     /**
-     * Get authorId
-     * @return authorId
+     * Get owner
+     * @return owner
      **/
     @ApiModelProperty(example = "1", value = "")
 
-    public User getAuthorId() {
-        return authorId;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setAuthorId(User authorId) {
-        this.authorId = authorId;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public Account accountType(AccountTypeEnum accountType) {
@@ -165,7 +169,7 @@ public class Account   {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return Objects.equals(authorId, account.authorId) &&
+        return Objects.equals(owner, account.owner) &&
                 Objects.equals(iban, account.iban) &&
                 Objects.equals(balance, account.balance) &&
                 accountType == account.accountType;
@@ -173,7 +177,7 @@ public class Account   {
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorId, iban, balance, accountType);
+        return Objects.hash(owner, iban, balance, accountType);
     }
 
     @Override
@@ -182,7 +186,7 @@ public class Account   {
         sb.append("iban='").append(iban).append('\'');
         sb.append(", balance=").append(balance);
         sb.append(", currency='").append(currency).append('\'');
-        sb.append(", authorId=").append(authorId);
+        sb.append(", owner=").append(owner);
         sb.append(", accountType=").append(accountType);
         sb.append('}');
         return sb.toString();
