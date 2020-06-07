@@ -118,9 +118,9 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             transactionRepository.save(transaction);
         }
 
-        for (Transaction transaction : transactionRepository.findAll()) {
+        /*for (Transaction transaction : transactionRepository.findAll()) {
             System.out.println(transaction);
-        }
+        }*/
     }
 
     public void LoadAccounts(){
@@ -129,6 +129,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
           User bankUser = users.get(0);
           User stephen= users.get(0);
           User dogOwner = users.get(0);
+
 
           List<Account> accounts = Arrays.asList(
                   new Account(100.0, users.get(0), Account.AccountTypeEnum.CURRENT),
@@ -160,7 +161,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
         );
         logins.forEach(login -> loginRepository.save(login));
         List<Login> login = (List<Login>) loginRepository.findAll();
-        login.forEach(System.out::println);
+        //login.forEach(System.out::println);
   }
 
 }
