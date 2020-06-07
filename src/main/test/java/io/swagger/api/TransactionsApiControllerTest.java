@@ -7,15 +7,19 @@ import io.swagger.model.User;
 import io.swagger.service.TransactionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.threeten.bp.LocalDateTime;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -25,20 +29,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@RunWith(SpringRunner.class)
+@WebMvcTest(TransactionsApiController.class)
 class TransactionsApiControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
+    //private TransactionsApiController transactionsApiController;
     private TransactionService transactionService;
+
+    //@MockBean
+    //private TransactionRepository transactionRepository;
 
     private Transaction transaction;
 
     @BeforeEach
     public void setup()
     {
-
         User employee = new User("inholland@gmail.com",
                 "inhollandbank",
                 "Bank",
@@ -60,21 +69,33 @@ class TransactionsApiControllerTest {
                 LocalDateTime.now());
     }
 
-    @Test
     //(expected = NullPointerException.class)
-    @WithMockUser(roles = {"Employee", "Customer"})
+    //@WithMockUser(roles = {"Employee", "Customer"})
+    @Test
     public void gettingAllTransactionShouldReturnOK() throws Exception {
-        given(transactionService.getAllTransactions()).willReturn(Arrays.asList(transaction));
 
-        this.mvc.perform(get("/api/transactions"))
+        List<Transaction> transactionList = Arrays.asList(transaction);
+
+        given(transactionService.getAllTransactions()).willReturn(transactionList);
+
+        this.mvc.perform(get("/transactions"))
                 .andExpect(status().isOk()).andExpect(content().contentType("application/json"));
     }
 
     @Test
+    public void test() throws Exception {
+        List<Transaction> transactionList = Arrays.asList(transaction);
+
+        given(transactionService.getAllTransactions()).willReturn(transactionList);
+
+        this.mvc.perform(get("/transactions"))
+                .andExpect(status().isOk()).andExpect(content().contentType("application/json"));
+
+    }
+    @Test
     public void createTransactionShouldReturn201Created() throws Exception
     {
         ObjectMapper mapper = new ObjectMapper();
-
         this.mvc
             .perform(post("/transactions")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
