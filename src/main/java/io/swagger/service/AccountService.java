@@ -3,14 +3,14 @@ package io.swagger.service;
 import io.swagger.model.Account;
 import io.swagger.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@ComponentScan("module-service")
+//@ComponentScan("module-service")
 public class AccountService {
 
     @Autowired
@@ -21,7 +21,6 @@ public class AccountService {
     }
 
     public Account CreateAccount(Account newAccount) {
-        newAccount.setBalance(0.0);
         accountRepository.save(newAccount);
         return newAccount;
     }
@@ -42,7 +41,7 @@ public class AccountService {
     }
 
     public List<Account> GetCustomerAccounts(int customerID) {
-        List<Account> accounts = null;
+        List<Account> accounts = new java.util.ArrayList<>(Collections.emptyList());
 
         for (Account account : accountRepository.findAll()) {
             if (account.getAuthorId() == customerID) {

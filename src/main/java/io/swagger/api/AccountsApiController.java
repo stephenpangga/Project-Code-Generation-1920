@@ -39,7 +39,7 @@ public class AccountsApiController implements AccountsApi {
     public ResponseEntity<Void> accountsDelete(@ApiParam(value = "Account IBAN to delete",required=true) @PathVariable("IBAN") String IBAN
 ) {
         String accept = request.getHeader("Accept");
-        accountService.DeleteAccount(accept);
+        accountService.DeleteAccount(IBAN);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
