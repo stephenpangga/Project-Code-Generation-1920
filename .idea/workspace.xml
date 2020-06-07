@@ -4,13 +4,6 @@
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -496,13 +489,5 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1591403313474" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1591457087413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.swagger.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/swagger_spring$AccountsApiControllerTest_CallingAllAccountShouldReturnOK.ic" NAME="AccountsApiControllerTest.CallingAllAccountShouldReturnOK Coverage Results" MODIFIED="1591486258892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.swagger.api.*</FILTER>
-    </SUITE>
   </component>
 </project>
