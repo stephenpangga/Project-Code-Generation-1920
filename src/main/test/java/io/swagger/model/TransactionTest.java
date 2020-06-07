@@ -119,7 +119,6 @@ class TransactionTest {
     }
 
 
-
     @Test
     public void settingAmountToNegativeShouldThrowIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class,
@@ -166,6 +165,7 @@ class TransactionTest {
         assertEquals(employee, transaction.getUserPerforming());
     }
 
+
     //date time
     @Test
     public void getterAndSetterForDateTimeShouldNotBeNull(){
@@ -177,6 +177,7 @@ class TransactionTest {
     @Test
     public void getTransactionIdShouldNotBeNull(){
         assertNotNull(transaction.getTransactionId());
+        assertEquals(transaction.getTransactionId(),10001);
     }
 
     //new things
@@ -185,6 +186,13 @@ class TransactionTest {
         transaction.setAmount(100.0);
         assertEquals(transaction.getAmount(),100.0);
     }
+
+    @Test
+    public void setUserPerformingShoutNotBeNull(){
+        transaction.setUserPerforming(null);
+        assertNull(transaction.getUserPerforming());
+    }
+
 
 
 /*

@@ -127,12 +127,12 @@ public class Transaction   {
   public void setSender(Account sender) {
     this.sender = sender;
   }
-/*
+
   public Transaction recipient(Account recipient) {
     this.recipient = recipient;
     return this;
   }
-*/
+
   /**
    * Get recipient
    * @return recipient
@@ -234,7 +234,6 @@ public class Transaction   {
     this.userPerforming = userPerforming;
   }
 
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -261,7 +260,6 @@ public class Transaction   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Transaction {\n");
-
     sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
