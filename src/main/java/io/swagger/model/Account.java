@@ -28,7 +28,7 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
 
-    private final User authorId;
+    private User authorId;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "acc_sq")
     @GenericGenerator(
