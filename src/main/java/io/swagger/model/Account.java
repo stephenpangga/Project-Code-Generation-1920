@@ -64,8 +64,15 @@ public class Account   {
     @JsonProperty("accountType")
     private AccountTypeEnum accountType = null;
 
-    public Account( Double balance, User owner, AccountTypeEnum accountType) {
-        this.owner = owner;
+    public Account(String iban, Double balance, User authorId, AccountTypeEnum accountType) {
+        this.iban = iban;
+        this.balance = balance;
+        this.authorId = authorId;
+        this.accountType = accountType;
+    }
+
+    public Account(Double balance, User authorId, AccountTypeEnum accountType) {
+        this.authorId = authorId;
         this.balance = balance;
         this.accountType = accountType;
 
