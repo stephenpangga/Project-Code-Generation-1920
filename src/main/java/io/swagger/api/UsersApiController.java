@@ -128,8 +128,14 @@ public class UsersApiController implements UsersApi {
                 return new ResponseEntity<List<Account>>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
+        User currentUser = new User();
+        for(User user : userService.getAllUser()){
+            if (user.getId() == Integer.parseInt(userId)){
+                currentUser = user;
+            }
+        }
 
-        return new ResponseEntity<List<Account>>(userService.GetCustomerAccounts(Integer.parseInt(userId)),HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<Account>>(userService.GetCustomerAccounts(currentUser),HttpStatus.NOT_IMPLEMENTED);
     }
 
 }

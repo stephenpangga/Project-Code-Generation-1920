@@ -61,11 +61,11 @@ public class UserService {
         return user;
     }
 
-    public List<Account> GetCustomerAccounts(int customerID) {
+    public List<Account> GetCustomerAccounts(User customer) {
         List<Account> accounts = new java.util.ArrayList<>(Collections.emptyList());
 
         for (Account account : accountRepository.findAll()) {
-            if (account.getAuthorId() == customerID) {
+            if (account.getOwner() == customer) {
                 accounts.add(account);
             }
         }

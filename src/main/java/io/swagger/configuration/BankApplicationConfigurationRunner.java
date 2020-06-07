@@ -131,10 +131,10 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
           User dogOwner = users.get(0);
 
           List<Account> accounts = Arrays.asList(
-                  new Account(100.0, users.get(0).getId(), Account.AccountTypeEnum.CURRENT),
-                  new Account( 10000.0, users.get(0).getId(), Account.AccountTypeEnum.SAVINGS),
-                  new Account(100.1, users.get(1).getId(), Account.AccountTypeEnum.CURRENT),
-                  new Account(1058.1, users.get(2).getId(), Account.AccountTypeEnum.CURRENT)
+                  new Account(100.0, users.get(0), Account.AccountTypeEnum.CURRENT),
+                  new Account( 10000.0, users.get(0), Account.AccountTypeEnum.SAVINGS),
+                  new Account(100.1, users.get(1), Account.AccountTypeEnum.CURRENT),
+                  new Account(1058.1, users.get(2), Account.AccountTypeEnum.CURRENT)
           );
           accounts.forEach(acc->accountRepository.save(acc));
           List<Account>acc = (List<Account>) accountRepository.findAll();

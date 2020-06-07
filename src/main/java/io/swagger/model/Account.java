@@ -62,14 +62,14 @@ public class Account   {
     @javax.persistence.Transient
     private String currency = "Euro";
 
-    @JsonProperty("authorId")
-    private int authorId = 0;
+    @JsonProperty("owner")
+    private User owner = null;
 
     @JsonProperty("accountType")
     private AccountTypeEnum accountType = null;
 
-    public Account( Double balance, int authorId, AccountTypeEnum accountType) {
-        this.authorId = authorId;
+    public Account( Double balance, User owner, AccountTypeEnum accountType) {
+        this.owner = owner;
         this.balance = balance;
         this.accountType = accountType;
 
@@ -107,23 +107,23 @@ public class Account   {
     }
 
 
-    public Account authorId(int authorId) {
-        this.authorId = authorId;
+    public Account owner(User owner) {
+        this.owner = owner;
         return this;
     }
 
     /**
-     * Get authorId
-     * @return authorId
+     * Get owner
+     * @return owner
      **/
     @ApiModelProperty(example = "1", value = "")
 
-    public int getAuthorId() {
-        return authorId;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public Account accountType(AccountTypeEnum accountType) {
@@ -173,7 +173,7 @@ public class Account   {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return Objects.equals(authorId, account.authorId) &&
+        return Objects.equals(owner, account.owner) &&
                 Objects.equals(iban, account.iban) &&
                 Objects.equals(balance, account.balance) &&
                 accountType == account.accountType;
@@ -181,7 +181,7 @@ public class Account   {
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorId, iban, balance, accountType);
+        return Objects.hash(owner, iban, balance, accountType);
     }
 
     @Override
@@ -190,7 +190,7 @@ public class Account   {
         sb.append("iban='").append(iban).append('\'');
         sb.append(", balance=").append(balance);
         sb.append(", currency='").append(currency).append('\'');
-        sb.append(", authorId=").append(authorId);
+        sb.append(", owner=").append(owner);
         sb.append(", accountType=").append(accountType);
         sb.append('}');
         return sb.toString();
