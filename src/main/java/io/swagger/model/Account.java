@@ -41,9 +41,26 @@ public class Account   {
                     @Parameter(name = IBANGenerator.NUMBER_FORMAT_PARAMETER, value = "%010d")})
     @JsonProperty("iban")
     private String iban;
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     @JsonIgnore
     @JsonProperty("authorId")
-    private Double balance = null;
+    private Double balance = 0.0;
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
 
     @javax.persistence.Transient
     private String currency = "Euro";

@@ -17,9 +17,7 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public List<Account> GetAllAccounts() {
-        List<Account> accounts = (List<Account>) accountRepository.findAll();
-        accounts.forEach(acc->acc.getCurrency());
-        return  accounts;
+        return  (List<Account>) accountRepository.findAll();
     }
 
     public Account CreateAccount(Account newAccount) {
@@ -37,5 +35,25 @@ public class AccountService {
             accountRepository.save(editeAccount);
         }
         return  editeAccount;
+    }
+
+    public void DeleteAccount(String IBAN) {
+        accountRepository.delete(IBAN);
+    }
+
+    public List<Account> GetCustomerAccounts(int customerID) {
+        List<Account> accounts = null;
+
+        for (Account account : accountRepository.findAll()) {
+            if (account.getAuthorId() == customerID) {
+                accounts.add(account);
+            }
+        }
+        
+        return  accounts;
+    }
+
+    public Account GetAccount(String IBAN) {
+        return accountRepository.findOne(IBAN);
     }
 }
