@@ -57,6 +57,8 @@ public class Account   {
     private String currency = "Euro";
 
     @JsonProperty("owner")
+    @ManyToOne()
+    @JoinColumn(name = "fk_user")
     private User owner = null;
 
     @JsonProperty("accountType")
