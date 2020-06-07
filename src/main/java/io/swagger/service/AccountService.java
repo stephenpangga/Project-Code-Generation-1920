@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-//@ComponentScan("module-service")
 public class AccountService {
 
     @Autowired

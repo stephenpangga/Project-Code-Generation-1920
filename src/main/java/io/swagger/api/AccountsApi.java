@@ -22,7 +22,7 @@ public interface AccountsApi {
         @ApiResponse(code = 200, message = "Account has been deleted."),
         @ApiResponse(code = 400, message = "Invalid ID supplied"),
         @ApiResponse(code = 404, message = "Account not found") })
-    @RequestMapping(value = "/accounts",
+    @RequestMapping(value = "/accounts/{IBAN}",
         method = RequestMethod.DELETE)
     ResponseEntity<Void> accountsDelete(@ApiParam(value = "Account IBAN to delete",required=true) @PathVariable("IBAN") String IBAN
 );
@@ -81,4 +81,15 @@ public interface AccountsApi {
     ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
 );
 
+    @ApiOperation(value = "Find account by customer ", nickname = "usersUserIdAccountsGet", notes = "Returns customers accounts", response = Account.class, responseContainer = "List", authorizations = {
+            @Authorization(value = "ApiKeyAuth")    }, tags={ "Users", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "successful operation", response = Account.class, responseContainer = "List"),
+            @ApiResponse(code = 400, message = "Invalid IBAN supplied"),
+            @ApiResponse(code = 404, message = "Account not found") })
+    @RequestMapping(value = "/accounts/users/{userId}",
+            produces = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId
+    );
 }

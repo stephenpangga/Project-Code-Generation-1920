@@ -5,18 +5,13 @@
  */
 package io.swagger.api;
 
-import io.swagger.model.Account;
-import java.math.BigDecimal;
-import io.swagger.model.User;
 import io.swagger.annotations.*;
+import io.swagger.model.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.List;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
@@ -94,16 +89,6 @@ public interface UsersApi {
 );
 
 
-    @ApiOperation(value = "Find account by customer ", nickname = "usersUserIdAccountsGet", notes = "Returns customers accounts", response = Account.class, responseContainer = "List", authorizations = {
-        @Authorization(value = "ApiKeyAuth")    }, tags={ "Users", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "successful operation", response = Account.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid IBAN supplied"),
-        @ApiResponse(code = 404, message = "Account not found") })
-    @RequestMapping(value = "/users/{userId}/accounts",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId
-);
+
 
 }
