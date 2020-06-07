@@ -46,11 +46,6 @@ public class Transaction   {
   @JsonProperty("timestamp")
   private LocalDateTime datetime;
 
-  public Transaction sender(Account sender) {
-    this.sender = sender;
-    return this;
-  }
-
   //the max amount of transaction that can be done per day
   private int  cumulativeTransaction = 5;
 
@@ -61,6 +56,7 @@ public class Transaction   {
   private double absoluteLimit = 10.0;
 
   public Transaction() {
+
   }
 
   public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, User userPerforming, LocalDateTime datetime) {
@@ -131,12 +127,12 @@ public class Transaction   {
   public void setSender(Account sender) {
     this.sender = sender;
   }
-
+/*
   public Transaction recipient(Account recipient) {
     this.recipient = recipient;
     return this;
   }
-
+*/
   /**
    * Get recipient
    * @return recipient
@@ -167,8 +163,7 @@ public class Transaction   {
   }
 
   public void setAmount(Double amount) {
-    if(amount < 0)
-    {
+    if(amount < 0) {
       throw new IllegalArgumentException();
     }
     this.amount = amount;
