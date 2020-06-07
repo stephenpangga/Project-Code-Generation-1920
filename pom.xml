@@ -117,5 +117,14 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+
+        <!-- trying smth -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test-autoconfigure</artifactId>
+            <version>2.3.0.RELEASE</version>
+        </dependency>
+
     </dependencies>
 </project>

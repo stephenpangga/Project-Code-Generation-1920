@@ -30,13 +30,17 @@ class TransactionsApiControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @MockBean private TransactionService transactionService;
+    @MockBean
+    private TransactionService transactionService;
 
     private Transaction transaction;
 
     @BeforeEach
     public void setup()
     {
+
+       // mvc = MockMvcBuilders.standaloneSetup(transactionService).build();
+
         User employee = new User("inholland@gmail.com",
                 "inhollandbank",
                 "Bank",
@@ -61,6 +65,8 @@ class TransactionsApiControllerTest {
 
     @Test
     public void gettingAllTransactionShouldReturnOK() throws Exception {
+        System.out.println(mvc);
+        System.out.println(transactionService);
         given(transactionService.getAllTransactions()).willReturn(Arrays.asList(transaction));
 
         this.mvc.perform(get("/api/transactions"))

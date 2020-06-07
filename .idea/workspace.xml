@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/swagger/api/TransactionsApiControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_22_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_25_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/model/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/model/AccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/model/TransactionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/model/TransactionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DemoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/DemoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/api/TransactionsApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/io/swagger/api/TransactionsApiControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/model/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/io/swagger/model/AccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/model/TransactionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/io/swagger/model/TransactionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-spring.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,9 +157,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TransactionsApiControllerTest.gettingAllTransactionShouldReturnOK" />
+        <item itemvalue="JUnit.TransactionsApiControllerTest" />
         <item itemvalue="JUnit.TransactionsApiControllerTest.createTransactionShouldReturn201Created" />
         <item itemvalue="Application.Banking_Application" />
-        <item itemvalue="JUnit.TransactionsApiControllerTest" />
         <item itemvalue="JUnit.TransactionTest.AmountShouldBeDouble" />
       </list>
     </recent_temporary>
@@ -321,26 +325,26 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591317423455" />
-    <state width="1877" height="349" key="GridCell.Tab.0.bottom" timestamp="1591529432057">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1591532493393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591373909936" />
-    <state width="1877" height="349" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591529432057" />
-    <state width="1877" height="349" key="GridCell.Tab.0.center" timestamp="1591529432057">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591532493393" />
+    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1591532493393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="349" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591529432057" />
-    <state width="1877" height="349" key="GridCell.Tab.0.left" timestamp="1591529432057">
+    <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591532493393" />
+    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1591532493393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="349" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591529432057" />
-    <state width="1877" height="349" key="GridCell.Tab.0.right" timestamp="1591529432057">
+    <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591532493393" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1591532493393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="349" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591529432057" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591532493393" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1591477930210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -357,10 +361,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591477930210" />
-    <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="396" y="103" key="Maven.ArtifactSearchDialog" timestamp="1591529820400">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="330" y="85" key="Maven.ArtifactSearchDialog/0.0.1600.860@0.0.1600.860" timestamp="1591192750015" />
+    <state x="396" y="103" key="Maven.ArtifactSearchDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591529820400" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1591520723054">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
