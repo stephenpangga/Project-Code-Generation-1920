@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/test/java/io/swagger/model/TransactionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/io/swagger/model/TransactionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger-spring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TransactionTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TransactionTypeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,20 +63,7 @@
       <recent name="C:\Users\Stephen Pangga\Documents\GitHub\Project-Code-Generation-1920\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TransactionTest">
-    <configuration name="Banking_Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.swagger.Banking_Application" />
-      <module name="swagger-spring" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.swagger.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TransactionTest.setAmountShouldNotBeNull">
     <configuration name="TransactionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swagger-spring" />
       <extension name="coverage">
@@ -93,7 +79,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionTest.enumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionTest.getTransactionIdShouldNotBeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swagger-spring" />
       <extension name="coverage">
         <pattern>
@@ -103,13 +89,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="io.swagger.model" />
       <option name="MAIN_CLASS_NAME" value="io.swagger.model.TransactionTest" />
-      <option name="METHOD_NAME" value="enumTest" />
+      <option name="METHOD_NAME" value="getTransactionIdShouldNotBeNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionTest.toStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionTest.setAmountShouldNotBeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swagger-spring" />
       <extension name="coverage">
         <pattern>
@@ -119,13 +105,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="io.swagger.model" />
       <option name="MAIN_CLASS_NAME" value="io.swagger.model.TransactionTest" />
-      <option name="METHOD_NAME" value="toStringTest" />
+      <option name="METHOD_NAME" value="setAmountShouldNotBeNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionTest.wrongEnumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionTest.setTransactionShouldNotBeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swagger-spring" />
       <extension name="coverage">
         <pattern>
@@ -135,7 +121,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="io.swagger.model" />
       <option name="MAIN_CLASS_NAME" value="io.swagger.model.TransactionTest" />
-      <option name="METHOD_NAME" value="wrongEnumTest" />
+      <option name="METHOD_NAME" value="setTransactionShouldNotBeNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionTest.setUserPerformingShouldNotBeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="swagger-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.swagger.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.swagger.model" />
+      <option name="MAIN_CLASS_NAME" value="io.swagger.model.TransactionTest" />
+      <option name="METHOD_NAME" value="setUserPerformingShouldNotBeNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TransactionTest.setAmountShouldNotBeNull" />
+        <item itemvalue="JUnit.TransactionTest.setUserPerformingShouldNotBeNull" />
+        <item itemvalue="JUnit.TransactionTest.setTransactionShouldNotBeNull" />
+        <item itemvalue="JUnit.TransactionTest.getTransactionIdShouldNotBeNull" />
         <item itemvalue="JUnit.TransactionTest" />
-        <item itemvalue="JUnit.TransactionTest.toStringTest" />
-        <item itemvalue="Application.Banking_Application" />
-        <item itemvalue="JUnit.TransactionTest.wrongEnumTest" />
-        <item itemvalue="JUnit.TransactionTest.enumTest" />
       </list>
     </recent_temporary>
   </component>
@@ -312,26 +314,26 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591317423455" />
-    <state width="1877" height="310" key="GridCell.Tab.0.bottom" timestamp="1591537479344">
+    <state width="1877" height="305" key="GridCell.Tab.0.bottom" timestamp="1591541522416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591373909936" />
-    <state width="1877" height="310" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591537479344" />
-    <state width="1877" height="310" key="GridCell.Tab.0.center" timestamp="1591537479344">
+    <state width="1877" height="305" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591541522416" />
+    <state width="1877" height="305" key="GridCell.Tab.0.center" timestamp="1591541522416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="310" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591537479344" />
-    <state width="1877" height="310" key="GridCell.Tab.0.left" timestamp="1591537479344">
+    <state width="1877" height="305" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591541522416" />
+    <state width="1877" height="305" key="GridCell.Tab.0.left" timestamp="1591541522416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="310" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591537479344" />
-    <state width="1877" height="310" key="GridCell.Tab.0.right" timestamp="1591537479344">
+    <state width="1877" height="305" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591541522416" />
+    <state width="1877" height="305" key="GridCell.Tab.0.right" timestamp="1591541522416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591373909935" />
-    <state width="1877" height="310" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591537479344" />
+    <state width="1877" height="305" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591541522416" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1591477930210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -366,6 +368,10 @@
     </state>
     <state x="564" y="133" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860@0.0.1600.860" timestamp="1591100735338" />
     <state x="677" y="161" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591525688756" />
+    <state x="1912" y="17" width="1083" height="807" maximized="true" key="dock-window-1" timestamp="1591540607812">
+      <screen x="1920" y="25" width="1680" height="1010" />
+    </state>
+    <state x="1912" y="17" width="1083" height="807" maximized="true" key="dock-window-1/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591540607812" />
     <state x="651" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591453255429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -384,7 +390,7 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591535552572" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest_setAmountShouldNotBeNull.ic" NAME="TransactionTest.setAmountShouldNotBeNull Coverage Results" MODIFIED="1591535946614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest_setAmountShouldNotBeNull.ic" NAME="TransactionTest.setAmountShouldNotBeNull Coverage Results" MODIFIED="1591541522387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.swagger.model.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest_enumTest.ic" NAME="TransactionTest.enumTest Coverage Results" MODIFIED="1591536436865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -396,13 +402,16 @@
     <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest_transactionAmountLimitShouldBeFixed.ic" NAME="TransactionTest.transactionAmountLimitShouldBeFixed Coverage Results" MODIFIED="1591536280268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.swagger.model.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest_getTransactionIdShouldNotBeNull.ic" NAME="TransactionTest.getTransactionIdShouldNotBeNull Coverage Results" MODIFIED="1591540324537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.swagger.model.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest_wrongEnumTest.ic" NAME="TransactionTest.wrongEnumTest Coverage Results" MODIFIED="1591536524358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.swagger.model.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest_AmountShouldBeDouble.ic" NAME="TransactionTest.AmountShouldBeDouble Coverage Results" MODIFIED="1591533295701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.swagger.model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest.ic" NAME="TransactionTest Coverage Results" MODIFIED="1591537479172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/swagger_spring$TransactionTest.ic" NAME="TransactionTest Coverage Results" MODIFIED="1591539650275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.swagger.model.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/swagger_spring$Banking_Application.ic" NAME="Banking_Application Coverage Results" MODIFIED="1591536665816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

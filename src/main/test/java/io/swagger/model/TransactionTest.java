@@ -20,8 +20,7 @@ class TransactionTest {
     private User employee;
 
     @BeforeEach
-    public void setup()
-    {
+    public void setup() {
         employee = new User("inholland@gmail.com",
                 "inhollandbank",
                 "Bank",
@@ -50,6 +49,7 @@ class TransactionTest {
         transaction = new Transaction();
         assertNotNull(transaction);
     }
+
     //getAllTransactions
     @Test
     public void whenGettingTransactionsShouldBeNotBeNull()
@@ -80,8 +80,8 @@ class TransactionTest {
     public void transactionAmountLimitShouldBeFixed(){
         assertEquals(transaction.getTransactionAmoutLimit(),10000.0);
     }
-    //variables to make transactions
 
+    //variables to make transactions
     //sender and recipients
     @Test
     public void getSenderShouldNotBeNull()
@@ -118,11 +118,6 @@ class TransactionTest {
         assertNotNull(transaction.getAmount());
     }
 
-    @Test
-    public void setAmountShouldNotBeNull() {
-        transaction.setAmount(100.0);
-        assertEquals(transaction.getAmount(),100.0);
-    }
 
 
     @Test
@@ -135,9 +130,17 @@ class TransactionTest {
     public void settingNegativeAmountForTransactionShouldThrowIllegalArgumentExceptionWithMessage() {
     }
 
-    //transactiontype
+    //transaction
+
+    //transactionType
     @Test
-    public void transactionTypeEnumShouldBeCorrect(){
+    public void setTransactionShouldNotBeNull()
+    {
+        transaction.setTransactionType(null);
+        assertNull(transaction.getTransactionType());
+    }
+    @Test
+    public void getTransactionTypeEnumShouldBeCorrect(){
         assertEquals(Transaction.TransactionTypeEnum.TRANSFER,transaction.getTransactionType());
     }
 
@@ -169,6 +172,21 @@ class TransactionTest {
         transaction.setDatetime(LocalDateTime.of(12,12,12,12,12,12,12));
         assertEquals(transaction.getDatetime(), LocalDateTime.of(12,12,12,12,12,12,12));
     }
+
+    //transaction id
+    @Test
+    public void getTransactionIdShouldNotBeNull(){
+        assertNotNull(transaction.getTransactionId());
+    }
+
+    //new things
+    @Test
+    public void setAmountShouldNotBeNull() {
+        transaction.setAmount(100.0);
+        assertEquals(transaction.getAmount(),100.0);
+    }
+
+
 /*
     @Test
     public void toStringTest(){
