@@ -7,12 +7,18 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/configuration/BankApplicationConfigurationRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/TransactionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/api/UsersApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/configuration/BankApplicationConfigurationRunner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account$AccountTypeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +177,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589830059748</updated>
       <workItem from="1591532565882" duration="11989000" />
+      <workItem from="1591546580764" duration="2396000" />
     </task>
     <task id="LOCAL-00001" summary="fixing account model - removing unnecessary inheritance with michael">
       <created>1590761509096</created>
@@ -424,46 +431,50 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1591531283927" />
-    <state width="1340" height="260" key="GridCell.Tab.0.bottom" timestamp="1591545050736">
+    <state width="1340" height="260" key="GridCell.Tab.0.bottom" timestamp="1591548113486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591531854653" />
     <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1340" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591545050736" />
-    <state width="1340" height="260" key="GridCell.Tab.0.center" timestamp="1591545050736">
+    <state width="1340" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591548113486" />
+    <state width="1340" height="260" key="GridCell.Tab.0.center" timestamp="1591548113486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591531854653" />
     <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1340" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591545050736" />
-    <state width="1340" height="260" key="GridCell.Tab.0.left" timestamp="1591545050735">
+    <state width="1340" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591548113486" />
+    <state width="1340" height="260" key="GridCell.Tab.0.left" timestamp="1591548113486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591531854653" />
     <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1340" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591545050735" />
-    <state width="1340" height="260" key="GridCell.Tab.0.right" timestamp="1591545050736">
+    <state width="1340" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591548113486" />
+    <state width="1340" height="260" key="GridCell.Tab.0.right" timestamp="1591548113486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="217" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591531854653" />
     <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759930182" />
-    <state width="1340" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591545050736" />
-    <state width="1557" height="276" key="GridCell.Tab.1.bottom" timestamp="1591525484846">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1340" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591548113486" />
+    <state width="1340" height="328" key="GridCell.Tab.1.bottom" timestamp="1591547459525">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591525484846" />
-    <state width="1557" height="276" key="GridCell.Tab.1.center" timestamp="1591525484846">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1340" height="328" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591547459525" />
+    <state width="1340" height="328" key="GridCell.Tab.1.center" timestamp="1591547459525">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1591525484846" />
-    <state width="1557" height="276" key="GridCell.Tab.1.left" timestamp="1591525484846">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1340" height="328" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591547459525" />
+    <state width="1340" height="328" key="GridCell.Tab.1.left" timestamp="1591547459525">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1591525484846" />
-    <state width="1557" height="276" key="GridCell.Tab.1.right" timestamp="1591525484846">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1340" height="328" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591547459525" />
+    <state width="1340" height="328" key="GridCell.Tab.1.right" timestamp="1591547459525">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1557" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1591525484846" />
+    <state width="1340" height="328" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591547459525" />
     <state x="330" y="85" key="Maven.ArtifactSearchDialog" timestamp="1591192750015">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

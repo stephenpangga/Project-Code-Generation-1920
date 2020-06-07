@@ -87,7 +87,7 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(accountService.UpdateAccount(body,IBAN),HttpStatus.OK);
     }
 
     public ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
@@ -105,18 +105,5 @@ public class AccountsApiController implements AccountsApi {
         return new ResponseEntity<Account>(accountService.CreateAccount(body),HttpStatus.CREATED);
     }
 
-    public ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId
-    ) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<List<Account>>(objectMapper.readValue("[ {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}, {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<Account>>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
 
-        return new ResponseEntity<List<Account>>(accountService.GetCustomerAccounts(Integer.parseInt(userId)),HttpStatus.NOT_IMPLEMENTED);
-    }
 }

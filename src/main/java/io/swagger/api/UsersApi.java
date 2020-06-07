@@ -6,6 +6,7 @@
 package io.swagger.api;
 
 import io.swagger.annotations.*;
+import io.swagger.model.Account;
 import io.swagger.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -88,7 +89,17 @@ public interface UsersApi {
 ,@ApiParam(value = ""  )  @Valid @RequestBody User body
 );
 
-
+    @ApiOperation(value = "Find account by customer ", nickname = "usersUserIdAccountsGet", notes = "Returns customers accounts", response = Account.class, responseContainer = "List", authorizations = {
+            @Authorization(value = "ApiKeyAuth")    }, tags={ "Users", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "successful operation", response = Account.class, responseContainer = "List"),
+            @ApiResponse(code = 400, message = "Invalid IBAN supplied"),
+            @ApiResponse(code = 404, message = "Account not found") })
+    @RequestMapping(value = "/users/{userId}/accounts",
+            produces = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId
+    );
 
 
 }
