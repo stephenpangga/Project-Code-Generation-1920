@@ -75,15 +75,7 @@ public class Account   {
         this.accountType = accountType;
 
     }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
-
+    
     /**
      * type of account to be created
      */
