@@ -102,7 +102,7 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(accountService.CreateAccount(body),HttpStatus.OK);
+        return new ResponseEntity<Account>(accountService.CreateAccount(body),HttpStatus.CREATED);
     }
 
 }
