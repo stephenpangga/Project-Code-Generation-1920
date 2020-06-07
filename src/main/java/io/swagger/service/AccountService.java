@@ -5,7 +5,6 @@ import io.swagger.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +15,8 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public List<Account> GetAllAccounts() {
-        return  (List<Account>) accountRepository.findAll();
+        List<Account> accounts = (List<Account>) accountRepository.findAll();
+        return  accounts;
     }
 
     public Account CreateAccount(Account newAccount) {
@@ -38,7 +38,7 @@ public class AccountService {
     public void DeleteAccount(String IBAN) {
         accountRepository.delete(IBAN);
     }
-
+/*
     public List<Account> GetCustomerAccounts(int customerID) {
         List<Account> accounts = new java.util.ArrayList<>(Collections.emptyList());
 
@@ -50,7 +50,7 @@ public class AccountService {
         
         return  accounts;
     }
-
+*/
     public Account GetAccount(String IBAN) {
         return accountRepository.findOne(IBAN);
     }

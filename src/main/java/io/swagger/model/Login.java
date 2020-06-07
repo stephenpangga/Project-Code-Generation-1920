@@ -1,24 +1,37 @@
 package io.swagger.model;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * InlineResponse200
  */
 @Validated
+@Entity
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
-public class InlineResponse200   {
+public class Login {
+  @Id
   @JsonProperty("token")
   private String token = null;
 
-  public InlineResponse200 token(String token) {
+  @JsonProperty("userId")
+  @OneToOne(cascade = {CascadeType.REFRESH})
+  @JoinColumn(name = "userId", referencedColumnName = "id")
+  private User user;
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public Login token(String token) {
     this.token = token;
     return this;
   }
@@ -37,6 +50,11 @@ public class InlineResponse200   {
     this.token = token;
   }
 
+  public Login user (User user) {
+    this.user = user;
+    return this;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -46,8 +64,8 @@ public class InlineResponse200   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.token, inlineResponse200.token);
+    Login login = (Login) o;
+    return Objects.equals(this.token, login.token);
   }
 
   @Override
@@ -61,6 +79,7 @@ public class InlineResponse200   {
     sb.append("class InlineResponse200 {\n");
     
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }

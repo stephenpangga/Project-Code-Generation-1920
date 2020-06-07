@@ -1,13 +1,12 @@
 package config;
 
-import io.swagger.DAL.AccountRepository;
 import io.swagger.model.Account;
+import io.swagger.repository.AccountRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
