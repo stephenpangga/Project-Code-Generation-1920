@@ -28,7 +28,6 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class Account   {
 
-    private User authorId;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "acc_sq")
     @GenericGenerator(
@@ -58,8 +57,8 @@ public class Account   {
     private String currency = "Euro";
 
     @JsonProperty("owner")
-    @ManyToOne()
-    @JoinColumn(name = "fk_user")
+    @ManyToOne(cascade = {CascadeType.REFRESH})
+    ////@JoinColumn(name = "fk_user")
     private User owner = null;
 
     @JsonProperty("accountType")
@@ -68,12 +67,12 @@ public class Account   {
     public Account(String iban, Double balance, User authorId, AccountTypeEnum accountType) {
         this.iban = iban;
         this.balance = balance;
-        this.authorId = authorId;
+        this.owner = authorId;
         this.accountType = accountType;
     }
 
     public Account(Double balance, User authorId, AccountTypeEnum accountType) {
-        this.authorId = authorId;
+        this.owner = authorId;
         this.balance = balance;
         this.accountType = accountType;
 
