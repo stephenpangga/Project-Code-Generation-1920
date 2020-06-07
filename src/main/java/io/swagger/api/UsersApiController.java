@@ -52,7 +52,9 @@ public class UsersApiController implements UsersApi {
             }
         }
 
-        return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
+        //return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
+
+        return new ResponseEntity<List<User>>(userService.deteleteUser(userId),HttpStatus.OK);
     }
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
@@ -103,14 +105,16 @@ public class UsersApiController implements UsersApi {
             }
         }
 
-        return new ResponseEntity<User>(HttpStatus.NOT_IMPLEMENTED);
+        //return new ResponseEntity<User>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<User>(userService.registerUser("test02@gmail.com","test02","test","02", User.AccessLevelEnum.CUSTOMER), HttpStatus.OK);
     }
 
     public ResponseEntity<Void> updateUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
 ,@ApiParam(value = ""  )  @Valid @RequestBody User body
 ) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        userService.updateUser(userId, body);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId

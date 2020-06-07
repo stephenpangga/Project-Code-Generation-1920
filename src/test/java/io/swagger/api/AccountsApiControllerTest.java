@@ -38,10 +38,9 @@ class AccountsApiControllerTest {
     private Account account;
 
     @BeforeEach
-    public void setUp(){
+    /*public void setUp(){
         account = new Account(2,0.0, Account.AccountTypeEnum.CURRENT);
-    }
-        
+    }*/
     @Test
     public void CallingAllAccountShouldReturnOK() throws Exception {
 

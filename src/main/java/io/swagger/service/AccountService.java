@@ -17,7 +17,8 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public List<Account> GetAllAccounts() {
-        return  (List<Account>) accountRepository.findAll();
+        List<Account> accounts = (List<Account>) accountRepository.findAll();
+        return  accounts;
     }
 
     public Account CreateAccount(Account newAccount) {

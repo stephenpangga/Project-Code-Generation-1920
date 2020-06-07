@@ -88,7 +88,7 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(accountService.UpdateAccount(body,IBAN),HttpStatus.OK);
+        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body

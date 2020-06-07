@@ -13,10 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
@@ -66,16 +63,25 @@ public class Account   {
     private String currency = "Euro";
 
     @JsonProperty("authorId")
-    private Integer authorId = null;
+    @ManyToOne(cascade = {CascadeType.REFRESH})
+    private User authorId = null;
 
     @JsonProperty("accountType")
     private AccountTypeEnum accountType = null;
 
-    public Account(Integer authorId, Double balance, AccountTypeEnum accountType) {
+    public Account( Double balance, User authorId, AccountTypeEnum accountType) {
         this.authorId = authorId;
         this.balance = balance;
         this.accountType = accountType;
 
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 
     /**
@@ -110,7 +116,7 @@ public class Account   {
     }
 
 
-    public Account authorId(Integer authorId) {
+    public Account authorId(User authorId) {
         this.authorId = authorId;
         return this;
     }
@@ -121,11 +127,11 @@ public class Account   {
      **/
     @ApiModelProperty(example = "1", value = "")
 
-    public Integer getAuthorId() {
+    public User getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(Integer authorId) {
+    public void setAuthorId(User authorId) {
         this.authorId = authorId;
     }
 
