@@ -17,7 +17,7 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public List<Account> GetAllAccounts() {
-        List<Account> accounts = (List<Account>) accountRepository.findAll();
+        List<Account> accounts =  accountRepository.findAll();
         return  accounts;
     }
 
@@ -45,9 +45,9 @@ public class AccountService {
         List<Account> accounts = new java.util.ArrayList<>(Collections.emptyList());
 
         for (Account account : accountRepository.findAll()) {
-            if (account.getAuthorId() == customerID) {
-                accounts.add(account);
-            }
+           // if (account.getAuthorId() == customerID) {
+                //accounts.add(account);
+           // }
         }
         
         return  accounts;

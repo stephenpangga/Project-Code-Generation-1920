@@ -39,9 +39,6 @@ public class Account   {
     @JsonProperty("iban")
     private String iban;
 
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
 
     public void setCurrency(String currency) {
         this.currency = currency;
@@ -51,9 +48,6 @@ public class Account   {
     @JsonProperty("authorId")
     private Double balance = 0.0;
 
-    public Double getBalance() {
-        return balance;
-    }
 
     public String getCurrency() {
         return currency;
