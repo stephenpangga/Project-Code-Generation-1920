@@ -19,6 +19,7 @@ public class IBANGenerator extends SequenceStyleGenerator {
     public static final String NUMBER_FORMAT_DEFAULT = "%02d";
     private String format;
     @Override
+    //SharedSessionContractImplementor is added by me, since the old one gives error since its based on old spring boot version -stephen
     public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
         return String.format(format, super.generate(session, object));    }
     @Override
