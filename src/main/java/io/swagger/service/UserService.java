@@ -36,7 +36,8 @@ public class UserService {
 
 
     public List<User> deteleteUser(int userId) {
-        userRepository.delete(userId);
+        User user1 = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
+        userRepository.delete(user1);
         List<User> user = userRepository.findAll();
         return user;
     }
@@ -44,7 +45,7 @@ public class UserService {
 
     public void updateUser(int userId, User newUserValues) { // you need an account object with new values
 
-        User userToBeEdited = userRepository.findOne(userId);
+        User userToBeEdited = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
         if (userToBeEdited.getEmail() != null) { //Check if any one of the properties is not empty just to make sure the object was retrieved;
             userToBeEdited.setEmail(newUserValues.getEmail()); // replace all values with new values
             userToBeEdited.setPassword(newUserValues.getPassword());

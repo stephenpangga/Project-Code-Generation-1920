@@ -26,7 +26,7 @@ public class AccountService {
 
     public Account UpdateAccount(Account account, String IBAN) {
         Account editeAccount = null;
-        Optional<Account> originalAccount = Optional.ofNullable(accountRepository.findOne(IBAN));
+        Optional<Account> originalAccount = Optional.ofNullable(accountRepository.findById(IBAN).orElseThrow(IllegalArgumentException::new));
         if (originalAccount.isPresent()) {
              editeAccount = originalAccount.get();
            editeAccount.setAccountType(account.getAccountType());
@@ -36,7 +36,8 @@ public class AccountService {
     }
 
     public void DeleteAccount(String IBAN) {
-        accountRepository.delete(IBAN);
+        accountRepository.deleteById(IBAN);
+        //i hope this works, i havent tried it yet.
     }
 /*
     public List<Account> GetCustomerAccounts(int customerID) {
@@ -52,6 +53,6 @@ public class AccountService {
     }
 */
     public Account GetAccount(String IBAN) {
-        return accountRepository.findOne(IBAN);
+        return accountRepository.findById(IBAN).orElseThrow(IllegalArgumentException::new);
     }
 }

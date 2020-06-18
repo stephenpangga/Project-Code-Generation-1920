@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoginRepository extends CrudRepository<Login, String> {
 
-    @Query("SELECT l FROM Login l WHERE l.user.email = ?")
+    @Query("SELECT l FROM Login l WHERE l.user.email = :email")
     Login findByEmail(String email);
 }

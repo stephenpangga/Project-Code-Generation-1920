@@ -32,7 +32,8 @@ public class TransactionService {
     //get one transaction based on transaction ID.
     public Transaction getSpecificTransaction(Integer transactionId)
     {
-        return transactionRepository.findOne(transactionId);
+        //return transactionRepository.findOne(transactionId);
+        return transactionRepository.findById(transactionId).orElseThrow(IllegalArgumentException::new);
     }
 
     //get all transaction based on userID.
@@ -43,7 +44,7 @@ public class TransactionService {
 
     public List<Transaction> findByIbanAndDatetimeBetweenAndAmountBetween(String iban, Double min, Double max, LocalDate dateMin, LocalDate dateMax) throws Exception {
         //initialize values
-        Account a = accountRepository.findOne(iban); //change to whatever michael uses for @id in the end
+        Account a = accountRepository.findById(iban).orElseThrow(IllegalArgumentException::new); //change to whatever michael uses for @id in the end
         if(a == null) throw new Exception("Account requested doesn't exist");
         LocalDateTime dayMin = LocalDateTime.of(dateMin, LocalTime.MIN);
         LocalDateTime dayMax = LocalDateTime.of(dateMax, LocalTime.MAX);
@@ -129,8 +130,8 @@ public class TransactionService {
 
     public boolean checkIfAccountsExists(Transaction transaction)
     {
-        Account sender = accountRepository.findOne(transaction.getSender().getIban());
-        Account recipient = accountRepository.findOne(transaction.getRecipient().getIban());
+        Account sender = accountRepository.findById(transaction.getSender().getIban()).orElseThrow(IllegalArgumentException::new);
+        Account recipient = accountRepository.findById(transaction.getRecipient().getIban()).orElseThrow(IllegalArgumentException::new);
         if(sender!= null && recipient != null)
         {
             return true;

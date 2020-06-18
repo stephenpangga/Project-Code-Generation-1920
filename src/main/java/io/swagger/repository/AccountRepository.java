@@ -10,4 +10,6 @@ import java.util.List;
 public interface AccountRepository extends CrudRepository<Account, String> {
 
     List<Account> findAll();
+    //need to make a code query for removing accounts
+    void deleteById(String ID);
 }
