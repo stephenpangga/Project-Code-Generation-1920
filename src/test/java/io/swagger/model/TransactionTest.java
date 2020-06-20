@@ -68,17 +68,17 @@ class TransactionTest {
     //absolute limit 10
     @Test
     public void absoluteLimitShouldBeFixed(){
-        assertEquals(transaction.getAbsoluteLimit(),10);
+        assertEquals(transaction.getSender().getAbsoluteLimit(),10);
     }
     //cumulative limit
     @Test
     public void cumulativeLimitShouldBeFixed(){
-        assertEquals(transaction.getCumulativeTransaction(),5);
+        assertEquals(transaction.getSender().getCumulativeTransaction(),5);
     }
     //transaction amount limit
     @Test
     public void transactionAmountLimitShouldBeFixed(){
-        assertEquals(transaction.getTransactionAmoutLimit(),10000.0);
+        assertEquals(transaction.getSender().getTransactionAmoutLimit(),10000.0);
     }
 
     //variables to make transactions

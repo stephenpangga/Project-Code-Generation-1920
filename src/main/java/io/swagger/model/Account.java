@@ -86,6 +86,49 @@ public class Account   {
         return balance;
     }
 
+    //Limitation of transaction from transaction model.
+    //the max amount of transaction that can be done per day
+    private int  cumulativeTransaction = 5;
+
+    //the maximum amount per transaction.
+    private double transactionAmoutLimit = 10000.0;
+
+    //the amount of the balance cannot exceeds.
+    private double absoluteLimit = 10.0;
+
+    public int getCumulativeTransaction() {
+        return cumulativeTransaction;
+    }
+
+    public void setCumulativeTransaction(int cumulativeTransaction) {
+        this.cumulativeTransaction = cumulativeTransaction;
+    }
+
+    public double getTransactionAmoutLimit() {
+        return transactionAmoutLimit;
+    }
+
+    public void setTransactionAmoutLimit(double transactionAmoutLimit) {
+        this.transactionAmoutLimit = transactionAmoutLimit;
+    }
+
+    public double getAbsoluteLimit() {
+        return absoluteLimit;
+    }
+
+    public void setAbsoluteLimit(double absoluteLimit) {
+        this.absoluteLimit = absoluteLimit;
+    }
+
+    public Account(Double balance, User owner, AccountTypeEnum accountType, int cumulativeTransaction, double transactionAmoutLimit, double absoluteLimit) {
+        this.balance = balance;
+        this.owner = owner;
+        this.accountType = accountType;
+        this.cumulativeTransaction = cumulativeTransaction;
+        this.transactionAmoutLimit = transactionAmoutLimit;
+        this.absoluteLimit = absoluteLimit;
+    }
+
     /**
      * type of account to be created
      */

@@ -8,7 +8,6 @@ import org.springframework.validation.annotation.Validated;
 import org.threeten.bp.LocalDateTime;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.util.Objects;
 
 /*
@@ -52,13 +51,13 @@ public class Transaction   {
   }
 
   //the max amount of transaction that can be done per day
-  private int  cumulativeTransaction = 5;
+  //private int  cumulativeTransaction = 5;
 
   //the maximum amount per transaction.
-  private double transactionAmoutLimit = 10000.0;
+  //private double transactionAmoutLimit = 10000.0;
 
   //the amount of the balance cannot exceeds.
-  private double absoluteLimit = 10.0;
+  //private double absoluteLimit = 10.0;
 
   public Transaction() {
   }
@@ -72,6 +71,7 @@ public class Transaction   {
     this.datetime = datetime;
   }
 
+  /*
   @Valid
   public int getCumulativeTransaction() {
     return cumulativeTransaction;
@@ -84,6 +84,7 @@ public class Transaction   {
   public double getAbsoluteLimit() {
     return absoluteLimit;
   }
+  */
 
   /**
    * a different transaction can occur.

@@ -97,7 +97,7 @@ public class TransactionService {
 
         List<Transaction> transactionList = transactionRepository.findBySenderEqualsAndDatetimeBetween(Iban, dayMin, dayMax);
 
-        if(transactionList.size() < transaction.getCumulativeTransaction())
+        if(transactionList.size() < transaction.getSender().getCumulativeTransaction())
         {
             return true;
         }
@@ -108,7 +108,7 @@ public class TransactionService {
     public boolean transactionAmountLimitChecker(double amount)
     {
         //range is 0 to 10000.0
-        if(amount > 0.0 && amount < transaction.getTransactionAmoutLimit())
+        if(amount > 0.0 && amount < transaction.getSender().getTransactionAmoutLimit())
         {
             return true;
         }
@@ -122,7 +122,7 @@ public class TransactionService {
         //get the account info.
         //check diff between balance and transaction amount.
         //then check diff with absolute limit.
-        if(transaction.getSender().getBalance() - transaction.getAmount() >= transaction.getAbsoluteLimit()){
+        if(transaction.getSender().getBalance() - transaction.getAmount() >= transaction.getSender().getAbsoluteLimit()){
             return true;
         }
         return false;
