@@ -41,7 +41,7 @@ public class UsersApiController implements UsersApi {
     }
 
     public ResponseEntity<List<User>> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
-) {
+    ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -58,7 +58,7 @@ public class UsersApiController implements UsersApi {
     }
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
-) {
+    ) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -110,8 +110,8 @@ public class UsersApiController implements UsersApi {
     }
 
     public ResponseEntity<Void> updateUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
-,@ApiParam(value = ""  )  @Valid @RequestBody User body
-) {
+    ,@ApiParam(value = ""  )  @Valid @RequestBody User body
+    ) {
         String accept = request.getHeader("Accept");
         userService.updateUser(userId, body);
         return new ResponseEntity<Void>(HttpStatus.OK);
