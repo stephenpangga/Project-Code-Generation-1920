@@ -69,7 +69,7 @@ public class UsersApiController implements UsersApi {
             }
         }
 
-        return new ResponseEntity<User>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
     }
 
     public ResponseEntity<List<User>> getUsers(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset
@@ -88,7 +88,7 @@ public class UsersApiController implements UsersApi {
             }
         }
 
-        return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<User>>(userService.getAllUser(), HttpStatus.OK);
 
     }
 

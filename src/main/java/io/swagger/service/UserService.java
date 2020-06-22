@@ -43,6 +43,11 @@ public class UserService {
         return user;
     }
 
+    public User findUser(int userId){
+        User user = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
+        return user;
+    }
+
 
     public void updateUser(int userId, User newUserValues) { // you need an account object with new values
 
