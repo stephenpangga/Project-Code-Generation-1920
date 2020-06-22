@@ -1,11 +1,9 @@
 package io.swagger.api;
 
-import io.swagger.model.Account;
-import java.math.BigDecimal;
-import io.swagger.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.annotations.*;
-import io.swagger.repository.UserRepository;
+import io.swagger.annotations.ApiParam;
+import io.swagger.model.Account;
+import io.swagger.model.User;
 import io.swagger.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
@@ -70,7 +69,8 @@ public class UsersApiController implements UsersApi {
             }
         }
 
-        return new ResponseEntity<User>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<User>(userService.getUser(userId),HttpStatus.OK);
+
     }
 
     public ResponseEntity<List<User>> getUsers(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset

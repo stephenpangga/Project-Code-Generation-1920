@@ -1,12 +1,10 @@
 package io.swagger.service;
 
-import io.swagger.model.Account;
 import io.swagger.model.User;
 import io.swagger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 
 @Service
@@ -26,6 +24,11 @@ public class UserService {
     public List<User> deteleteUser(int userId) {
         userRepository.delete(userId);
         List<User> user = userRepository.findAll();
+        return user;
+    }
+
+    public User getUser(int userId){
+        User user = userRepository.findOne(userId);
         return user;
     }
 
