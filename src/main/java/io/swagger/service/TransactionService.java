@@ -71,17 +71,21 @@ public class TransactionService {
        /* if(!checkIfAccountsExists(transaction)){
             throw new Exception("sender or recipient doenst exist");
         }*/
-        if(!transactionAbsoluteLimitChecker(transaction)){
-            throw new Exception("balance will be too low, can't perform transaction");
-        }
-        if(!transactionDayLimitChecker(transaction.getSender()))
+        if(!transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.DEPOSIT))
         {
-            throw new Exception(" Transaction limit reached");
+            if(!transactionAbsoluteLimitChecker(transaction)){
+                throw new Exception("balance will be too low, can't perform transaction");
+            }
+            if(!transactionDayLimitChecker(transaction.getSender()))
+            {
+                throw new Exception(" Transaction limit reached");
+            }
+            if(!transactionAmountLimitChecker(transaction.getAmount()))
+            {
+                throw new Exception("The amount requested exceeds the maximum amount allowed");
+            }
         }
-        if(!transactionAmountLimitChecker(transaction.getAmount()))
-        {
-            throw new Exception("The amount requested exceeds the maximum amount allowed");
-        }
+
         checkTransactionType(transaction);
 
         System.out.println(transaction);
@@ -150,31 +154,29 @@ public class TransactionService {
     }
 
     public void checkUserPerforming() throws Exception {
-       User userPerforming = transaction.getUserPerforming();
-       //if michael fixes his part then do userPerforming.equals(transaction.getSender().getOwner());
-       if(!(userPerforming.getAccessLevel().equals(User.AccessLevelEnum.EMPLOYEE) || userPerforming.getId().equals(transaction.getSender().getOwner()))){
-           throw new Exception ("user is not authorised");
-       }
+        User userPerforming = transaction.getUserPerforming();
+        //if michael fixes his part then do userPerforming.equals(transaction.getSender().getOwner());
+        if(!(userPerforming.getAccessLevel().equals(User.AccessLevelEnum.EMPLOYEE) || userPerforming.getId().equals(transaction.getSender().getOwner()))){
+            throw new Exception ("user is not authorised");
+        }
         //check if its employee or owner, return that
         //if(user performing is not owner or employee)
-            //throw new exception ("you are not authorised");
+        //throw new exception ("you are not authorised");
     }
 
     private void changeBalance(Account account, Double amount){
         account.setBalance(account.getBalance()+amount);
+        System.out.println(account.getIban() + " a" + amount);
         accountRepository.save(account);
     }
 
     private void transferMoney(Account sender, Account recipient, Transaction transaction) throws Exception {
         if(sender.getAccountType().equals(Account.AccountTypeEnum.SAVINGS) || recipient.getAccountType().equals(Account.AccountTypeEnum.SAVINGS)){
-            if(sender.getOwner() == recipient.getOwner()){
-                changeBalance(sender, transaction.getAmount()*-1);//-1 to turn the value negative.
-                changeBalance(recipient, transaction.getAmount());
-            }else{
+            if(!sender.getOwner().equals(recipient.getOwner())){
                 throw new Exception("Can't do this transaction, savings account owner doesn't match");
             }
         }
-        changeBalance(sender, transaction.getAmount()*-1);
+        changeBalance(sender, transaction.getAmount() * -1);
         changeBalance(recipient, transaction.getAmount());
     }
 

@@ -176,20 +176,18 @@ public class User  {
     this.accessLevel = accessLevel;
   }
 
-
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    User registrationUser = (User) o;
-    return Objects.equals(this.email, registrationUser.email) &&
-        Objects.equals(this.password, registrationUser.password) &&
-        Objects.equals(this.accessLevel, registrationUser.accessLevel) &&
-        super.equals(o);
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    User user = (User) o;
+    return Objects.equals(id, user.id) &&
+            Objects.equals(accounts, user.accounts) &&
+            Objects.equals(email, user.email) &&
+            Objects.equals(password, user.password) &&
+            Objects.equals(firstName, user.firstName) &&
+            Objects.equals(lastName, user.lastName) &&
+            accessLevel == user.accessLevel;
   }
 
   @Override
