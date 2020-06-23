@@ -54,7 +54,7 @@ public class UsersApiController implements UsersApi {
 
         //return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
 
-        return new ResponseEntity<List<User>>(userService.deteleteUser(userId),HttpStatus.OK);
+        return new ResponseEntity<List<User>>(userService.deteleteUser(userId),HttpStatus.CREATED);
     }
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
@@ -106,7 +106,7 @@ public class UsersApiController implements UsersApi {
         }
 
         //return new ResponseEntity<User>(HttpStatus.NOT_IMPLEMENTED);
-        return new ResponseEntity<User>(userService.registerUser("test02@gmail.com","test02","test","02", User.AccessLevelEnum.CUSTOMER), HttpStatus.OK);
+        return new ResponseEntity<User>(userService.registerUser("test02@gmail.com","test02","test","02", User.AccessLevelEnum.CUSTOMER), HttpStatus.CREATED);
     }
 
     public ResponseEntity<Void> updateUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
