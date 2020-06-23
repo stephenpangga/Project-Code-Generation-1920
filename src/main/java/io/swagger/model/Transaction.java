@@ -71,6 +71,14 @@ public class Transaction   {
     this.datetime = datetime;
   }
 
+  public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, User userPerforming) {
+    this.sender = sender;
+    this.recipient = recipient;
+    this.amount = amount;
+    this.transactionType = transactionType;
+    this.userPerforming = userPerforming;
+  }
+
   /*
   @Valid
   public int getCumulativeTransaction() {
