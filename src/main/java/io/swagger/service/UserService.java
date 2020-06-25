@@ -55,6 +55,8 @@ public class UserService {
         if (userToBeEdited.getEmail() != null) { //Check if any one of the properties is not empty just to make sure the object was retrieved;
             userToBeEdited.setEmail(newUserValues.getEmail()); // replace all values with new values
             userToBeEdited.setPassword(newUserValues.getPassword());
+            userToBeEdited.setFirstName(newUserValues.getFirstName());
+            userToBeEdited.setLastName(newUserValues.getLastName());
             userRepository.save(userToBeEdited);
         }
 
