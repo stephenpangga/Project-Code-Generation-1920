@@ -18,14 +18,12 @@ public class LoginService {
     public LoginService() { }
 
     public String login(String email, String password) {
-        String token;
+        String token = "";
         User user = userRepository.findByEmail(email);
         if (user.getPassword().equals(password)) {
             token = loginRepository.findByEmail(email).getToken();
-        } else {
-            token = "password_incorrect";
         }
 
-        return token;
+        return "{ \"token\": " + token + " }";
     }
 }
