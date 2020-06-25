@@ -147,6 +147,6 @@ public class TransactionsApiController implements TransactionsApi {
         System.out.println("print the body");
         //System.out.println(body);
 
-        return new ResponseEntity<Transaction>(HttpStatus.OK);
+        return new ResponseEntity<Transaction>(HttpStatus.CREATED);
     }
 }
