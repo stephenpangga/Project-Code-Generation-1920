@@ -1,5 +1,6 @@
 package io.swagger.service;
 
+import io.swagger.model.Login;
 import io.swagger.model.User;
 import io.swagger.repository.LoginRepository;
 import io.swagger.repository.UserRepository;
@@ -24,6 +25,11 @@ public class LoginService {
             token = loginRepository.findByEmail(email).getToken();
         }
 
-        return "{ \"token\": " + token + " }";
+        return "{ \"token\": \"" + token + "\" }";
+    }
+
+    public User.AccessLevelEnum getAccessLevel(String token) {
+        Login login = loginRepository.findByToken(token);
+        return login != null ? login.getUser().getAccessLevel() : User.AccessLevelEnum.UNAUTHORIZED;
     }
 }

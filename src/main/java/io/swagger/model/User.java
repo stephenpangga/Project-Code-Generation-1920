@@ -74,6 +74,8 @@ public class User  {
    * Gets or Sets accessLevel
    */
   public enum AccessLevelEnum {
+    UNAUTHORIZED("unauthorized"),
+
     EMPLOYEE("employee"),
 
     CUSTOMER("customer");

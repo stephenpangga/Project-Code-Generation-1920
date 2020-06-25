@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiParam;
 import io.swagger.model.Account;
 import io.swagger.model.User;
+import io.swagger.service.LoginService;
 import io.swagger.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,14 +35,16 @@ public class UsersApiController implements UsersApi {
 
     private final HttpServletRequest request;
 
+    @Autowired
+    private LoginService loginService;
+
     @org.springframework.beans.factory.annotation.Autowired
     public UsersApiController(ObjectMapper objectMapper, HttpServletRequest request) {
         this.objectMapper = objectMapper;
         this.request = request;
     }
 
-    public ResponseEntity<List<User>> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
-    ) {
+    public ResponseEntity<List<User>> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -54,22 +57,27 @@ public class UsersApiController implements UsersApi {
 
         //return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
 
-        return new ResponseEntity<List<User>>(userService.deteleteUser(userId),HttpStatus.OK);
+        return new ResponseEntity<List<User>>(userService.deteleteUser(userId), HttpStatus.OK);
     }
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
     ) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<User>(objectMapper.readValue("{\n  \"id\" : 20\n}", User.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
+        String token = request.getHeader("Authorization");
+        if (loginService.getAccessLevel(token).equals(User.AccessLevelEnum.EMPLOYEE)) {
+            String accept = request.getHeader("Accept");
+            if (accept != null && accept.contains("application/json")) {
+                try {
+                    return new ResponseEntity<User>(objectMapper.readValue("{\n  \"id\" : 20\n}", User.class), HttpStatus.NOT_IMPLEMENTED);
+                } catch (IOException e) {
+                    log.error("Couldn't serialize response for content type application/json", e);
+                    return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
+                }
             }
-        }
 
-        return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
+            return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
     }
 
     public ResponseEntity<List<User>> getUsers(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset
