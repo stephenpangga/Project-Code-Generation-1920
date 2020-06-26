@@ -55,13 +55,6 @@ public class TransactionsApiController implements TransactionsApi {
         }
         */
 
-        /*
-        if(userPerforming != null)
-        {
-            //userService.getById(userPerforming);
-        }
-        */
-
         //TODO filtering the param
 
         //System.out.println(iban);
