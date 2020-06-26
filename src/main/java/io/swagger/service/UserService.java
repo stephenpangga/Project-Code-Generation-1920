@@ -57,6 +57,7 @@ public class UserService {
             userToBeEdited.setPassword(newUserValues.getPassword());
             userToBeEdited.setFirstName(newUserValues.getFirstName());
             userToBeEdited.setLastName(newUserValues.getLastName());
+            userToBeEdited.setAccessLevel(newUserValues.getAccessLevel());
             userRepository.save(userToBeEdited);
         }
 
