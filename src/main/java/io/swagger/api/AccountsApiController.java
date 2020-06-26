@@ -71,7 +71,7 @@ public class AccountsApiController implements AccountsApi {
             }
         }
 
-        return new ResponseEntity<Account>(accountService.GetAccount(IBAN),HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(accountService.GetAccount(IBAN),HttpStatus.OK);
     }
 
     public ResponseEntity<Account> accountsIBANPut(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
