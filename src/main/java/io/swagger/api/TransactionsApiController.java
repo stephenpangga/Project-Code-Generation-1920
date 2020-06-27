@@ -3,6 +3,8 @@ package io.swagger.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiParam;
 import io.swagger.model.Transaction;
+import io.swagger.model.User;
+import io.swagger.service.LoginService;
 import io.swagger.service.TransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,9 @@ public class TransactionsApiController implements TransactionsApi {
     @Autowired
     private TransactionService transactionService;
 
+    @Autowired
+    private LoginService loginService;
+
     private static final Logger log = LoggerFactory.getLogger(TransactionsApiController.class);
 
     private final ObjectMapper objectMapper;
@@ -43,7 +48,9 @@ public class TransactionsApiController implements TransactionsApi {
     ,@ApiParam(value = "show transaction based on max amount") @Valid @RequestParam(value = "max-amount", required = false) Double maxAmount
     ,@ApiParam(value = "show transaction based on min amount") @Valid @RequestParam(value = "min-amount", required = false) Double minAmount)
     {
-        /*
+
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+/*
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -62,41 +69,44 @@ public class TransactionsApiController implements TransactionsApi {
         }
         */
 
-        //TODO filtering the param
+            //TODO filtering the param
 
-        //System.out.println(iban);
-        //return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
-        LocalDate dayMin;
-        LocalDate dayMax;
+            //System.out.println(iban);
+            //return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
+            LocalDate dayMin;
+            LocalDate dayMax;
 
-        if(minAmount == null) minAmount = 0.0;
-        if(maxAmount ==  null) maxAmount = Double.MAX_VALUE;
-        if(date == null) {
-            dayMin = LocalDate.MIN;
-            dayMax = LocalDate.now();
-        }else{
-            dayMin = LocalDate.parse(date);
-            dayMax = LocalDate.parse(date);
+            if(minAmount == null) minAmount = 0.0;
+            if(maxAmount ==  null) maxAmount = Double.MAX_VALUE;
+            if(date == null) {
+                dayMin = LocalDate.MIN;
+                dayMax = LocalDate.now();
+            }else{
+                dayMin = LocalDate.parse(date);
+                dayMax = LocalDate.parse(date);
+            }
+
+            if(iban == null) {
+                return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount, dayMin, dayMax), HttpStatus.OK);
+            }
+
+            //return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount),HttpStatus.OK);
+            List<Transaction> transactions = null;
+            try {
+                transactions = transactionService.findByIbanAndDatetimeBetweenAndAmountBetween(iban, minAmount, maxAmount, dayMin, dayMax);
+                return new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+            }
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-
-        if(iban == null) {
-            return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount, dayMin, dayMax), HttpStatus.OK);
-        }
-
-        //return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount),HttpStatus.OK);
-        List<Transaction> transactions = null;
-        try {
-            transactions = transactionService.findByIbanAndDatetimeBetweenAndAmountBetween(iban, minAmount, maxAmount, dayMin, dayMax);
-            return new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-        }
-
     }
 
     public ResponseEntity<Transaction> getTransactionsById(@ApiParam(value = "",required=true) @PathVariable("transactionId") Integer transactionId
 ) {
-        /*
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+/*
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -107,7 +117,7 @@ public class TransactionsApiController implements TransactionsApi {
             }
         }
         */
-        //return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
+            //return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
         /*
         ResponseEntity<Transaction> x = new ResponseEntity<Transaction>(
                 new Transaction("NL01INHO1",
@@ -119,12 +129,16 @@ public class TransactionsApiController implements TransactionsApi {
         return x;
         */
 
-        return new ResponseEntity<Transaction>(transactionService.getSpecificTransaction(transactionId),HttpStatus.OK);
+            return new ResponseEntity<Transaction>(transactionService.getSpecificTransaction(transactionId),HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
     }
 
     public ResponseEntity transfer(@ApiParam(value = ""  )  @Valid @RequestBody Transaction body)
     {
-        /*
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+/*
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
@@ -135,18 +149,21 @@ public class TransactionsApiController implements TransactionsApi {
             }
         }
         */
-        //set the date here.
-        body.setDatetime(LocalDateTime.now());
+            //set the date here.
+            body.setDatetime(LocalDateTime.now());
 
-        try {
-            transactionService.saveTransaction(body);
-        } catch (Exception e) {
-            //return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+            try {
+                transactionService.saveTransaction(body);
+            } catch (Exception e) {
+                //return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+            }
+            System.out.println("print the body");
+            //System.out.println(body);
+
+            return new ResponseEntity<Transaction>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-        System.out.println("print the body");
-        //System.out.println(body);
-
-        return new ResponseEntity<Transaction>(HttpStatus.OK);
     }
 }
