@@ -37,6 +37,7 @@ public class UserService {
     public List<User> deleteUser(int userId) {
         //i added this stuff here -stephen
         User user1 = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
+        loginRepository.delete(loginRepository.findByEmail(user1.getEmail()));
         userRepository.delete(user1);
         List<User> user = userRepository.findAll();
         return user;
