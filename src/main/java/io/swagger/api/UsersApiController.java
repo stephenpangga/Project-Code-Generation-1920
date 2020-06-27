@@ -57,7 +57,7 @@ public class UsersApiController implements UsersApi {
 
         //return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
 
-        return new ResponseEntity<List<User>>(userService.deteleteUser(userId), HttpStatus.OK);
+        return new ResponseEntity<List<User>>(userService.deleteUser(userId), HttpStatus.OK);
     }
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId

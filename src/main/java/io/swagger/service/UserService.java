@@ -8,7 +8,6 @@ import io.swagger.repository.LoginRepository;
 import io.swagger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class UserService {
     }
 
 
-    public List<User> deteleteUser(int userId) {
+    public List<User> deleteUser(int userId) {
         //i added this stuff here -stephen
         User user1 = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
         userRepository.delete(user1);
