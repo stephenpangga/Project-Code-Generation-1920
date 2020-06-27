@@ -62,20 +62,16 @@ public class UsersApiController implements UsersApi {
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
     ) {
-        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.EMPLOYEE)) {
-            String accept = request.getHeader("Accept");
-            if (accept != null && accept.contains("application/json")) {
-                try {
-                    return new ResponseEntity<User>(objectMapper.readValue("{\n  \"id\" : 20\n}", User.class), HttpStatus.NOT_IMPLEMENTED);
-                } catch (IOException e) {
-                    log.error("Couldn't serialize response for content type application/json", e);
-                    return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
+        String accept = request.getHeader("Accept");
+        if (accept != null && accept.contains("application/json")) {
+            try {
+                return new ResponseEntity<User>(objectMapper.readValue("{\n  \"id\" : 20\n}", User.class), HttpStatus.NOT_IMPLEMENTED);
+            } catch (IOException e) {
+                log.error("Couldn't serialize response for content type application/json", e);
+                return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
-        } else {
-            return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
+        return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
     }
 
     public ResponseEntity<List<User>> getUsers(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset
