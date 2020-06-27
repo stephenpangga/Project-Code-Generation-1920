@@ -28,8 +28,17 @@ public class LoginService {
         return "{ \"token\": \"" + token + "\" }";
     }
 
-    public User.AccessLevelEnum getAccessLevel(String token) {
+    public User getUserByToken(String token) {
         Login login = loginRepository.findByToken(token);
-        return login != null ? login.getUser().getAccessLevel() : User.AccessLevelEnum.UNAUTHORIZED;
+        return login != null ? login.getUser() : null;
+    }
+
+    public User.AccessLevelEnum getAccessLevel(String token) {
+        User user = getUserByToken(token);
+        return user != null ? user.getAccessLevel() : User.AccessLevelEnum.UNAUTHORIZED;
+    }
+
+    public Boolean isUserAuthorized(String token, User.AccessLevelEnum accessLevel) {
+        return getAccessLevel(token).compareTo(accessLevel) >= 0;
     }
 }

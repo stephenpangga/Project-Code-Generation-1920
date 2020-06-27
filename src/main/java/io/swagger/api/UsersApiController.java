@@ -62,8 +62,7 @@ public class UsersApiController implements UsersApi {
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
     ) {
-        String token = request.getHeader("Authorization");
-        if (loginService.getAccessLevel(token).equals(User.AccessLevelEnum.EMPLOYEE)) {
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.EMPLOYEE)) {
             String accept = request.getHeader("Accept");
             if (accept != null && accept.contains("application/json")) {
                 try {
@@ -73,7 +72,6 @@ public class UsersApiController implements UsersApi {
                     return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
                 }
             }
-
             return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
