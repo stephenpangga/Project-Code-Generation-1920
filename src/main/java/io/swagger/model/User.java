@@ -138,10 +138,10 @@ public class User  {
     this.email = email;
   }
 
-  public User password(String password) {
-    this.password = password;
-    return this;
-  }
+  //public User password(String password) {
+    //this.password = password;
+    //return this;
+  //}
 
   /**
    * Get password
