@@ -45,33 +45,41 @@ public class UsersApiController implements UsersApi {
     }
 
     public ResponseEntity<List<User>> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<List<User>>(objectMapper.readValue("[ {\n  \"id\" : 20\n}, {\n  \"id\" : 20\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<User>>(HttpStatus.INTERNAL_SERVER_ERROR);
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.EMPLOYEE)) {
+            String accept = request.getHeader("Accept");
+            if (accept != null && accept.contains("application/json")) {
+                try {
+                    return new ResponseEntity<List<User>>(objectMapper.readValue("[ {\n  \"id\" : 20\n}, {\n  \"id\" : 20\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                } catch (IOException e) {
+                    log.error("Couldn't serialize response for content type application/json", e);
+                    return new ResponseEntity<List<User>>(HttpStatus.INTERNAL_SERVER_ERROR);
+                }
             }
+
+            //return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
+
+            return new ResponseEntity<List<User>>(userService.deleteUser(userId), HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-
-        //return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
-
-        return new ResponseEntity<List<User>>(userService.deleteUser(userId), HttpStatus.OK);
     }
 
     public ResponseEntity<User> getUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
     ) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<User>(objectMapper.readValue("{\n  \"id\" : 20\n}", User.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+            String accept = request.getHeader("Accept");
+            if (accept != null && accept.contains("application/json")) {
+                try {
+                    return new ResponseEntity<User>(objectMapper.readValue("{\n  \"id\" : 20\n}", User.class), HttpStatus.NOT_IMPLEMENTED);
+                } catch (IOException e) {
+                    log.error("Couldn't serialize response for content type application/json", e);
+                    return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
+                }
             }
+            return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity<User>(userService.findUser(userId),HttpStatus.OK);
     }
 
     public ResponseEntity<List<User>> getUsers(@ApiParam(value = "The number of items to skip before starting to collect the result set") @Valid @RequestParam(value = "offset", required = false) Integer offset
@@ -80,18 +88,21 @@ public class UsersApiController implements UsersApi {
 , @ApiParam(value = "Last name of the user") @Valid @RequestParam(value = "lastName", required = false) String lastName
 , @ApiParam(value = "Access level of this user") @Valid @RequestParam(value = "accessLevel", required = false) BigDecimal accessLevel
 ) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<List<User>>(objectMapper.readValue("[ {\n  \"id\" : 20\n}, {\n  \"id\" : 20\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<User>>(HttpStatus.INTERNAL_SERVER_ERROR);
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+            String accept = request.getHeader("Accept");
+            if (accept != null && accept.contains("application/json")) {
+                try {
+                    return new ResponseEntity<List<User>>(objectMapper.readValue("[ {\n  \"id\" : 20\n}, {\n  \"id\" : 20\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                } catch (IOException e) {
+                    log.error("Couldn't serialize response for content type application/json", e);
+                    return new ResponseEntity<List<User>>(HttpStatus.INTERNAL_SERVER_ERROR);
+                }
             }
+
+            return new ResponseEntity<List<User>>(userService.getAllUser(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-
-        return new ResponseEntity<List<User>>(userService.getAllUser(), HttpStatus.OK);
-
     }
 
     public ResponseEntity<User> registerUser(@ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "firstName", required = false) String firstName
@@ -114,30 +125,38 @@ public class UsersApiController implements UsersApi {
     public ResponseEntity<Void> updateUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
     ,@ApiParam(value = ""  )  @Valid @RequestBody User body
     ) {
-        String accept = request.getHeader("Accept");
-        userService.updateUser(userId, body);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+            String accept = request.getHeader("Accept");
+            userService.updateUser(userId, body);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
     }
 
     public ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId
     ) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<List<Account>>(objectMapper.readValue("[ {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}, {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<Account>>(HttpStatus.INTERNAL_SERVER_ERROR);
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+            String accept = request.getHeader("Accept");
+            if (accept != null && accept.contains("application/json")) {
+                try {
+                    return new ResponseEntity<List<Account>>(objectMapper.readValue("[ {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}, {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                } catch (IOException e) {
+                    log.error("Couldn't serialize response for content type application/json", e);
+                    return new ResponseEntity<List<Account>>(HttpStatus.INTERNAL_SERVER_ERROR);
+                }
             }
-        }
-        User currentUser = new User();
-        for(User user : userService.getAllUser()){
-            if (user.getId() == Integer.parseInt(userId)){
-                currentUser = user;
+            User currentUser = new User();
+            for(User user : userService.getAllUser()){
+                if (user.getId() == Integer.parseInt(userId)){
+                    currentUser = user;
+                }
             }
-        }
 
-        return new ResponseEntity<List<Account>>(userService.GetCustomerAccounts(currentUser),HttpStatus.NOT_IMPLEMENTED);
+            return new ResponseEntity<List<Account>>(userService.GetCustomerAccounts(currentUser),HttpStatus.NOT_IMPLEMENTED);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
     }
 
 }
