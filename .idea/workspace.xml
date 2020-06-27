@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/LoginApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/UsersApi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -402,9 +404,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="430" y="158" key="#com.intellij.ide.util.ExportDialog/0.0.1600.860@0.0.1600.860" timestamp="1590774435121" />
-    <state x="765" y="238" key="#com.intellij.ide.util.MemberChooser" timestamp="1592685030595">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1593261838818">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593261838818" />
     <state x="841" y="259" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1591456410821" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591565049763" />
     <state x="1009" y="313" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591537554483" />

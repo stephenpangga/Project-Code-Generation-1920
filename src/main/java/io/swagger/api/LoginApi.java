@@ -8,7 +8,9 @@ package io.swagger.api;
 import io.swagger.model.Body;
 import io.swagger.model.Login;
 import io.swagger.annotations.*;
+import io.swagger.model.User;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,5 +32,16 @@ public interface LoginApi {
         method = RequestMethod.POST)
     ResponseEntity<String> login(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Body body
 );
+
+    @ApiOperation(value = "Get registered user by token", nickname = "login", notes = "", response = User.class, tags={ "Login", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "User is found", response = User.class),
+            @ApiResponse(code = 401, message = "Unauthorized"),
+            @ApiResponse(code = 404, message = "No user with that id") })
+    @RequestMapping(value = "/login/{token}",
+            produces = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<User> getUserByToken(@ApiParam(value = "Auth token to search for",required=true) @PathVariable("token") String token
+    );
 
 }

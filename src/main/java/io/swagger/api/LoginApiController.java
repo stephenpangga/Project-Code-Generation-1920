@@ -3,6 +3,7 @@ package io.swagger.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiParam;
 import io.swagger.model.Body;
+import io.swagger.model.User;
 import io.swagger.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,9 +35,17 @@ public class LoginApiController implements LoginApi {
     }
 
     public ResponseEntity<String> login(@ApiParam(value = "", required=true )  @Valid @RequestBody Body body
-) {
+    public ResponseEntity<String> login(@ApiParam(value = "", required=true )  @Valid @RequestBody Body body) {
         String token = loginService.login(body.getEmail(), body.getPassword());
         return new ResponseEntity<String>(token, HttpStatus.OK);
+    }
+
+    public ResponseEntity<User> getUserByToken(String token) {
+        if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
+            return new ResponseEntity<User>(loginService.getUserByToken(token), HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
     }
 
 }

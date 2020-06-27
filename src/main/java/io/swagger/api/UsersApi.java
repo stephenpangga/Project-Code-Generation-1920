@@ -100,6 +100,4 @@ public interface UsersApi {
             method = RequestMethod.GET)
     ResponseEntity<List<Account>> usersUserIdAccountsGet(@ApiParam(value = "customer name the account is in",required=true) @PathVariable("userId") String userId
     );
-
-
 }
