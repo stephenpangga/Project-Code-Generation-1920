@@ -77,6 +77,14 @@ public class UserService {
         return user;
     }
 
+    public User registerUser(String email, String password, String firstName, String lastName, User.AccessLevelEnum accessLevel, String token){
+        User user = new User(email,password,firstName,lastName,accessLevel);
+        Login login = new Login().token(token).user(user);
+        userRepository.save(user);
+        loginRepository.save(login);
+        return user;
+    }
+
     public List<Account> GetCustomerAccounts(User customer) {
         List<Account> accounts = new java.util.ArrayList<>(Collections.emptyList());
 

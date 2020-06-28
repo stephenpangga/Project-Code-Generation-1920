@@ -53,35 +53,44 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
                 "inhollandbank",
                 "Inholland",
                 "Bank",
-                User.AccessLevelEnum.EMPLOYEE
+                User.AccessLevelEnum.EMPLOYEE,
+                "DEBUG_TOKEN"
         );
+
         userService.registerUser(
                 "stephen@gmail.com",
                 "password",
                 "Stephen",
                 "Pangga",
-                User.AccessLevelEnum.EMPLOYEE
+                User.AccessLevelEnum.EMPLOYEE,
+                "TOKEN_STEPHEN"
         );
+
         userService.registerUser(
                 "frances@gmail.com",
                 "frances",
                 "Frances",
                 "Agasino",
-                User.AccessLevelEnum.EMPLOYEE
+                User.AccessLevelEnum.EMPLOYEE,
+                "TOKEN_FRANCES"
         );
+
         userService.registerUser(
                 "thomas@gmail.com",
                 "admin",
                 "Thomas",
                 "de Joode",
-                User.AccessLevelEnum.EMPLOYEE
+                User.AccessLevelEnum.EMPLOYEE,
+                "TOKEN_THOMAS"
         );
+
         userService.registerUser(
                 "abc@xyz.com",
                 "abc",
                 "Customer",
                 "Man",
-                User.AccessLevelEnum.CUSTOMER
+                User.AccessLevelEnum.CUSTOMER,
+                "DEBUG_TOKEN_CUSTOMER"
         );
     }
 
