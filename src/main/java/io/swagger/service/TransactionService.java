@@ -153,8 +153,8 @@ public class TransactionService {
 
     public void checkUserPerforming() throws Exception {
        User userPerforming = transaction.getUserPerforming();
-       System.out.println(userPerforming);
-       System.out.println(transaction.getSender().getOwner());
+       //System.out.println(userPerforming);
+       //System.out.println(transaction.getSender().getOwner());
        if(!(userPerforming.getAccessLevel().equals(User.AccessLevelEnum.EMPLOYEE) || userPerforming.equals(transaction.getSender().getOwner()))){
            throw new Exception ("user is not authorised");
        }
