@@ -85,7 +85,7 @@ public class AccountsApiController implements AccountsApi {
                 }
             }
 
-            return new ResponseEntity<Account>(accountService.GetAccount(IBAN),HttpStatus.NOT_IMPLEMENTED);
+            return new ResponseEntity<Account>(accountService.GetAccount(IBAN),HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
