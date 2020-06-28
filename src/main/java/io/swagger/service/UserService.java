@@ -50,7 +50,7 @@ public class UserService {
     }
 
     public User findUser(int userId){
-        User user = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
+        User user = userRepository.findById(userId).orElse(null);
         return user;
     }
 

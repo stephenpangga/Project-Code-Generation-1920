@@ -34,7 +34,7 @@ public class User  {
   @JsonProperty("id")
   private Integer id;
 
-  @OneToMany(mappedBy = "owner",cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "owner",cascade = CascadeType.REMOVE, orphanRemoval = true)
   private List<Account> accounts = new ArrayList<Account>();
 
   @JsonProperty("email")

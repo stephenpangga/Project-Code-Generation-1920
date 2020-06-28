@@ -45,7 +45,10 @@ public class UsersApiController implements UsersApi {
 
     public ResponseEntity<User> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId) {
         if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.EMPLOYEE)) {
-            return new ResponseEntity<User>(userService.deleteUser(userId), HttpStatus.OK);
+            User user = userService.findUser(userId);
+            return user != null ? new ResponseEntity<User>(userService.deleteUser(userId), HttpStatus.OK) :
+                                    new ResponseEntity(HttpStatus.NOT_FOUND);
+
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
