@@ -59,9 +59,10 @@ public class Account   {
     private String currency = "Euro";
 
     @OneToMany(mappedBy = "sender",cascade = CascadeType.REMOVE, orphanRemoval = true)
-    private List<Transaction> transactions = new ArrayList<Transaction>();
+    private List<Transaction> transactions_sent = new ArrayList<Transaction>();
 
-
+    @OneToMany(mappedBy = "recipient",cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Transaction> transactions_recieve = new ArrayList<Transaction>();
 
     @JsonProperty("owner")
     @ManyToOne(cascade = {CascadeType.MERGE})
