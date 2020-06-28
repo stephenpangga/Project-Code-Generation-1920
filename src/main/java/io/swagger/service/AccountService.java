@@ -37,21 +37,8 @@ public class AccountService {
 
     public void DeleteAccount(String IBAN) {
         accountRepository.deleteById(IBAN);
-        //i hope this works, i havent tried it yet.
     }
-/*
-    public List<Account> GetCustomerAccounts(int customerID) {
-        List<Account> accounts = new java.util.ArrayList<>(Collections.emptyList());
 
-        for (Account account : accountRepository.findAll()) {
-           // if (account.getAuthorId() == customerID) {
-                //accounts.add(account);
-           // }
-        }
-        
-        return  accounts;
-    }
-*/
     public Account GetAccount(String IBAN) {
         return accountRepository.findById(IBAN).orElseThrow(IllegalArgumentException::new);
     }

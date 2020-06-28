@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.IOException;
 import java.util.List;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 @Controller
@@ -56,15 +55,6 @@ public class AccountsApiController implements AccountsApi {
 ,@ApiParam(value = "The balance of the account") @Valid @RequestParam(value = "balance", required = false) Integer balance
 ) {
         if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
-            String accept = request.getHeader("Accept");
-            if (accept != null && accept.contains("application/json")) {
-                try {
-                    return new ResponseEntity<List<Account>>(objectMapper.readValue("[ {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}, {\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
-                } catch (IOException e) {
-                    log.error("Couldn't serialize response for content type application/json", e);
-                    return new ResponseEntity<List<Account>>(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }
 
             return new ResponseEntity<List<Account>>(accountService.GetAllAccounts(),HttpStatus.OK);
         } else {
@@ -75,15 +65,6 @@ public class AccountsApiController implements AccountsApi {
     public ResponseEntity<Account> accountsIBANGet(@ApiParam(value = "Account IBAN to find",required=true) @PathVariable("IBAN") String IBAN
 ) {
         if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
-            String accept = request.getHeader("Accept");
-            if (accept != null && accept.contains("application/json")) {
-                try {
-                    return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}", Account.class), HttpStatus.OK);
-                } catch (IOException e) {
-                    log.error("Couldn't serialize response for content type application/json", e);
-                    return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }
 
             return new ResponseEntity<Account>(accountService.GetAccount(IBAN),HttpStatus.OK);
         } else {
@@ -95,16 +76,6 @@ public class AccountsApiController implements AccountsApi {
 ,@ApiParam(value = ""  )  @Valid @RequestBody Account body
 ) {
         if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
-            String accept = request.getHeader("Accept");
-            if (accept != null && accept.contains("application/json")) {
-                try {
-                    return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"accountType\" : \"current\",\n  \"authorId\" : 1\n}", Account.class), HttpStatus.NOT_IMPLEMENTED);
-                } catch (IOException e) {
-                    log.error("Couldn't serialize response for content type application/json", e);
-                    return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }
-
             return new ResponseEntity<Account>(accountService.UpdateAccount(body,IBAN),HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
@@ -114,16 +85,6 @@ public class AccountsApiController implements AccountsApi {
     public ResponseEntity<Account> accountsPost(@ApiParam(value = "creates a new account for a existing user" ,required=true )  @Valid @RequestBody Account body
 ) {
         if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
-            String accept = request.getHeader("Accept");
-            if (accept != null && accept.contains("application/json")) {
-                try {
-                    return new ResponseEntity<Account>(objectMapper.readValue("{\n  \"balance\" : 0,\n  \"iban\" : \"NL23INHO2298608059\"\n}", Account.class), HttpStatus.NOT_IMPLEMENTED);
-                } catch (IOException e) {
-                    log.error("Couldn't serialize response for content type application/json", e);
-                    return new ResponseEntity<Account>(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }
-
             return new ResponseEntity<Account>(accountService.CreateAccount(body),HttpStatus.CREATED);
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
