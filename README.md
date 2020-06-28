@@ -16,3 +16,11 @@ You can view the api documentation in swagger-ui by pointing to
 http://localhost:8080/  
 
 Change default port value in application.properties
+
+
+For Code Binary
+website URL:https://projectcodegenerationbankapp.herokuapp.com/api
+
+
+Front-End of the project
+URL: https://frontendbank-app.herokuapp.com/
