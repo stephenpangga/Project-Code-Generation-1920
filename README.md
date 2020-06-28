@@ -24,3 +24,7 @@ website URL:https://projectcodegenerationbankapp.herokuapp.com/api
 
 Front-End of the project
 URL: https://frontendbank-app.herokuapp.com/
+
+
+API Specification:
+URL: https://app.swaggerhub.com/apis/stephenpangga/Bank_API/7.0.0
