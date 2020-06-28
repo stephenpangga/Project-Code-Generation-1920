@@ -1,13 +1,13 @@
 package io.swagger.configuration;
 
 import io.swagger.model.Account;
-import io.swagger.model.Login;
 import io.swagger.model.Transaction;
 import io.swagger.model.User;
 import io.swagger.repository.AccountRepository;
 import io.swagger.repository.LoginRepository;
 import io.swagger.repository.TransactionRepository;
 import io.swagger.repository.UserRepository;
+import io.swagger.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -32,13 +32,14 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     AccountRepository accountRepository;
     @Autowired
     LoginRepository loginRepository;
+    @Autowired
+    UserService userService;
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         loadUsers();
         LoadAccounts();
         loadTransactions();
-        LoadLogins();
     }
 
     /*** save the datas here ***/
@@ -47,51 +48,41 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     public void loadUsers()
     {
-        List<User> userList = Arrays.asList(
-                new User("inholland@gmail.com",
-                        "inhollandbank",
-                        "Bank",
-                        "bank", User.AccessLevelEnum.EMPLOYEE
-                ),
-                new User("stephen@gmail.com",
-                        "password",
-                        "Stephen",
-                        "Pangga", User.AccessLevelEnum.EMPLOYEE
-                ),
-                new User("frances@gmail.com",
+        userService.registerUser(
+                "inholland@gmail.com",
+                "inhollandbank",
+                "Inholland",
+                "Bank",
+                User.AccessLevelEnum.EMPLOYEE
+        );
+        userService.registerUser(
+                "stephen@gmail.com",
+                "password",
+                "Stephen",
+                "Pangga",
+                User.AccessLevelEnum.EMPLOYEE
+        );
+        userService.registerUser(
+                "frances@gmail.com",
                 "frances",
                 "Frances",
-                "Agasino", User.AccessLevelEnum.CUSTOMER
-                ),
-                new User("Sisa",
-                        "Mokranova",
-                        "sisa@gmail.com",
-                        "somethingstrongerthanpassword", User.AccessLevelEnum.CUSTOMER
-                ),
-                new User (
-                        "625242@student.inholland.nl",
-                        "Thomas",
-                        "de Joode",
-                        "admin",
-                        User.AccessLevelEnum.CUSTOMER
-                ),
-                new User (
-                        "629860@student.inholland.nl",
-                        "Stephen",
-                        "Pangga",
-                        "admin",
-                        User.AccessLevelEnum.EMPLOYEE
-                ),
-                new User("sisa@gmail.com",
-                        "somethingstrongerthanpassword",
-                        "Sisa",
-                        "Mokranova", User.AccessLevelEnum.CUSTOMER
-                )
+                "Agasino",
+                User.AccessLevelEnum.EMPLOYEE
         );
-        for(User user: userList)
-        {
-            userRepository.save(user);
-        }
+        userService.registerUser(
+                "thomas@gmail.com",
+                "admin",
+                "Thomas",
+                "de Joode",
+                User.AccessLevelEnum.EMPLOYEE
+        );
+        userService.registerUser(
+                "abc@xyz.com",
+                "abc",
+                "Customer",
+                "Man",
+                User.AccessLevelEnum.CUSTOMER
+        );
     }
 
 
@@ -143,14 +134,4 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
           acc.forEach(System.out::println);
 
     }
-
-  public void LoadLogins() {
-        List<Login> logins = Arrays.asList(
-                new Login().token("36k1tYIowCWI6svk6aCMgBba9FINxutq").user(userRepository.findAll().get(0)),
-                new Login().token("RmSh17nho7f7vYJ66tJnOke1GJ2r8tXT").user(userRepository.findAll().get(1))
-        );
-        logins.forEach(login -> loginRepository.save(login));
-        List<Login> login = (List<Login>) loginRepository.findAll();
-  }
-
 }

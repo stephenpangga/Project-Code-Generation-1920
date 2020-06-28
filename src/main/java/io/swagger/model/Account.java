@@ -57,7 +57,7 @@ public class Account   {
     private String currency = "Euro";
 
     @JsonProperty("owner")
-    @ManyToOne(cascade = {CascadeType.REMOVE})
+    @ManyToOne(cascade = {CascadeType.ALL})
     ////@JoinColumn(name = "fk_user")
     private User owner = null;
 

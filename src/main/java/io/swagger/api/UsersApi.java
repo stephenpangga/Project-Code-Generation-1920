@@ -71,9 +71,7 @@ public interface UsersApi {
     @RequestMapping(value = "/users",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<User> registerUser(@ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "firstName", required = false) String firstName
-, @ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "lastName", required = false) String lastName
-);
+    public ResponseEntity<User> registerUser(@ApiParam(value = "creates a new user" ,required=true )  @Valid @RequestBody User body);
 
 
     @ApiOperation(value = "Update User information of the registered user by id", nickname = "updateUser", notes = "User information is updated", authorizations = {

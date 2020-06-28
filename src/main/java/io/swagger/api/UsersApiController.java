@@ -77,11 +77,8 @@ public class UsersApiController implements UsersApi {
         }
     }
 
-    public ResponseEntity<User> registerUser(@ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "firstName", required = false) String firstName
-, @ApiParam(value = "User object to register to the database") @Valid @RequestParam(value = "lastName", required = false) String lastName
-) {
-        //return new ResponseEntity<User>(HttpStatus.NOT_IMPLEMENTED);
-        return new ResponseEntity<User>(userService.registerUser("test02@gmail.com","test02","test","02", User.AccessLevelEnum.CUSTOMER), HttpStatus.OK);
+    public ResponseEntity<User> registerUser(@ApiParam(value = "creates a new user" ,required=true )  @Valid @RequestBody User body) {
+        return new ResponseEntity<User>(userService.registerUser(body.getEmail(), body.getFirstName(), body.getLastName(), body.getPassword(), User.AccessLevelEnum.CUSTOMER), HttpStatus.OK);
     }
 
     public ResponseEntity<Void> updateUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId

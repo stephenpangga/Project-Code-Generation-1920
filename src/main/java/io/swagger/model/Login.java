@@ -19,7 +19,7 @@ public class Login {
   private String token = null;
 
   @JsonProperty("userId")
-  @OneToOne(cascade = {CascadeType.REMOVE})
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name = "userId", referencedColumnName = "id")
   private User user;
 

@@ -70,7 +70,7 @@ public class UserService {
     }
 
     public User registerUser(String email, String password, String firstName, String lastName, User.AccessLevelEnum accessLevel){
-        User user = new User(email,password,firstName,lastName,User.AccessLevelEnum.CUSTOMER);
+        User user = new User(email,password,firstName,lastName,accessLevel);
         Login login = new Login().token(tokenGenerator.generate(32)).user(user);
         userRepository.save(user);
         loginRepository.save(login);
