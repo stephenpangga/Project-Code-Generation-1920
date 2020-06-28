@@ -43,7 +43,6 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     /*** save the datas here ***/
     /* http://localhost:8080/api/h2-console */
-
     /*^^ the database link**/
 
     public void loadUsers()
@@ -123,9 +122,6 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
             transactionRepository.save(transaction);
         }
 
-        /*for (Transaction transaction : transactionRepository.findAll()) {
-            System.out.println(transaction);
-        }*/
     }
 
     public void LoadAccounts(){
@@ -146,17 +142,6 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
           List<Account>acc = (List<Account>) accountRepository.findAll();
           acc.forEach(System.out::println);
 
-            /*
-              List<Account> accounts = Arrays.asList(
-          new Account(2, 0.0,Account.AccountTypeEnum.CURRENT),
-                      new Account(2, 0.0,Account.AccountTypeEnum.SAVINGS)
-                      );
-          accounts.forEach(acc->accountRepository.save(acc));
-            List<Account>acc = (List<Account>) accountRepository.findAll();
-            acc.forEach(System.out::println);
-
-             */
-
     }
 
   public void LoadLogins() {
@@ -166,7 +151,6 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
         );
         logins.forEach(login -> loginRepository.save(login));
         List<Login> login = (List<Login>) loginRepository.findAll();
-        //login.forEach(System.out::println);
   }
 
 }
