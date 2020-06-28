@@ -39,8 +39,6 @@ public class LoginService {
     }
 
     public Boolean isUserAuthorized(String token, User.AccessLevelEnum accessLevel) {
-        User.AccessLevelEnum accessLevel1 = getAccessLevel(token);
-        int debug = getAccessLevel(token).compareTo(accessLevel);
         return getAccessLevel(token).compareTo(accessLevel) >= 0;
     }
 
