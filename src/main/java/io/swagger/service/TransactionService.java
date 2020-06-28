@@ -29,6 +29,30 @@ public class TransactionService {
     }
 
 
+    public List<Transaction> getFilteredTransactions( String iban, String date, Double maxAmount, Double minAmount) throws Exception {
+        LocalDate dayMin;
+        LocalDate dayMax;
+
+        if(minAmount == null) minAmount = 0.0;
+        if(maxAmount ==  null) maxAmount = Double.MAX_VALUE;
+        if(date == null) {
+            dayMin = LocalDate.MIN;
+            dayMax = LocalDate.now();
+        }else{
+            dayMin = LocalDate.parse(date);
+            dayMax = LocalDate.parse(date);
+        }
+        if(iban == null) {
+            return findBy(minAmount, maxAmount, dayMin, dayMax);
+        }
+
+        //return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount),HttpStatus.OK);
+        List<Transaction> transactions = null;
+        transactions = findByIbanAndDatetimeBetweenAndAmountBetween(iban, minAmount, maxAmount, dayMin, dayMax);
+        return transactions;
+
+    }
+
     //get one transaction based on transaction ID.
     public Transaction getSpecificTransaction(Integer transactionId)
     {
@@ -97,22 +121,14 @@ public class TransactionService {
 
         List<Transaction> transactionList = transactionRepository.findBySenderEqualsAndDatetimeBetween(Iban, dayMin, dayMax);
 
-        if(transactionList.size() < transaction.getSender().getCumulativeTransaction())
-        {
-            return true;
-        }
-        return false;
+        return transactionList.size() < transaction.getSender().getCumulativeTransaction();
     }
 
     //checker if the transaction is within the range of transaction limit
     public boolean transactionAmountLimitChecker(double amount)
     {
         //range is 0 to 10000.0
-        if(amount > 0.0 && amount < transaction.getSender().getTransactionAmoutLimit())
-        {
-            return true;
-        }
-        return false;
+        return amount > 0.0 && amount < transaction.getSender().getTransactionAmoutLimit();
     }
 
     //checker if the request amount will be over the absolute limit of the account
@@ -122,21 +138,14 @@ public class TransactionService {
         //get the account info.
         //check diff between balance and transaction amount.
         //then check diff with absolute limit.
-        if(transaction.getSender().getBalance() - transaction.getAmount() >= transaction.getSender().getAbsoluteLimit()){
-            return true;
-        }
-        return false;
+        return transaction.getSender().getBalance() - transaction.getAmount() >= transaction.getSender().getAbsoluteLimit();
     }
 
     public boolean checkIfAccountsExists(Transaction transaction)
     {
         Account sender = accountRepository.findById(transaction.getSender().getIban()).orElseThrow(IllegalArgumentException::new);
         Account recipient = accountRepository.findById(transaction.getRecipient().getIban()).orElseThrow(IllegalArgumentException::new);
-        if(sender!= null && recipient != null)
-        {
-            return true;
-        }
-        return false;
+        return sender != null && recipient != null;
     }
 
     public void checkAccountBalance(Transaction transaction)
@@ -151,7 +160,6 @@ public class TransactionService {
 
     public void checkUserPerforming() throws Exception {
        User userPerforming = transaction.getUserPerforming();
-       //if michael fixes his part then do userPerforming.equals(transaction.getSender().getOwner());
        if(!(userPerforming.getAccessLevel().equals(User.AccessLevelEnum.EMPLOYEE) || userPerforming.getId().equals(transaction.getSender().getOwner()))){
            throw new Exception ("user is not authorised");
        }
@@ -214,16 +222,3 @@ public class TransactionService {
         }
     }
 }
-/*
- * todo
- *  checker for account balance - done
- *  a method to update balance - done
- *  reduce balance method - done
- *  add balance method - done
- *  check if the user is the owner of the account or an employee logged in. - done
- *  update balance from account - done
- *  get account type
- *  withdraw method
- *  deposit method
- *  perform transaction based on account type, current or savings
- */

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.threeten.bp.LocalDate;
 import org.threeten.bp.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
@@ -69,35 +68,17 @@ public class TransactionsApiController implements TransactionsApi {
         }
         */
 
-            //TODO filtering the param
+            List<Transaction> transactions = null;
+
+            try {
+                transactions = transactionService.getFilteredTransactions(iban, date, maxAmount, minAmount);
+                return new ResponseEntity(transactions, HttpStatus.OK);
+            }catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+            }
 
             //System.out.println(iban);
             //return new ResponseEntity<List<Transaction>>(transactionService.getAllTransactions(),HttpStatus.OK);
-            LocalDate dayMin;
-            LocalDate dayMax;
-
-            if(minAmount == null) minAmount = 0.0;
-            if(maxAmount ==  null) maxAmount = Double.MAX_VALUE;
-            if(date == null) {
-                dayMin = LocalDate.MIN;
-                dayMax = LocalDate.now();
-            }else{
-                dayMin = LocalDate.parse(date);
-                dayMax = LocalDate.parse(date);
-            }
-
-            if(iban == null) {
-                return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount, dayMin, dayMax), HttpStatus.OK);
-            }
-
-            //return new ResponseEntity<List<Transaction>>(transactionService.findBy(minAmount, maxAmount),HttpStatus.OK);
-            List<Transaction> transactions = null;
-            try {
-                transactions = transactionService.findByIbanAndDatetimeBetweenAndAmountBetween(iban, minAmount, maxAmount, dayMin, dayMax);
-                return new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
-            } catch (Exception e) {
-                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-            }
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
