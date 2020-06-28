@@ -92,9 +92,6 @@ public class TransactionService {
 
         this.transaction = transaction;
 
-       /* if(!checkIfAccountsExists(transaction)){
-            throw new Exception("sender or recipient doenst exist");
-        }*/
         System.out.println("we got this far");
 
         if(!transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.DEPOSIT))
@@ -114,7 +111,7 @@ public class TransactionService {
         checkTransactionType(transaction);
 
         System.out.println(transaction);
-        //transaction.setTransactionId(7);
+
         transactionRepository.save(transaction);
     }
 
@@ -153,15 +150,6 @@ public class TransactionService {
         return sender != null && recipient != null;
     }
 
-    public void checkAccountBalance(Transaction transaction)
-    {
-        Account sender = transaction.getSender();
-
-        //check the transaction type
-        //get account balance
-        //check the balance with absolute value
-        //if not possible check
-    }
 
     public void checkUserPerforming() throws Exception {
        User userPerforming = transaction.getUserPerforming();
@@ -215,7 +203,7 @@ public class TransactionService {
         Account sender = transaction.getSender();
         Account recipient = transaction.getRecipient();
         if(transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.TRANSFER)){
-            // change ballance of both sender and recipient
+            // change balance of both sender and recipient
             // for savings account, check if both accounts have the same owner
             transferMoney(sender, recipient, transaction);
         } else if (transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.WITHDRAW)){

@@ -62,21 +62,6 @@ public class Transaction   {
     this.datetime = datetime;
   }
 
-  /*
-  @Valid
-  public int getCumulativeTransaction() {
-    return cumulativeTransaction;
-  }
-  @Valid
-  public double getTransactionAmoutLimit() {
-    return transactionAmoutLimit;
-  }
-  @Valid
-  public double getAbsoluteLimit() {
-    return absoluteLimit;
-  }
-  */
-
   /**
    * a different transaction can occur.
    */
