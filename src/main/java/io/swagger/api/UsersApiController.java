@@ -89,16 +89,6 @@ public class UsersApiController implements UsersApi {
 , @ApiParam(value = "Access level of this user") @Valid @RequestParam(value = "accessLevel", required = false) BigDecimal accessLevel
 ) {
         if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.CUSTOMER)) {
-            String accept = request.getHeader("Accept");
-            if (accept != null && accept.contains("application/json")) {
-                try {
-                    return new ResponseEntity<List<User>>(objectMapper.readValue("[ {\n  \"id\" : 20\n}, {\n  \"id\" : 20\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
-                } catch (IOException e) {
-                    log.error("Couldn't serialize response for content type application/json", e);
-                    return new ResponseEntity<List<User>>(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }
-
             return new ResponseEntity<List<User>>(userService.getAllUser(), HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
