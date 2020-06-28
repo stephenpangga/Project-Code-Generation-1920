@@ -4,9 +4,9 @@ import io.swagger.model.Account;
 import io.swagger.model.Transaction;
 import io.swagger.model.User;
 import io.swagger.repository.AccountRepository;
+import io.swagger.repository.LoginRepository;
 import io.swagger.repository.TransactionRepository;
 import io.swagger.repository.UserRepository;
-import io.swagger.service.LoginService;
 import io.swagger.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -31,7 +31,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
     @Autowired
     AccountRepository accountRepository;
     @Autowired
-    LoginService loginService;
+    LoginRepository loginRepository;
     @Autowired
     UserService userService;
 
@@ -48,45 +48,41 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
     public void loadUsers()
     {
-        loginService.setToken(userService.registerUser(
+        userService.registerUser(
                 "inholland@gmail.com",
                 "inhollandbank",
                 "Inholland",
                 "Bank",
                 User.AccessLevelEnum.EMPLOYEE
-        ), "DEBUG_TOKEN");
-
-        loginService.setToken(userService.registerUser(
+        );
+        userService.registerUser(
                 "stephen@gmail.com",
                 "password",
                 "Stephen",
                 "Pangga",
                 User.AccessLevelEnum.EMPLOYEE
-        ), "DEBUG_TOKEN");
-
-        loginService.setToken(userService.registerUser(
+        );
+        userService.registerUser(
                 "frances@gmail.com",
                 "frances",
                 "Frances",
                 "Agasino",
                 User.AccessLevelEnum.EMPLOYEE
-        ), "DEBUG_TOKEN");
-
-        loginService.setToken(userService.registerUser(
+        );
+        userService.registerUser(
                 "thomas@gmail.com",
                 "admin",
                 "Thomas",
                 "de Joode",
                 User.AccessLevelEnum.EMPLOYEE
-        ), "DEBUG_TOKEN");
-
-        loginService.setToken(userService.registerUser(
+        );
+        userService.registerUser(
                 "abc@xyz.com",
                 "abc",
                 "Customer",
                 "Man",
                 User.AccessLevelEnum.CUSTOMER
-        ), "DEBUG_TOKEN");
+        );
     }
 
 
