@@ -16,7 +16,6 @@ import java.util.Objects;
  */
 @Validated
 @Entity
-@SequenceGenerator(name = "user_seq", initialValue = 1, allocationSize = 10001)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-05-18T19:26:09.389Z[GMT]")
 public class User  {
 
@@ -36,6 +35,9 @@ public class User  {
 
   @OneToMany(mappedBy = "owner",cascade = CascadeType.REMOVE, orphanRemoval = true)
   private List<Account> accounts = new ArrayList<Account>();
+
+  @OneToMany(mappedBy = "userPerforming",cascade = CascadeType.REMOVE, orphanRemoval = true)
+  private List<Transaction> transactions = new ArrayList<Transaction>();
 
   @JsonProperty("email")
   private String email;
@@ -180,18 +182,18 @@ public class User  {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    User registrationUser = (User) o;
-    return Objects.equals(this.email, registrationUser.email) &&
-        Objects.equals(this.password, registrationUser.password) &&
-        Objects.equals(this.accessLevel, registrationUser.accessLevel) &&
-        super.equals(o);
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    User user = (User) o;
+    return Objects.equals(id, user.id) &&
+            Objects.equals(accounts, user.accounts) &&
+            Objects.equals(transactions, user.transactions) &&
+            Objects.equals(email, user.email) &&
+            Objects.equals(password, user.password) &&
+            Objects.equals(firstName, user.firstName) &&
+            Objects.equals(lastName, user.lastName) &&
+            accessLevel == user.accessLevel;
   }
 
   @Override

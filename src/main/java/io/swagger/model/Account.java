@@ -15,6 +15,8 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -56,8 +58,13 @@ public class Account   {
     @javax.persistence.Transient
     private String currency = "Euro";
 
+    @OneToMany(mappedBy = "sender",cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Transaction> transactions = new ArrayList<Transaction>();
+
+
+
     @JsonProperty("owner")
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     ////@JoinColumn(name = "fk_user")
     private User owner = null;
 
