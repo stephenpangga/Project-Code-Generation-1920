@@ -133,6 +133,7 @@ public class TransactionsApiController implements TransactionsApi {
             //set the date here.
             body.setDatetime(LocalDateTime.now());
 
+
             try {
                 transactionService.saveTransaction(body);
             } catch (Exception e) {

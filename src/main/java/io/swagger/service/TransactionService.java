@@ -95,16 +95,21 @@ public class TransactionService {
        /* if(!checkIfAccountsExists(transaction)){
             throw new Exception("sender or recipient doenst exist");
         }*/
-        if(!transactionAbsoluteLimitChecker(transaction)){
-            throw new Exception("balance will be too low, can't perform transaction");
-        }
-        if(!transactionDayLimitChecker(transaction.getSender()))
+        System.out.println("we got this far");
+
+        if(!transaction.getTransactionType().equals(Transaction.TransactionTypeEnum.DEPOSIT))
         {
-            throw new Exception(" Transaction limit reached");
-        }
-        if(!transactionAmountLimitChecker(transaction.getAmount()))
-        {
-            throw new Exception("The amount requested exceeds the maximum amount allowed");
+            if(!transactionAbsoluteLimitChecker(transaction)){
+                throw new Exception("balance will be too low, can't perform transaction");
+            }
+            if(!transactionDayLimitChecker(transaction.getSender()))
+            {
+                throw new Exception(" Transaction limit reached");
+            }
+            if(!transactionAmountLimitChecker(transaction.getAmount()))
+            {
+                throw new Exception("The amount requested exceeds the maximum amount allowed");
+            }
         }
         checkTransactionType(transaction);
 
