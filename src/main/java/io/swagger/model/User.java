@@ -76,9 +76,9 @@ public class User  {
   public enum AccessLevelEnum {
     UNAUTHORIZED("unauthorized"),
 
-    EMPLOYEE("employee"),
+    CUSTOMER("customer"),
 
-    CUSTOMER("customer");
+    EMPLOYEE("employee");
 
     private String value;
 

@@ -39,7 +39,7 @@ public class LoginService {
     }
 
     public Boolean isUserAuthorized(String token, User.AccessLevelEnum accessLevel) {
-        return accessLevel.compareTo(getAccessLevel(token)) >= 0;
+        return getAccessLevel(token).compareTo(accessLevel) >= 0;
     }
 
     public void deleteLogin(String token) {
