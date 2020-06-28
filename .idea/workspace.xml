@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d05507e0-d9f1-47af-a7e6-a11bc4317981" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/swagger/api/TransactionsApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/swagger/api/TransactionsApiControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -453,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593376065555</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fixing some controller tester">
+      <created>1593378782744</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1593378782744</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +479,8 @@
     <MESSAGE value="fixing some not Implemented code" />
     <MESSAGE value="removing some of the generated code from account controller" />
     <MESSAGE value="cleaning up" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaning up" />
+    <MESSAGE value="fixing some controller tester" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing some controller tester" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="9" key="#Project_Structure" timestamp="1591401713354">
@@ -515,12 +521,12 @@
     </state>
     <state x="575" y="221" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1591450432340" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590759361238" />
-    <state x="332" y="0" width="881" height="987" key="CommitChangelistDialog2" timestamp="1593376064793">
+    <state x="332" y="0" width="881" height="987" key="CommitChangelistDialog2" timestamp="1593378782028">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="277" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591461156165" />
     <state x="332" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1590605782299" />
-    <state x="332" y="0" width="881" height="987" key="CommitChangelistDialog2/0.0.1920.1050/1920.25.1680.1020@0.0.1920.1050" timestamp="1593376064793" />
+    <state x="332" y="0" width="881" height="987" key="CommitChangelistDialog2/0.0.1920.1050/1920.25.1680.1020@0.0.1920.1050" timestamp="1593378782028" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1591531283927">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -598,12 +604,12 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1591401206859" />
-    <state x="470" y="199" key="Vcs.Push.Dialog.v2" timestamp="1593376069632">
+    <state x="470" y="199" key="Vcs.Push.Dialog.v2" timestamp="1593378759864">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1591450037949" />
     <state x="470" y="197" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.25.1680.1010@0.0.1920.1040" timestamp="1591562799663" />
-    <state x="470" y="199" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.25.1680.1020@0.0.1920.1050" timestamp="1593376069632" />
+    <state x="470" y="199" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.25.1680.1020@0.0.1920.1050" timestamp="1593378759864" />
     <state x="470" y="199" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1592517313371" />
     <state x="677" y="161" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1591564893374">
       <screen x="0" y="0" width="1920" height="1040" />

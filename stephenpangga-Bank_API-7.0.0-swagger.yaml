@@ -1,0 +1,552 @@
+openapi: 3.0.0
+servers:
+  - description: heroku group server
+    url: 'https://projectcodegenerationbankapp.herokuapp.com/api'
+  - description: local server
+    url: 'https://localhost:8090/api'
+info:
+  title: Bank API Inholland 1920
+  description: Bank API thing
+  version: "7.0.0"
+paths:
+  /login:
+    post:
+      tags:
+        - Login
+      summary: Retrieve authorization token
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: >-
+                      An authorization token used to authorize for future
+                      request
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+  '/login/{token}':
+    get:
+      security:
+        - ApiKeyAuth: []
+      parameters:
+      - in: path
+        name: token
+        description: token id to get
+        required: true
+        schema:
+          type: string
+      
+      tags:
+        - Login
+      summary: gets a user by its Authorization key
+      operationId: getUserByToken
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: UnAuthorized
+        '404':
+          description: Token does not exist
+  /users:
+    post:
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Users
+      summary: Registers a new user to the database
+      operationId: registerUser
+      requestBody:
+        description: creates a new user
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Registration completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+    get:
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          description: >-
+            The number of items to skip before starting to collect the result
+            set
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The numbers of items to return
+        - in: query
+          name: firstName
+          schema:
+            type: string
+          description: First name of the user
+        - in: query
+          name: lastName
+          schema:
+            type: string
+          description: Last name of the user
+        - in: query
+          name: accessLevel
+          schema:
+            type: number
+          description: Access level of this user
+      tags:
+        - Users
+      summary: Get all registered users
+      operationId: getUsers
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+        '404':
+          description: No registered users
+  '/users/{userId}':
+    parameters:
+      - in: path
+        name: userId
+        description: User id to get from the database
+        required: true
+        schema:
+          type: integer
+    get:
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Users
+      summary: Get registered user by id
+      operationId: getUser
+      responses:
+        '200':
+          description: User is found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+        '404':
+          description: No user with that id
+    delete:
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Users
+      summary: Delete registered user by id
+      operationId: deleteUser
+      description: User is deleted
+      responses:
+        '200':
+          description: Indicates that user is deleted
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid user id
+        '404':
+          description: User with that id is not found
+    put:
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Users
+      summary: Update User information of the registered user by id
+      operationId: UpdateUser
+      description: User information is updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Changes Completed
+        '400':
+          description: Invalid userid
+        '404':
+          description: User with that id is not found
+  '/users/{userId}/accounts':
+    get:
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Users
+      summary: 'Find account by customer '
+      description: Returns customers accounts
+      parameters:
+        - name: userId
+          in: path
+          description: customer name the account is in
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Account'
+        '400':
+          description: Invalid IBAN supplied
+        '404':
+          description: Account not found
+  /accounts:
+    post:
+      security:
+        - ApiKeyAuth: []
+      summary: Create a new account
+      tags: 
+        - Account
+      requestBody:
+        description: creates a new account for a existing user
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '400':
+          description: Bad request
+    delete:
+      security:
+        - ApiKeyAuth: []
+      tags:
+      - Account
+      summary: Deletes an account
+      description: ""
+      parameters:
+      - name: "IBAN"
+        in: "path"
+        description: "Account IBAN to delete"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        '200':
+          description: Account has been deleted.
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Account not found"
+    get:
+      parameters:
+      - in: query
+        name: offset
+        schema:
+          type: integer
+        description: The number of items to skip before starting to collect the result set
+      - in: query
+        name: limit
+        schema:
+          type: integer
+        description: The numbers of items to return
+      - in: query
+        name: balance
+        schema:
+          type: integer
+        description: The balance of the account
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Account
+      summary: Retrieve all accounts
+      description: Calling this allows you to display all bank accounts
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+  /accounts/{IBAN}:
+    get:
+      tags:
+      - Account
+      summary: "Find account by IBAN"
+      description: "Returns a single account"
+      parameters:
+      - name: "IBAN"
+        in: "path"
+        description: "Account IBAN to find"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        "400":
+          description: "Invalid IBAN supplied"
+        "404":
+          description: "Account not found"
+    put:
+      security:
+        - ApiKeyAuth: []
+      tags:
+      - Account
+      summary: "Find account by IBAN"
+      description: "Returns a single account"
+      parameters:
+      - name: "IBAN"
+        in: "path"
+        description: "Account IBAN to find"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        "400":
+          description: "Invalid IBAN supplied"
+        "404":
+          description: "Account not found"
+  /transactions:
+    get:
+      security:
+        - ApiKeyAuth: []
+      tags:
+      - Transaction
+      summary: get all transactions with filters
+      operationId: getTransactions
+      description: This endpoint will get all transaction that the user have done.
+      parameters:
+      - in: query
+        name: iban
+        description: get all transaction
+        schema:
+          type: string
+        required: false
+      - in: query
+        name: date
+        description: show transaction based on date
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: max-amount
+        description: show transaction based on max amount
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: min-amount
+        description: show transaction based on min amount
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Transaction has successfully collected.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        '400':
+          description: bad request
+    post:
+      tags:
+      - Transaction
+      summary: make a transaction, deposit, withdraw
+      operationId: transfer
+      description: this method allows the employee/user to create transaction.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+      responses:
+        '200':
+          description: Transaction has successfully collected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '400':
+          description: bad request
+        '403':
+          description: Insufficient funds
+  /transactions/{transactionId}:
+    get:
+      tags:
+      - Transaction
+      summary: get a specific transaction
+      operationId: getTransactionsById
+      description: This endpoint will get one transaction that the user have done.
+      parameters:
+      - in: path
+        name: transactionId
+        schema:
+          type: integer
+        required: true 
+      responses:
+        '200':
+          description: Transaction has successfully collected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '400':
+          description: bad request
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: 'Authorization'
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 20
+        email:
+          type: string
+          example: stephen@gmail.com
+        password:
+          type: string
+          example: stephen
+        firstName:
+          type: string
+          example: stephen
+        lastName:
+          type: string
+          example: pangga
+        accessLevel:
+          type: string
+          enum:
+          - employee
+          - customer
+          - anuthorize
+          example: employee
+    Account:
+      type: object
+      properties:
+        balance:
+          type: number
+          format: double
+          example: 0.00
+        owner:
+          type: string
+          example: 1
+        accountType:
+          type: string
+          example: current
+          enum: [savings,current]
+          description:  type of account to be created
+        iban:
+          maxLength: 18
+          minLength: 18
+          type: string
+          description: unique string that identifies the bank and account
+          example: NL23INHO2298608059
+        
+        cumulativeTransaction:
+          type: number
+          format: int
+          example: 0
+        transactionAmountLimit:
+          type: number
+          format: double
+          example: 100000.0
+        absoluteLimit:
+          type: number
+          format: double
+          example: 10.0
+    Transaction:
+      type: object
+      properties:
+        sender:
+          type: string
+          example: NL01INHO0000000001
+        recipient:
+          type: string
+          example: NL53INHO0858545222
+        amount:
+          type: number
+          format: double
+          example: 500.73
+        transactionType:
+          type: string
+          example: 'transaction'
+          enum: [transfer, withdraw, deposit]
+          description: a different transaction can occur.
+        transaction_id:
+          type: integer
+          example: 488558
+        userPerforming:
+          type: integer
+          example: 1
+        timestamp:
+          type: string
+          example:
