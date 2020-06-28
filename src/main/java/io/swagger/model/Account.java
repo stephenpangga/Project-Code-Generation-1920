@@ -58,9 +58,11 @@ public class Account   {
     @javax.persistence.Transient
     private String currency = "Euro";
 
+    @JsonIgnore
     @OneToMany(mappedBy = "sender",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Transaction> transactions_sent = new ArrayList<Transaction>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "recipient",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Transaction> transactions_recieve = new ArrayList<Transaction>();
 

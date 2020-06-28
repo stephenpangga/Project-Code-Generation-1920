@@ -1,6 +1,7 @@
 package io.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,6 +37,7 @@ public class User  {
   @OneToMany(mappedBy = "owner",cascade = CascadeType.REMOVE, orphanRemoval = true)
   private List<Account> accounts = new ArrayList<Account>();
 
+  @JsonIgnore
   @OneToMany(mappedBy = "userPerforming",cascade = CascadeType.REMOVE, orphanRemoval = true)
   private List<Transaction> transactions = new ArrayList<Transaction>();
 
