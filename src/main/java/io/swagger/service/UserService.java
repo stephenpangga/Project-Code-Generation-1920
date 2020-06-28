@@ -37,7 +37,17 @@ public class UserService {
     public List<User> deleteUser(int userId) {
         //i added this stuff here -stephen
         User user1 = userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
-        loginRepository.delete(loginRepository.findByEmail(user1.getEmail()));
+        // Fixed crash for deleting initial users.
+        // Now checking if the user is indeed in the login repository.
+        // If not, ignore.
+        // TODO: make sure all initial users are added to login repository.
+        String email = user1.getEmail();
+        Login foundUser = loginRepository.findByEmail(email);
+        if (foundUser == null){
+            System.err.println("Did not find user's email, user ID = " + userId + ", email = " + email);
+        }else{
+            loginRepository.delete(foundUser);
+        }
         userRepository.delete(user1);
         List<User> user = userRepository.findAll();
         return user;
