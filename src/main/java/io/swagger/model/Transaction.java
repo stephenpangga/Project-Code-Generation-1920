@@ -50,15 +50,6 @@ public class Transaction   {
     return this;
   }
 
-  //the max amount of transaction that can be done per day
-  //private int  cumulativeTransaction = 5;
-
-  //the maximum amount per transaction.
-  //private double transactionAmoutLimit = 10000.0;
-
-  //the amount of the balance cannot exceeds.
-  //private double absoluteLimit = 10.0;
-
   public Transaction() {
   }
 

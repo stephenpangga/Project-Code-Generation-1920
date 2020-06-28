@@ -10,6 +10,5 @@ import java.util.List;
 public interface AccountRepository extends CrudRepository<Account, String> {
 
     List<Account> findAll();
-    //need to make a code query for removing accounts, im not sure if this will work, i havent tried it yet -stpehen
     void deleteById(String ID);
 }
