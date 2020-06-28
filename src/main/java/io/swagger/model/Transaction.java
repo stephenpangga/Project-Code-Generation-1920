@@ -62,6 +62,15 @@ public class Transaction   {
     this.datetime = datetime;
   }
 
+  //for the test
+  public Transaction(Account sender, Account recipient, Double amount, TransactionTypeEnum transactionType, User userPerforming) {
+    this.sender = sender;
+    this.recipient = recipient;
+    this.amount = amount;
+    this.transactionType = transactionType;
+    this.userPerforming = userPerforming;
+  }
+
   /**
    * a different transaction can occur.
    */
