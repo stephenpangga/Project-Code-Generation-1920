@@ -104,7 +104,7 @@ public class UsersApiController implements UsersApi {
                 }
             }
 
-            return new ResponseEntity<List<Account>>(userService.GetCustomerAccounts(currentUser),HttpStatus.NOT_IMPLEMENTED);
+            return new ResponseEntity<List<Account>>(userService.GetCustomerAccounts(currentUser),HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
