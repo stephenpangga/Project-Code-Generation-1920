@@ -93,8 +93,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
                 "DEBUG_TOKEN_CUSTOMER"
         );
     }
-
-
+    
     public void loadTransactions()
     {
         List<Transaction> transactionList = Arrays.asList(
