@@ -43,12 +43,9 @@ public class UsersApiController implements UsersApi {
         this.request = request;
     }
 
-    public ResponseEntity<List<User>> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId) {
+    public ResponseEntity<User> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId) {
         if (loginService.isUserAuthorized(request.getHeader("Authorization"), User.AccessLevelEnum.EMPLOYEE)) {
-
-            //return new ResponseEntity<List<User>>(HttpStatus.NOT_IMPLEMENTED);
-
-            return new ResponseEntity<List<User>>(userService.deleteUser(userId), HttpStatus.OK);
+            return new ResponseEntity<User>(userService.deleteUser(userId), HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }

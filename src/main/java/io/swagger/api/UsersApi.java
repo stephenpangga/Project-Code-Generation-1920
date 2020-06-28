@@ -28,7 +28,7 @@ public interface UsersApi {
     @RequestMapping(value = "/users/{userId}",
         produces = { "application/json" }, 
         method = RequestMethod.DELETE)
-    ResponseEntity<List<User>> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
+    ResponseEntity<User> deleteUser(@ApiParam(value = "User id to get from the database",required=true) @PathVariable("userId") Integer userId
 );
 
 
