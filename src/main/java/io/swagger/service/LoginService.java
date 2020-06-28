@@ -45,4 +45,8 @@ public class LoginService {
     public void deleteLogin(String token) {
         loginRepository.deleteByToken(token);
     }
+
+    public void setToken(User user, String token) {
+        loginRepository.findByEmail(user.getEmail()).setToken(token);
+    }
 }
