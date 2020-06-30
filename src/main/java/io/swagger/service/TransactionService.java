@@ -170,14 +170,11 @@ public class TransactionService {
 
     private void transferMoney(Account sender, Account recipient, Transaction transaction) throws Exception {
         if(sender.getAccountType().equals(Account.AccountTypeEnum.SAVINGS) || recipient.getAccountType().equals(Account.AccountTypeEnum.SAVINGS)){
-            if(sender.getOwner() == recipient.getOwner()){
-                changeBalance(sender, transaction.getAmount()*-1);//-1 to turn the value negative.
-                changeBalance(recipient, transaction.getAmount());
-            }else{
+            if(!sender.getOwner().equals(recipient.getOwner())){
                 throw new Exception("Can't do this transaction, savings account owner doesn't match");
             }
         }
-        changeBalance(sender, transaction.getAmount()*-1);
+        changeBalance(sender, transaction.getAmount() * -1);
         changeBalance(recipient, transaction.getAmount());
     }
 
