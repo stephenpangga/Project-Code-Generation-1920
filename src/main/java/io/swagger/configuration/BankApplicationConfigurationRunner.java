@@ -132,7 +132,7 @@ public class BankApplicationConfigurationRunner implements ApplicationRunner {
 
 
           List<Account> accounts = Arrays.asList(
-                  new Account(100.0, users.get(0), Account.AccountTypeEnum.CURRENT,5,10000.0,10.0),
+                  new Account(100.0, users.get(0), Account.AccountTypeEnum.CURRENT,100,10000.0,10.0),
                   new Account( 10000.0, users.get(0), Account.AccountTypeEnum.SAVINGS,5,10000.0,10.0),
                   new Account(100.1, users.get(1), Account.AccountTypeEnum.CURRENT,5,10000.0,10.0),
                   new Account(1058.1, users.get(2), Account.AccountTypeEnum.CURRENT,5,10000.0,10.0)
