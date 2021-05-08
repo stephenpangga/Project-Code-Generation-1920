@@ -9,7 +9,7 @@ class AccountTest {
     Account acc = null;
     @BeforeEach
     public void Setup(){
-        acc = new Account();
+        acc = new Account(null,0.0,null,null);
         acc.setIban("NL01INHO0000000001");
     }
     @Test
